@@ -1,0 +1,25 @@
+#include<stdio>
+
+int main(int argnum, char*[] args){
+    //get A and B from terminal
+    //bool to keep track of sign of A and B
+    //look at A: if + keep going, if - -> 2' op
+    //same for B
+    //mult:
+    int paritalProduct = A;
+    int sum=0;
+    for(i=0, i<16; i++){
+        int mask = 1
+        int b_bit;
+
+        mask = mask << i;   //mult the binary by 2
+        b_bit = B & mask;   //
+        
+        //mult by 2 if the bit from a is 1
+        if(b_bit){
+            partialProduct = A << i;
+            sum = sum + partialProduct;
+        }
+    }
+    return 0;
+}
