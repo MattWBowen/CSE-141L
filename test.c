@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include <stdbool.h>
 int main(int argc, char *argv[]){
+    //when A
+    bool overflowA = false;
+    bool overflowB = false;
 
     //a1 = 00000011 = 3, a2 = 11111111 = -1; a1a2 = 1023
     
@@ -33,9 +36,14 @@ int main(int argc, char *argv[]){
 
         if(a2==-1)  //when a2 = 1111, adding 1 will yield 0000 and lost the carry bit
         {
-            a2=0;  //same as a2=a2+1;
+            if(a1 == 127){
+                overflowA = true;
+            } // later we need to add b
+            else {
+                a2=0;  //same as a2=a2+1;
 
-            a1=a1+1; //add the carry over bit from a2
+                a1=a1+1; //add the carry over bit from a2
+            }
         }
         else
             a2=a2+1;
@@ -87,12 +95,22 @@ int main(int argc, char *argv[]){
             sum = sum + partialProduct;
         }
     }
+    
+    //32767*B+B
+    if (overflowA && !overflowB){
+    }
+    //A*32767+A
+    else if (!overflowA && overflowB){
+    }
+    //(32767+1)(32767+1)
+    else if(overflowA && overflowB)
+    {
+    }
 
     if(isNeg)
     {
         sum = ~sum +1;      //if sign is validate as negative before, do 2's compliment
     }
-
 
     //result should be 1023x-5=-5115
     //sum is 32 bit binary: 1x16 1110110000000101
