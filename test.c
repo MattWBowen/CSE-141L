@@ -21,10 +21,21 @@ char isOverFlow(unsigned char a, unsigned char b)
 
 int main(int argc, char *argv[]){
 
+    /*
     //a1 = 00000011 = 3, a2 = 11111111 = -1; a1a2 = 1023
     char a1=3, a2=-1;
     //b1 = 11111111 = -1, b2 = 11111011 = -5; b1b2 = -5
     char b1=-1, b2=-5;
+    */
+    /*
+    char a1=-1, a2=-95;
+    //b1 = 11111111 = -1, b2 = 11111011 = -5; b1b2 = -5
+    char b1=0, b2=103;
+    */
+
+    char a1=-115, a2=23;
+    char b1=-1, b2=-27;
+
 
     
     printf("a1 = %d\n", a1);
@@ -34,7 +45,11 @@ int main(int argc, char *argv[]){
 
     //calculate the sign for final result
     bool isNeg = false;
-    if((a1 < 0 && b1 > 0 ) || (a1 > 0 && b1 < 0))
+    char sign_a, sign_b;
+    sign_a = (unsigned char)a1 >> (REG_SIZE-1);
+    sign_b = (unsigned char)b1 >> (REG_SIZE-1);
+
+    if((sign_a==1 && sign_b==0) || (sign_a==0 && sign_b==1))
         isNeg = true;
     else
         isNeg = false;
@@ -117,6 +132,7 @@ int main(int argc, char *argv[]){
             partial_high = (unsigned char)a2 >> (REG_SIZE-i); //right shift in c fill with 1 unless unsigned
 
             printf("pin %d partial high = %d\n", i, partial_high);
+            //printf("pin %d partial low= %d\n", i, partial_low);
 
             //check if the lower portion of sum is overflow by adding partial_low
             overflow_bit = isOverFlow(sum_low, partial_low);
@@ -125,6 +141,10 @@ int main(int argc, char *argv[]){
             sum_low = sum_low + partial_low;
             sum_high = sum_high + partial_high + overflow_bit;
         }
+
+            printf("at iteration %d\n", i);
+            printf("sum_low= %d\n", sum_low);
+            printf("of= %d\n", overflow_bit);
     }
     //accumulate the product into sum register
     //first time modify result register, no need to worry about overflow
