@@ -1,23 +1,36 @@
 #include<stdio.h>
 #include <stdbool.h>
+
+#define REG_SIZE 8
+
+char isOverFlow(char a, char b)
+{
+    if((a+b)>a || (a+b)>b)
+        return 1;   //overflow
+    else
+        return 0;
+}
+
 int main(int argc, char *argv[]){
-    //when A
-    bool overflowA = false;
-    bool overflowB = false;
 
     //a1 = 00000011 = 3, a2 = 11111111 = -1; a1a2 = 1023
-    
-    char a1=3, a2=7;
-    /* some test on bit negation
-    a2=~a2+1;
-    printf("test: %d\n", a2);
-    return 0;
-
-    //conclusion: if ~a=1111 adding 1 will yield 0 without knowing overflow
-    */
-
-    //b1 = 11111111 = -1, b2 = 11111011; b1b2 = -5
+    char a1=3, a2=-1;
+    //b1 = 11111111 = -1, b2 = 11111011 = -5; b1b2 = -5
     char b1=-1, b2=-5;
+
+    
+    printf("a1 = %d\n", a1);
+    printf("a2 = %d\n", a2);
+    printf("b1 = %d\n", b1);
+    printf("b2 = %d\n", b2);
+
+    //calculate the sign for final result
+    bool isNeg = false;
+    if((a1 < 0 && b1 > 0 ) || (a1 > 0 && b1 < 0))
+        isNeg = true;
+    else
+        isNeg = false;
+    printf("isNeg = %d\n", isNeg);
 
     //TODO: only edge case is that cannot take absolute value of -32768 
     //supposely -32768~32767 should work since short is 16 bit
@@ -29,21 +42,14 @@ int main(int argc, char *argv[]){
     //then add sign at the end by isNeg
     if(a1 < 0) 
     {
-        //TODO: 2's compliment on a1a2
         //flip a1, a2, add 1 to a2, see if the last carry bit is 1, if yes, add 1 to a1
         a1=~a1;
         a2=~a2;
 
-        if(a2==-1)  //when a2 = 1111, adding 1 will yield 0000 and lost the carry bit
+        if(a2==-1)  //when a2 = 1111 1111, adding 1 will yield 0 and lost the carry bit
         {
-            if(a1 == 127){
-                overflowA = true;
-            } // later we need to add b
-            else {
-                a2=0;  //same as a2=a2+1;
-
-                a1=a1+1; //add the carry over bit from a2
-            }
+            a2=0;  //same as a2=a2+1;
+            a1=a1+1; //add the carry over bit from a2
         }
         else
             a2=a2+1;
@@ -52,7 +58,6 @@ int main(int argc, char *argv[]){
 
     if(b1 < 0)
     {
-        //TODO: 2's compliment on b1b2 
         b1=~b1;
         b2=~b2;
 
@@ -65,55 +70,214 @@ int main(int argc, char *argv[]){
             b2=b2+1;
     }
 
+    
+    //debug print out
+    printf("\nafter taking absolute value---------------\n");
+    printf("a1 = %d\n", a1);
+    printf("a2 = %d\n", a2);
+    printf("b1 = %d\n", b1);
+    printf("b2 = %d\n", b2);
 
-    bool isNeg = false;
+    char s1=0, s2=0, s3=0, s4=0;
+    char overflow_bit=0;
+    char mask;
+    char b_bit;
 
-    if((a1 < 0 && b1 > 0 ) || (a1 > 0 && b1 < 0))
-        isNeg = true;
-    else
-        isNeg = false;
+    char sum_low, sum_high;
+    char partial_low, partial_high;
 
-    printf("isNeg = %d\n", isNeg);
+    // after taking absolute value, a1 = 3 = 0000 0011, a2 = -1 = 1111 1111
+    //                              b1 = 0 = 0000 0000, b2 = 5 =  0000 0101
+    // a2xb2 -------------------------------------------------------------------------------------------------------------
 
-    //bool to keep track of sign of A and B
-    //look at A: if + keep going, if - -> 2' op
-    //same for B
-    //mult:
-    int partialProduct = (int)A;
-    int sum=0;
-    for(int i=0; i<16; i++){
-        short mask = 1;
-        short b_bit;
+    sum_low=0;
+    sum_high=0;     //reset the overflow flag and sum and partial product 
 
-        mask = mask << i;   //mult the binary by 2
-        b_bit = B & mask;   //
-        
-        //mult by 2 if the bit from a is 1
-        if(b_bit){
+    for(int i=0;i<REG_SIZE;i++)
+    {
+        //mask b2 to see if a certain bit is 1 or 0
+        mask = 1;
+        mask = mask << i;
+        b_bit = b2 & mask;
 
-            partialProduct = A << i;
-            sum = sum + partialProduct;
+        //if the current bit is 1, add a2 (shift accordingly)
+        if(b_bit)
+        {
+            partial_low = a2 << i;
+            partial_high = a2 >> (REG_SIZE-i);
+
+            //check if the lower portion of sum is overflow by adding partial_low
+            overflow_bit = isOverFlow(sum_low, partial_low);
+
+            //accumulate shifted a2 into sum, add overflow bit if necessary
+            sum_low = sum_low + partial_low;
+            sum_high = sum_high + partial_high + overflow_bit;
         }
     }
-    
-    //32767*B+B
-    if (overflowA && !overflowB){
-    }
-    //A*32767+A
-    else if (!overflowA && overflowB){
-    }
-    //(32767+1)(32767+1)
-    else if(overflowA && overflowB)
-    {
-    }
+    //accumulate the product into sum register
+    //first time modify result register, no need to worry about overflow
+    s3 = s3 + sum_high;
+    s4 = s4 + sum_low;
 
+    
+    // a1xb2    a1 = 3 = 0000 0011, b2 = 5 =  0000 0101 -----------------------------------------------------------------
+    sum_low=0;
+    sum_high=0;     //reset the overflow flag and sum and partial product 
+
+    for(int i=0;i<REG_SIZE;i++)
+    {
+        //mask b2 to see if a certain bit is 1 or 0
+        mask = 1;
+        mask = mask << i;
+        b_bit = b2 & mask;
+
+        //if the current bit is 1, add a1 (shift accordingly)
+        if(b_bit)
+        {
+            partial_low = a1 << i;
+            partial_high = a1 >> (REG_SIZE-i);
+
+            //check if the lower portion of sum is overflow by adding partial_low
+            overflow_bit = isOverFlow(sum_low, partial_low);
+
+            //accumulate shifted a1 into sum, add overflow bit if necessary
+            sum_low = sum_low + partial_low;
+            sum_high = sum_high + partial_high + overflow_bit;
+        }
+    }
+    //accumulate the product into sum register
+    //s3 has been modified before, check overflow on it
+    char s3_overflow, s2_overflow;
+    s3_overflow = isOverFlow(s3, sum_low);
+    if(s3_overflow)         //if s3 will overflow by s3 = s3 + sum_slow, push the overflow bit to s2
+        s2 = s2 + 1;
+        
+    //now s2 has chance to be modified by s3_overflow
+    s2_overflow = isOverFlow(s2, sum_high);
+    if(s2_overflow)
+        s1 = s1 + 1;
+
+    s2 = s2 + sum_high;
+    s3 = s3 + sum_low;
+
+    // a2xb1    a2 = -1 = 1111 1111, b1 = 0 = 0000 0000 -----------------------------------------------------------------
+    sum_low=0;
+    sum_high=0;     //reset the overflow flag and sum and partial product 
+
+    for(int i=0;i<REG_SIZE;i++)
+    {
+        //mask b1 to see if a certain bit is 1 or 0
+        mask = 1;
+        mask = mask << i;
+        b_bit = b1 & mask;
+
+        //if the current bit is 1, add a2 (shift accordingly)
+        if(b_bit)
+        {
+            partial_low = a2 << i;
+            partial_high = a2 >> (REG_SIZE-i);
+            
+            //check if the lower portion of sum is overflow by adding partial_low
+            overflow_bit = isOverFlow(sum_low, partial_low);
+
+            //accumulate shifted a2 into sum, add overflow bit if necessary
+            sum_low = sum_low + partial_low;
+            sum_high = sum_high + partial_high + overflow_bit;
+        }
+    }
+    //accumulate the product into sum register, check overflow first
+    s3_overflow = isOverFlow(s3, sum_low);
+    if(s3_overflow)      
+        s2 = s2 + 1;
+        
+    s2_overflow = isOverFlow(s2, sum_high);
+    if(s2_overflow)
+        s1 = s1 + 1;
+
+    s2 = s2 + sum_high;
+    s3 = s3 + sum_low;
+
+
+    // a1xb1    a1 = 3 = 0000 0011, b1 = 0 = 0000 0000 -----------------------------------------------------------------
+    sum_low=0;
+    sum_high=0;     //reset the overflow flag and sum and partial product 
+
+    for(int i=0;i<REG_SIZE;i++)
+    {
+        //mask b1 to see if a certain bit is 1 or 0
+        mask = 1;
+        mask = mask << i;
+        b_bit = b1 & mask;
+
+        //if the current bit is 1, add a1 (shift accordingly)
+        if(b_bit)
+        {
+            partial_low = a1 << i;
+            partial_high = a1 >> (REG_SIZE-i);
+
+            //check if the lower portion of sum is overflow by adding partial_low
+            overflow_bit = isOverFlow(sum_low, partial_low);
+
+            //accumulate shifted a1 into sum, add overflow bit if necessary
+            sum_low = sum_low + partial_low;
+            sum_high = sum_high + partial_high + overflow_bit;
+        }
+    }
+    //accumulate the product into sum register
+    //s1 will never overflow as s4
+    s2_overflow = isOverFlow(s2, sum_high);
+    if(s2_overflow)
+        s1 = s1 + 1;
+
+    s1 = s1 + sum_high;
+    s2 = s2 + sum_low;
+
+    //TODO: delete "}" here
+
+
+
+    //if sign is validate as negative before, do 2's compliment
     if(isNeg)
     {
-        sum = ~sum +1;      //if sign is validate as negative before, do 2's compliment
+        s1 = ~s1;
+        s2 = ~s2;
+        s3 = ~s3;
+        s4 = ~s4;
+
+        if(s4 == -1)    //if s4 = 1111, adding 1 to it will propagate an overflow bit to s3
+        {
+            s4 = 0;     // s4 = 1111 + 0001 = 0000, pass overflow bit to s3
+            if(s3 == -1)
+            {
+                s3 = 0;
+                if(s2 == -1)
+                {
+                    s2 = 0;
+                    s1 = s1 + 1;
+                }
+                else
+                    s2 = s2 + 1;
+            }
+            else
+                s3 = s3 + 1;
+        }
+        else
+            s4 = s4 + 1;
     }
 
     //result should be 1023x-5=-5115
-    //sum is 32 bit binary: 1x16 1110110000000101
-    printf("result is: %d\n", sum);
+    //sum is 11111111 11111111 11101100 00000101
+    //       -1       -1       -20      5
+    printf("\nabsolute value pass test, my result is: \n");
+    printf("s1 = %d\n", s1);
+    printf("s2 = %d\n", s2);
+    printf("s3 = %d\n", s3);
+    printf("s4 = %d\n", s4);
+    printf("correct result below---------------\n");
+    printf("s1 = %d\n", -1);
+    printf("s2 = %d\n", -1);
+    printf("s3 = %d\n", -20);
+    printf("s4 = %d\n", 5);
+
     return 0;
 }
