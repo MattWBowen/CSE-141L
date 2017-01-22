@@ -3,9 +3,17 @@
 
 #define REG_SIZE 8
 
-char isOverFlow(char a, char b)
+char isOverFlow(unsigned char a, unsigned char b)
 {
-    if((a+b)>a || (a+b)>b)
+    /* why convert to unsigned:
+     * consider the case 0111 1111 + 0000 0001
+     * it is NOT an overflow case, if you use signed char,
+     * it will render the result 1000 0000 as -128,
+     * which is less than 01111 1111 (127) and 0000 0001 (1)
+     * and return an overflow flag
+     */
+    unsigned char sum = a + b;
+    if(sum < a || sum < b)
         return 1;   //overflow
     else
         return 0;
@@ -78,6 +86,8 @@ int main(int argc, char *argv[]){
     printf("b1 = %d\n", b1);
     printf("b2 = %d\n", b2);
 
+    //printf("pin = %d\n", b2);
+
     char s1=0, s2=0, s3=0, s4=0;
     char overflow_bit=0;
     char mask;
@@ -104,7 +114,9 @@ int main(int argc, char *argv[]){
         if(b_bit)
         {
             partial_low = a2 << i;
-            partial_high = a2 >> (REG_SIZE-i);
+            partial_high = (unsigned char)a2 >> (REG_SIZE-i); //right shift in c fill with 1 unless unsigned
+
+            printf("pin %d partial high = %d\n", i, partial_high);
 
             //check if the lower portion of sum is overflow by adding partial_low
             overflow_bit = isOverFlow(sum_low, partial_low);
@@ -118,6 +130,8 @@ int main(int argc, char *argv[]){
     //first time modify result register, no need to worry about overflow
     s3 = s3 + sum_high;
     s4 = s4 + sum_low;
+    printf("pin s3 = %d\n", s3);
+    printf("pin s4 = %d\n", s4);
 
     
     // a1xb2    a1 = 3 = 0000 0011, b2 = 5 =  0000 0101 -----------------------------------------------------------------
@@ -135,7 +149,7 @@ int main(int argc, char *argv[]){
         if(b_bit)
         {
             partial_low = a1 << i;
-            partial_high = a1 >> (REG_SIZE-i);
+            partial_high = (unsigned char)a1>> (REG_SIZE-i); //right shift in c fill with 1 unless unsigned
 
             //check if the lower portion of sum is overflow by adding partial_low
             overflow_bit = isOverFlow(sum_low, partial_low);
@@ -150,15 +164,37 @@ int main(int argc, char *argv[]){
     char s3_overflow, s2_overflow;
     s3_overflow = isOverFlow(s3, sum_low);
     if(s3_overflow)         //if s3 will overflow by s3 = s3 + sum_slow, push the overflow bit to s2
-        s2 = s2 + 1;
-        
-    //now s2 has chance to be modified by s3_overflow
-    s2_overflow = isOverFlow(s2, sum_high);
-    if(s2_overflow)
-        s1 = s1 + 1;
+    {   
+        //Careful!!! adding overflow bit into s2 could also cause s2 oveflow
+        s2_overflow = isOverFlow(s2, 1);
+        s2 = s2 + 1;        //overflow bit from s3
+        if(s2_overflow)     //case when adding overflow bit from s3_overflow DOES cause s2 overflow
+        {
+            s1 = s1 + 1;    
 
-    s2 = s2 + sum_high;
-    s3 = s3 + sum_low;
+            s2_overflow = isOverFlow(s2, sum_high);
+            if(s2_overflow)
+                s1 = s1 + 1;
+        }
+        else                //case when adding overflow bit from s3_overflow does NOT cause s2 overflow
+        {
+            s2_overflow = isOverFlow(s2, sum_high);
+            if(s2_overflow)
+                s1 = s1 + 1;
+            
+        }
+        s2 = s2 + sum_high;
+        s3 = s3 + sum_low;
+    }
+    else    //s3 not overflow
+    {
+        s2_overflow = isOverFlow(s2, sum_high);
+        if(s2_overflow)
+            s1 = s1 + 1;
+
+        s2 = s2 + sum_high;
+        s3 = s3 + sum_low;
+    }
 
     // a2xb1    a2 = -1 = 1111 1111, b1 = 0 = 0000 0000 -----------------------------------------------------------------
     sum_low=0;
@@ -175,7 +211,7 @@ int main(int argc, char *argv[]){
         if(b_bit)
         {
             partial_low = a2 << i;
-            partial_high = a2 >> (REG_SIZE-i);
+            partial_high = (unsigned char)a2 >> (REG_SIZE-i);
             
             //check if the lower portion of sum is overflow by adding partial_low
             overflow_bit = isOverFlow(sum_low, partial_low);
@@ -185,18 +221,41 @@ int main(int argc, char *argv[]){
             sum_high = sum_high + partial_high + overflow_bit;
         }
     }
+
     //accumulate the product into sum register, check overflow first
     s3_overflow = isOverFlow(s3, sum_low);
-    if(s3_overflow)      
-        s2 = s2 + 1;
-        
-    s2_overflow = isOverFlow(s2, sum_high);
-    if(s2_overflow)
-        s1 = s1 + 1;
+    if(s3_overflow)         //if s3 will overflow by s3 = s3 + sum_slow, push the overflow bit to s2
+    {   
+        //Careful!!! adding overflow bit into s2 could also cause s2 oveflow
+        s2_overflow = isOverFlow(s2, 1);
+        s2 = s2 + 1;        //overflow bit from s3
+        if(s2_overflow)     //case when adding overflow bit from s3_overflow DOES cause s2 overflow
+        {
+            s1 = s1 + 1;    
 
-    s2 = s2 + sum_high;
-    s3 = s3 + sum_low;
+            s2_overflow = isOverFlow(s2, sum_high);
+            if(s2_overflow)
+                s1 = s1 + 1;
+        }
+        else                //case when adding overflow bit from s3_overflow does NOT cause s2 overflow
+        {
+            s2_overflow = isOverFlow(s2, sum_high);
+            if(s2_overflow)
+                s1 = s1 + 1;
+            
+        }
+        s2 = s2 + sum_high;
+        s3 = s3 + sum_low;
+    }
+    else    //s3 not overflow
+    {
+        s2_overflow = isOverFlow(s2, sum_high);
+        if(s2_overflow)
+            s1 = s1 + 1;
 
+        s2 = s2 + sum_high;
+        s3 = s3 + sum_low;
+    }
 
     // a1xb1    a1 = 3 = 0000 0011, b1 = 0 = 0000 0000 -----------------------------------------------------------------
     sum_low=0;
@@ -213,7 +272,7 @@ int main(int argc, char *argv[]){
         if(b_bit)
         {
             partial_low = a1 << i;
-            partial_high = a1 >> (REG_SIZE-i);
+            partial_high = (unsigned char)a1 >> (REG_SIZE-i);
 
             //check if the lower portion of sum is overflow by adding partial_low
             overflow_bit = isOverFlow(sum_low, partial_low);
@@ -233,8 +292,6 @@ int main(int argc, char *argv[]){
     s2 = s2 + sum_low;
 
     //TODO: delete "}" here
-
-
 
     //if sign is validate as negative before, do 2's compliment
     if(isNeg)
