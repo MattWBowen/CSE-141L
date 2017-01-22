@@ -21,27 +21,26 @@ char isOverFlow(unsigned char a, unsigned char b)
 
 int main(int argc, char *argv[]){
 
-    /*
     //a1 = 00000011 = 3, a2 = 11111111 = -1; a1a2 = 1023
     char a1=3, a2=-1;
     //b1 = 11111111 = -1, b2 = 11111011 = -5; b1b2 = -5
     char b1=-1, b2=-5;
-    */
     /*
     char a1=-1, a2=-95;
-    //b1 = 11111111 = -1, b2 = 11111011 = -5; b1b2 = -5
     char b1=0, b2=103;
     */
 
+    /* -29417x-27 = 794259
     char a1=-115, a2=23;
     char b1=-1, b2=-27;
+    */
 
-
-    
+    /*TODO: for test only, clean it later
     printf("a1 = %d\n", a1);
     printf("a2 = %d\n", a2);
     printf("b1 = %d\n", b1);
     printf("b2 = %d\n", b2);
+    */
 
     //calculate the sign for final result
     bool isNeg = false;
@@ -53,7 +52,8 @@ int main(int argc, char *argv[]){
         isNeg = true;
     else
         isNeg = false;
-    printf("isNeg = %d\n", isNeg);
+
+    //printf("isNeg = %d\n", isNeg);
 
     //TODO: only edge case is that cannot take absolute value of -32768 
     //supposely -32768~32767 should work since short is 16 bit
@@ -95,13 +95,13 @@ int main(int argc, char *argv[]){
 
     
     //debug print out
+    /*
     printf("\nafter taking absolute value---------------\n");
     printf("a1 = %d\n", a1);
     printf("a2 = %d\n", a2);
     printf("b1 = %d\n", b1);
     printf("b2 = %d\n", b2);
-
-    //printf("pin = %d\n", b2);
+    */
 
     char s1=0, s2=0, s3=0, s4=0;
     char overflow_bit=0;
@@ -131,9 +131,6 @@ int main(int argc, char *argv[]){
             partial_low = a2 << i;
             partial_high = (unsigned char)a2 >> (REG_SIZE-i); //right shift in c fill with 1 unless unsigned
 
-            printf("pin %d partial high = %d\n", i, partial_high);
-            //printf("pin %d partial low= %d\n", i, partial_low);
-
             //check if the lower portion of sum is overflow by adding partial_low
             overflow_bit = isOverFlow(sum_low, partial_low);
 
@@ -141,18 +138,11 @@ int main(int argc, char *argv[]){
             sum_low = sum_low + partial_low;
             sum_high = sum_high + partial_high + overflow_bit;
         }
-
-            printf("at iteration %d\n", i);
-            printf("sum_low= %d\n", sum_low);
-            printf("of= %d\n", overflow_bit);
     }
     //accumulate the product into sum register
     //first time modify result register, no need to worry about overflow
     s3 = s3 + sum_high;
     s4 = s4 + sum_low;
-    printf("pin s3 = %d\n", s3);
-    printf("pin s4 = %d\n", s4);
-
     
     // a1xb2    a1 = 3 = 0000 0011, b2 = 5 =  0000 0101 -----------------------------------------------------------------
     sum_low=0;
@@ -311,8 +301,6 @@ int main(int argc, char *argv[]){
     s1 = s1 + sum_high;
     s2 = s2 + sum_low;
 
-    //TODO: delete "}" here
-
     //if sign is validate as negative before, do 2's compliment
     if(isNeg)
     {
@@ -345,7 +333,7 @@ int main(int argc, char *argv[]){
     //result should be 1023x-5=-5115
     //sum is 11111111 11111111 11101100 00000101
     //       -1       -1       -20      5
-    printf("\nabsolute value pass test, my result is: \n");
+    printf("my result is: \n");
     printf("s1 = %d\n", s1);
     printf("s2 = %d\n", s2);
     printf("s3 = %d\n", s3);
