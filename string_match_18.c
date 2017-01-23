@@ -38,8 +38,6 @@ void printArr(unsigned char arr[], int size)
         printf("%d ",arr[i]);
     printf("\n");
 }
-        
-
 
 int main()
 {
@@ -49,7 +47,7 @@ int main()
     unsigned char quadruple_match=0;
     unsigned char quintuple_match=0;
 
-    printf("\nstring paring program -----------------------\n");
+    printf("string paring program -----------------------\n");
 
     unsigned char string, temp_string;
     unsigned char key;          //4 bit search string
