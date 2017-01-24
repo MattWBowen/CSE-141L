@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
 
 int main(){
     //array of 20 items
@@ -17,7 +19,6 @@ int main(){
     //this loop is only to initialize array - too lazy
     for (int lazy = 0; lazy < 20; ++lazy){
         nums[lazy] = (char)lazy;
-
         //printf("nums[%d]: %d\n", lazy, nums[lazy]);
     }
 
@@ -49,6 +50,10 @@ int main(){
                     //ham dist is smaller than curr ham dist
                     if (biggestHamDist < currHamDist){
                         biggestHamDist = currHamDist;
+                        if (biggestHamDist == 8){
+                            printf("Final Hamming Dist is: %d\n", biggestHamDist);
+                            return 0;
+                        }
                         //printf("biggestHamDist is: %d\n", biggestHamDist);
                     }
                 }
