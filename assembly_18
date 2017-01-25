@@ -77,7 +77,7 @@ FIVE:
         put r10
 
         //if(!result) count++
-        bnz #0, SKIP
+        bne #0, SKIP
         take r11
         add #1      
         put r11

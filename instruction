@@ -28,3 +28,28 @@ syntax:         load $reg
 description:    the content of accumulator is stored at the addres specified by operand register
 operation:      MEM[$reg] = $accumulator
 syntax:         store $reg
+
+6. xor      --  bitwise exclusive or
+description:    exclusive or the operand register with accumulator and store the result into accumulator 
+operation:      $accumulator = $accumulator ^ $reg
+syntax:         xor $reg
+
+7. shl      --  shift left
+description:    Shifts accumulator left by the amount of immediate operand. Zeroes are shifted in.
+operation:      $accumulator = $accumulator << imm
+syntax:         shl imm
+
+8. shr      --  shift right 
+description:    Shifts accumulator right by the amount of immediate operand. Zeroes are shifted in.
+operation:      $accumulator = $accumulator >> imm
+syntax:         shl imm
+
+9. beq      --  branch on equal
+description:    branch to the LABLE if the operand register is equal to accumulator
+operation:      if $accumulator == $reg, move program counter to LABLE
+syntax:         beq $reg, LABLE
+
+10. bne     --  branch on not equal
+description:    branch to the LABLE if the operand register is NOT equal to accumulator
+operation:      if $accumulator != $reg, move program counter to LABLE
+syntax:         bne $reg, LABLE
