@@ -1,0 +1,13 @@
+//designated 5 bit for op code, which means we can have up to 25 instructions
+//we have 16 register r0~r15, and by default r0 is the accumulator
+
+1. take
+description:    the content of the operand register is move into the accumulator register
+operation:      $accumulator = $operand_register
+syntax:         take $operand_register  
+
+2. put
+description:    the content of the accumulator register is move into the operand register
+operation:      $operand_register = $accumulator
+syntax:         put $operand_register  
+

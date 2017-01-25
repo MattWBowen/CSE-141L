@@ -7,7 +7,7 @@ r9 = isOne
 r10= result
 r11= count
 r12= counter of LOAD_MEM
-r13= offset of array
+r13= ?
 r14= counter of FIVE
 r15= memory address
         //initialize count and match counter
