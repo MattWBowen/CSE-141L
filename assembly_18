@@ -1,0 +1,150 @@
+r0 = accumulator
+r1 ~ r5 = single_match ~ quintuple_match
+r6 = string / temporary
+r7 = temp_string
+r8 = key
+r9 = isOne
+r10= result
+r11= count
+r12= counter of LOAD_MEM
+r13= offset of array
+r14= counter of FIVE
+r15= memory address
+        //initialize count and match counter
+        take #0
+
+        put r1          //single_match=0
+        put r2          //...
+        put r3          //
+        put r4          //
+        put r5          //quintuple_match=0
+
+
+        //start loading key and string from memory
+        take #9         //take 9 into acc
+        put r15         //r15=9
+        load r15        //load the byte of memory at address r15 (which is 9) into accumulator
+
+        put r8          //put the content of accumulator into r8, key stored
+
+        //set up r12, counter of the loop LOAD_MEM
+        take #0         //load immediate 0 into accumulator
+        put r12         //put 0 into r12, r12 is the counter to loop through 64 bytes
+
+LOAD_MEM:
+        put r11             //count=0, reset the count at begin of loop loading string
+
+        take #32            //take address 9 into acc
+        add r12             //add the address offset into accumulator
+        put r15             //r15=32+r13
+        load r15            //load the byte of memory at address 32+r12 into accumulator
+        
+        put r6              //save the string you are comparing into r6
+        
+        //key = key << 4;
+        //key = key >> 4;
+        take r8             //take key into accumulator, acc = key
+        shl #4              //shift the key to the left by 4 bit
+        shr #4              //shift the key to the right by 4 bit
+        put r8              //put key back
+
+        //set up counter of loop FIVE r14
+        take #0
+        put r14
+
+FIVE:   
+        //temp_string(r7) = string(r6)
+        take r6
+        put r7
+
+        take r7     //acc=r7=temp_string
+        shl r14     //temp_string << i
+        shr #4      //temp_string >> i
+        put r7      //save temp_string
+
+        //acc = 4-i
+        take #4
+        sub r14
+        put r6      //since we do NOT use r6 after we load the string from memory, reuse it
+        
+        //temp_string = temp_string << (4-i)
+        take r7     //acc = temp_string
+        shl r6      //shift left (4-i)
+        put r7      //store the result back to temp_string
+
+        //result = temp_string ^ key
+        xor r8
+        put r10
+
+        //if(!result) count++
+        bnz #0, SKIP
+        take r11
+        add #1      
+        put r11
+SKIP:
+
+
+
+
+
+
+
+
+
+
+        //r14(i)++, if i<5 loop again
+        take r14
+        add #1
+        put r14
+        beq #5, OUT_FIVE
+        jmp FIVE
+  OUT_FIVE:
+
+        //check count and increment corresponding match
+        take r11
+        beq #1, SINGLE
+        beq #2, DOUBLE
+        beq #3, TRIPLE
+        beq #4, QUADRUPLE
+        beq #5, QUINTUPLE
+
+SINGLE:
+        take r1
+        add #1
+        put r1
+        jmp BREAK
+DOUBLE:
+        take r2
+        add #1
+        put r2
+        jmp BREAK
+TRIPLE:
+        take r3
+        add #1
+        put r3
+        jmp BREAK
+QUADRUPLE:
+        take r4
+        add #1
+        put r4
+        jmp BREAK
+QUINTUPLE:
+        take r5
+        add #1
+        put r5
+BREAK:
+
+        //r12++, if i<64 loop LOAD_MEM
+        take r12            
+        add #1
+        put r12
+        beq #64, OUT_LOAD_MEM
+        jmp LOAD_MEM
+  OUT_LOAD_MEM:
+
+
+
+
+
+
+
