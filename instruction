@@ -1,13 +1,21 @@
 //designated 5 bit for op code, which means we can have up to 25 instructions
 //we have 16 register r0~r15, and by default r0 is the accumulator
+//General purpose registers are indicated with a dollar sign ($)
+//Immediate is indicated with a pound sign (#)
+//All register, immediate and datapath is 8 bit wide
 
 1. take
-description:    the content of the operand register is move into the accumulator register
+description:    the content of the operand register is move(take) into the accumulator register
 operation:      $accumulator = $operand_register
 syntax:         take $operand_register  
 
 2. put
-description:    the content of the accumulator register is move into the operand register
+description:    the content of the accumulator register is move(put) into the operand register
 operation:      $operand_register = $accumulator
 syntax:         put $operand_register  
+
+3. takei    --  take immediate
+description:    an immediate is move(take) into the accumulator register
+operation:      $accumulator = imm
+syntax:         takei imm
 

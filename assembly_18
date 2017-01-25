@@ -11,7 +11,7 @@ r13= ?
 r14= counter of FIVE
 r15= memory address
         //initialize count and match counter
-        take #0
+        takei #0
 
         put r1          //single_match=0
         put r2          //...
@@ -21,20 +21,20 @@ r15= memory address
 
 
         //start loading key and string from memory
-        take #9         //take 9 into acc
+        takei #9         //take 9 into acc
         put r15         //r15=9
         load r15        //load the byte of memory at address r15 (which is 9) into accumulator
 
         put r8          //put the content of accumulator into r8, key stored
 
         //set up r12, counter of the loop LOAD_MEM
-        take #0         //load immediate 0 into accumulator
+        takei #0         //load immediate 0 into accumulator
         put r12         //put 0 into r12, r12 is the counter to loop through 64 bytes
 
 LOAD_MEM:
         put r11             //count=0, reset the count at begin of loop loading string
 
-        take #32            //take address 9 into acc
+        takei #32            //take address 9 into acc
         add r12             //add the address offset into accumulator
         put r15             //r15=32+r13
         load r15            //load the byte of memory at address 32+r12 into accumulator
@@ -49,7 +49,7 @@ LOAD_MEM:
         put r8              //put key back
 
         //set up counter of loop FIVE r14
-        take #0
+        takei #0
         put r14
 
 FIVE:   
@@ -63,7 +63,7 @@ FIVE:
         put r7      //save temp_string
 
         //acc = 4-i
-        take #4
+        takei #4
         sub r14
         put r6      //since we do NOT use r6 after we load the string from memory, reuse it
         
@@ -82,15 +82,6 @@ FIVE:
         add #1      
         put r11
 SKIP:
-
-
-
-
-
-
-
-
-
 
         //r14(i)++, if i<5 loop again
         take r14
