@@ -6,16 +6,25 @@
 
 1. take
 description:    the content of the operand register is move(take) into the accumulator register
-operation:      $accumulator = $operand_register
-syntax:         take $operand_register  
+operation:      $accumulator = $reg
+syntax:         take $reg
 
 2. put
 description:    the content of the accumulator register is move(put) into the operand register
-operation:      $operand_register = $accumulator
-syntax:         put $operand_register  
+operation:      $reg = $accumulator
+syntax:         put $reg
 
 3. takei    --  take immediate
 description:    an immediate is move(take) into the accumulator register
 operation:      $accumulator = imm
 syntax:         takei imm
 
+4. load
+description:    a byte is loaded into the accumulator from the address specified by operand register
+operation:      $accumulator = MEM[$reg]
+syntax:         load $reg
+
+5. store 
+description:    the content of accumulator is stored at the addres specified by operand register
+operation:      MEM[$reg] = $accumulator
+syntax:         store $reg

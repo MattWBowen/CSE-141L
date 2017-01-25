@@ -89,7 +89,7 @@ SKIP:
         put r14
         beq #5, OUT_FIVE
         jmp FIVE
-  OUT_FIVE:
+OUT_FIVE:
 
         //check count and increment corresponding match
         take r11
@@ -131,9 +131,35 @@ BREAK:
         put r12
         beq #64, OUT_LOAD_MEM
         jmp LOAD_MEM
-  OUT_LOAD_MEM:
+OUT_LOAD_MEM:
 
+        //store match# into memory
+        takei #10
+        put r6
+        take r1
+        store r6    //mem[r6] = mem[10] = r1 = single_match
+        
+        takei #11
+        put r6
+        take r2
+        store r6    //mem[r6] = mem[11] = r2 = double_match
 
+        takei #12
+        put r6
+        take r3
+        store r6    //mem[r6] = mem[12] = r3 = triple_match
+
+        takei #13
+        put r6
+        take r4
+        store r6    //mem[r6] = mem[13] = r4 = quadruple_match
+
+        takei #14
+        put r6
+        take r5
+        store r6    //mem[r6] = mem[14] = r5 = quintuple_match
+
+END
 
 
 
