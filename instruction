@@ -1,8 +1,13 @@
 //designated 5 bit for op code, which means we can have up to 25 instructions
+  //amal: why up to 25 instructions? we can have 2^5 op codes = 32 op codes. and 2^4 registers = 16 registers.
 //we have 16 register r0~r15, and by default r0 is the accumulator
 //General purpose registers are indicated with a dollar sign ($)
+  //amal: what is the difference between a general purpose register and a non-general purpose register?
 //Immediate is indicated with a pound sign (#)
 //All register, immediate and datapath is 8 bit wide
+  //amal: how can we have an immediate that is 8bits wide? we can't fit it in a 9bit instruction.
+  //amal: if we have 5bits for op codes and 4bits for registers then there won't be space for immediates
+  //amal: you only listed 10 op codes below, that should only take 2^4 bits which leaves us with one more bit
 
 1. take
 description:    the content of the operand register is move(take) into the accumulator register
