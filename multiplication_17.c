@@ -205,7 +205,24 @@ int main(int argc, char *argv[]){
         s2 = s2 + sum_high;
         s3 = s3 + sum_low;
     }
+/*
+ char s3_overflow, s2_overflow;
+    s3_overflow = isOverFlow(s3, sum_low);
+    if(s3_overflow)        
+    {   
+        s2_overflow = isOverFlow(s2, 1);
+        s2 = s2 + 1;        
+        if(s2_overflow)    
+            s1 = s1 + 1;    
+    }
 
+    s2_overflow = isOverFlow(s2, sum_high);
+    if(s2_overflow)
+        s1 = s1 + 1;
+
+    s2 = s2 + sum_high;
+    s3 = s3 + sum_low;
+*
     // a2xb1    a2 = -1 = 1111 1111, b1 = 0 = 0000 0000 -----------------------------------------------------------------
     sum_low=0;
     sum_high=0;     //reset the overflow flag and sum and partial product 
