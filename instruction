@@ -52,43 +52,49 @@ operation:      $accumulator = $accumulator ^ $reg
 syntax:         xor $reg
 type:           R-type
 
-6. shl      --  shift left
+6. and      --  bitwise and
+description:    and the operand register with accumulator and store the result into accumulator 
+operation:      $accumulator = $accumulator & $reg
+syntax:         and $reg
+type:           R-type
+
+7. shl      --  shift left
 description:    Shifts accumulator left by the amount of immediate operand. Zeroes are shifted in.
 operation:      $accumulator = $accumulator << imm
 syntax:         shl imm
 type:           R-type
 
-7. shr      --  shift right 
+8. shr      --  shift right 
 description:    Shifts accumulator right by the amount of immediate operand. Zeroes are shifted in.
 operation:      $accumulator = $accumulator >> imm
 syntax:         shl imm
 type:           R-type
 
-8. b0      --   branch on true
+9. b0      --   branch on true
 description:    branch to the branch register = &[LABLE] if the accumulator has a value of 0
 operation:      if $accumulator == 0, move program counter to &[LABLE]
 syntax:         b1 LABLE
 type:           R-type
 
-9. lsn     --   check if acc is less than register
+10. lsn     --   check if acc is less than register
 description:    compare a register with the accumulator and put 1 in accumulator if accumulator is less than register
 operation:      if $accumulator < $reg, $accumulator = 1, else accumulator = 0
 syntax:         lsn $reg
 type:           R-type
 
-10. eql
+11. eql
 description:    check if acc is equal to register
 operation:      if $accumulator == $reg, $accumulator = 1, else $accumulator = 0
 syntax:         eql $reg
 type:           R-type
 
-11. add
+12. add
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + $reg
 syntax:         add $reg
 type:           R-type
 
-12. addi
+13. addi
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + #imm 
 syntax:         add #imm 
