@@ -7,10 +7,10 @@
 we have two type of instruction: R-type and I-type(special instruction), which is determined by the first bit of 9 bits instruction,
 we defined this first bit as "type bit"
 
-R-type: when the type bit is 0
+Normal-type: when the type bit is 0
     for the rest 8 bits, 4 bits for op code(16 opcodes in R-type), and 4 bits for operand (up to 16 registers in R-type)
 
-I-tpye: when the type bit is 1
+Special-tpye: when the type bit is 1
     the remaining 8 bit are all used for immediate(up to 255), and the operation is stored the immediate into accumulator
     thus only one operation exist in I-type, we can treat it as an special instruction
     
