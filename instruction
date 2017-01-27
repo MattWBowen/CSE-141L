@@ -1,60 +1,76 @@
-//designated 5 bit for op code, which means we can have up to 25 instructions
-  //amal: why up to 25 instructions? we can have 2^5 op codes = 32 op codes. and 2^4 registers = 16 registers.
-//we have 16 register r0~r15, and by default r0 is the accumulator
+//we have 15 register r0~r14, and by default r0 is the accumulator
 //General purpose registers are indicated with a dollar sign ($)
-  //amal: what is the difference between a general purpose register and a non-general purpose register?
 //Immediate is indicated with a pound sign (#)
-//All register, immediate and datapath is 8 bit wide
-  //amal: how can we have an immediate that is 8bits wide? we can't fit it in a 9bit instruction.
-  //amal: if we have 5bits for op codes and 4bits for registers then there won't be space for immediates
-  //amal: you only listed 10 op codes below, that should only take 2^4 bits which leaves us with one more bit
+
+
+we have two type of instruction: R-type and I-type(special instruction), which is determined by the first bit of 9 bits instruction,
+we defined this first bit as "type bit"
+
+R-type: when the type bit is 0
+    for the rest 8 bits, 4 bits for op code(15 instructions in R-type), and 4 bits for operand(up to 15 registers)
+
+I-tpye: when the type bit is 1
+    the remaining 8 bit are all used for immediate(up to 255), and the operation is stored the immediate into accumulator
+    thus only one operation exist in I-type, we can treat it as an special instruction
+    
+
+0. takei    --  take immediate  [special I-type instruction]
+description:    an immediate is move(take) into the accumulator register
+operation:      $accumulator = #imm
+syntax:         takei #imm
+type:           I-type
+encode:         1
 
 1. take
 description:    the content of the operand register is move(take) into the accumulator register
 operation:      $accumulator = $reg
 syntax:         take $reg
+type:           R-type
 
 2. put
 description:    the content of the accumulator register is move(put) into the operand register
 operation:      $reg = $accumulator
 syntax:         put $reg
+type:           R-type
 
-3. takei    --  take immediate
-description:    an immediate is move(take) into the accumulator register
-operation:      $accumulator = imm
-syntax:         takei imm
-
-4. load
+3. load
 description:    a byte is loaded into the accumulator from the address specified by operand register
 operation:      $accumulator = MEM[$reg]
 syntax:         load $reg
+type:           R-type
 
-5. store 
+4. store 
 description:    the content of accumulator is stored at the addres specified by operand register
 operation:      MEM[$reg] = $accumulator
 syntax:         store $reg
+type:           R-type
 
-6. xor      --  bitwise exclusive or
+5. xor      --  bitwise exclusive or
 description:    exclusive or the operand register with accumulator and store the result into accumulator 
 operation:      $accumulator = $accumulator ^ $reg
 syntax:         xor $reg
+type:           R-type
 
-7. shl      --  shift left
+6. shl      --  shift left
 description:    Shifts accumulator left by the amount of immediate operand. Zeroes are shifted in.
 operation:      $accumulator = $accumulator << imm
 syntax:         shl imm
+type:           R-type
 
-8. shr      --  shift right 
+7. shr      --  shift right 
 description:    Shifts accumulator right by the amount of immediate operand. Zeroes are shifted in.
 operation:      $accumulator = $accumulator >> imm
 syntax:         shl imm
+type:           R-type
 
-9. beq      --  branch on equal
+8. beq      --  branch on equal
 description:    branch to the LABLE if the operand register is equal to accumulator
 operation:      if $accumulator == $reg, move program counter to LABLE
 syntax:         beq $reg, LABLE
+type:           R-type
 
-10. bne     --  branch on not equal
+9. bne     --  branch on not equal
 description:    branch to the LABLE if the operand register is NOT equal to accumulator
 operation:      if $accumulator != $reg, move program counter to LABLE
 syntax:         bne $reg, LABLE
+type:           R-type
