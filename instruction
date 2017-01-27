@@ -62,39 +62,51 @@ type:           R-type
 description:    Shifts accumulator left by the amount of immediate operand. Zeroes are shifted in.
 operation:      $accumulator = $accumulator << imm
 syntax:         shl imm
+type:           non-R-type
+
+8. shl2      --  shift left
+description:    Shifts accumulator left by the amount specified by a register. Zeroes are shifted in.
+operation:      $accumulator = $accumulator << $reg
+syntax:         shl $reg
 type:           R-type
 
-8. shr      --  shift right 
+9. shr      --  shift right 
 description:    Shifts accumulator right by the amount of immediate operand. Zeroes are shifted in.
 operation:      $accumulator = $accumulator >> imm
 syntax:         shl imm
+type:           non-R-type
+
+10. shr2      --  shift right 
+description:    Shifts accumulator right by the amount specified by a register. Zeroes are shifted in.
+operation:      $accumulator = $accumulator >> $reg
+syntax:         shl $reg
 type:           R-type
 
-9. b0      --   branch on true
+11. b0      --   branch on true
 description:    branch to the branch register = &[LABLE] if the accumulator has a value of 0
 operation:      if $accumulator == 0, move program counter to &[LABLE]
 syntax:         b1 LABLE
 type:           R-type
 
-10. lsn     --   check if acc is less than register
+12. lsn     --   check if acc is less than register
 description:    compare a register with the accumulator and put 1 in accumulator if accumulator is less than register
 operation:      if $accumulator < $reg, $accumulator = 1, else accumulator = 0
 syntax:         lsn $reg
 type:           R-type
 
-11. eql
+13. eql
 description:    check if acc is equal to register
 operation:      if $accumulator == $reg, $accumulator = 1, else $accumulator = 0
 syntax:         eql $reg
 type:           R-type
 
-12. add
+14. add
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + $reg
 syntax:         add $reg
 type:           R-type
 
-13. addi
+15. addi
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + #imm 
 syntax:         add #imm 
