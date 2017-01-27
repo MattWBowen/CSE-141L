@@ -16,9 +16,6 @@ r14= partial_high
 r15= partial_low    
 *r16 = overlow_bit (1 bit register)
 
-
-
-
     //load operand a1,a2,b1,b2
     takei #1
     load r0
@@ -37,12 +34,14 @@ r15= partial_low
     put r4      //r4=b2
 
     //declare sign_a, sign_b
-    take a1
-    shr #7
+    takei #7
+    put r12     //use r12(sum_high) to temp record shift amount
+    take r1
+    shr r12
     put r9      //sign_a = r9
 
-    take b1
-    shr #7
+    take r3
+    shr r12
     put r10     //sign_b = r10
 
 
@@ -175,7 +174,7 @@ A2B2:
     shr r9      //a2>>8-i
     put r14     //save partial_high
 
-    of0         //set overlow_bit to zero
+    of0         //TODO: new instruction - set overlow_bit to zero
     take r13
     add r15
     put r13     //sum_low = sum_low + partial_low
@@ -191,7 +190,8 @@ A2B2_S:
     put r10
     takei #8
     put r9          //r9 is the upper limit of loop
-    lsn r9
+    take r10
+    lsn r9          //check if i<8
     b0 A2B2
 
     //s3 = s3 + sum_high = r7 + r12
@@ -247,6 +247,7 @@ A1B2_S:
     put r10
     takei #8
     put r9          //r9 is the upper limit of loop
+    take r10
     lsn r9
     b0 A1B2
 
@@ -328,6 +329,7 @@ A2B1_S:
     put r10
     takei #8
     put r9          //r9 is the upper limit of loop
+    take r10
     lsn r9
     b0 A2B1
 
@@ -365,8 +367,6 @@ A2B1_OF_1:
 
 A2B1_OF_3:
 
-
-//markkkkkkkkkkkkkkkkkk    
 //a1xb1 (r1xr3)--------------------------------
     //reset partial sum to zero
     take #0
@@ -411,6 +411,7 @@ A1B1_S:
     put r10
     takei #8
     put r9          //r9 is the upper limit of loop
+    take r10
     lsn r9
     b0 A1B1
 
@@ -470,4 +471,14 @@ A1B1_OF_1:
     add r5
     put r5
 SKIP:
+    //write the result s1~s4 into memory location 5~8
+    takei #5
+    store r5
+    takei #6
+    store r6
+    takei #7
+    store r7
+    takei #8
+    store r8
 
+END

@@ -19,101 +19,108 @@ Special-tpye: when the type bit is 1
 description:    an immediate is move(take) into the accumulator register
 operation:      $accumulator = #imm
 syntax:         takei #imm
-type:           I-type
+type:           special-type
 encode:         1
 
 1. take
 description:    the content of the operand register is move(take) into the accumulator register
 operation:      $accumulator = $reg
 syntax:         take $reg
-type:           R-type
+type:           normal-type
 
 2. put
 description:    the content of the accumulator register is move(put) into the operand register
 operation:      $reg = $accumulator
 syntax:         put $reg
-type:           R-type
+type:           normal-type
 
 3. load
 description:    a byte is loaded into the accumulator from the address specified by operand register
 operation:      $accumulator = MEM[$reg]
 syntax:         load $reg
-type:           R-type
+type:           normal-type
 
 4. store 
 description:    the content of accumulator is stored at the addres specified by operand register
 operation:      MEM[$reg] = $accumulator
 syntax:         store $reg
+type:           normal-type
 type:           R-type
 
 5. xor      --  bitwise exclusive or
 description:    exclusive or the operand register with accumulator and store the result into accumulator 
 operation:      $accumulator = $accumulator ^ $reg
 syntax:         xor $reg
-type:           R-type
+type:           normal-type
 
 6. and      --  bitwise and
 description:    and the operand register with accumulator and store the result into accumulator 
 operation:      $accumulator = $accumulator & $reg
 syntax:         and $reg
-type:           R-type
+type:           normal-type
 
-7. shl      --  shift left
-description:    Shifts accumulator left by the amount of immediate operand. Zeroes are shifted in.
-operation:      $accumulator = $accumulator << imm
-syntax:         shl imm
-type:           non-R-type
+7. neg      --  negate
+description:    negate the content in accumulator and save the result in accumulator
+operation:      $accumulator = ~$accumulator
+syntax:         neg
+type:           normal-type
 
-8. shl2      --  shift left
+8. shl      --  shift left
 description:    Shifts accumulator left by the amount specified by a register. Zeroes are shifted in.
 operation:      $accumulator = $accumulator << $reg
 syntax:         shl $reg
-type:           R-type
+type:           normal-type
 
-9. shr      --  shift right 
-description:    Shifts accumulator right by the amount of immediate operand. Zeroes are shifted in.
-operation:      $accumulator = $accumulator >> imm
-syntax:         shl imm
-type:           non-R-type
+9. 
+description:    
+operation:     
+syntax:       
+type:        
 
-10. shr2      --  shift right 
+10. shr      --  shift right 
 description:    Shifts accumulator right by the amount specified by a register. Zeroes are shifted in.
 operation:      $accumulator = $accumulator >> $reg
 syntax:         shl $reg
-type:           R-type
+type:           normal-type
 
 11. b0      --   branch on true
 description:    branch to the branch register = &[LABLE] if the accumulator has a value of 0
 operation:      if $accumulator == 0, move program counter to &[LABLE]
 syntax:         b1 LABLE
-type:           R-type
+type:           normal-type
 
 12. lsn     --   check if acc is less than register
 description:    compare a register with the accumulator and put 1 in accumulator if accumulator is less than register
 operation:      if $accumulator < $reg, $accumulator = 1, else accumulator = 0
 syntax:         lsn $reg
-type:           R-type
+type:           normal-type
 
 13. eql
 description:    check if acc is equal to register
 operation:      if $accumulator == $reg, $accumulator = 1, else $accumulator = 0
 syntax:         eql $reg
-type:           R-type
+type:           normal-type
 
 14. add
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + $reg
 syntax:         add $reg
-type:           R-type
+type:           normal-type
 
 15. sub
 description:    sub the operand register from the accumulator 
 operation:      $accumulator = $accumulator - $reg
 syntax:         sub $reg
-type:           R-type
+type:           normal-type
 
-16. addi
-description:    add the operand register to the accumulator 
-operation:      $accumulator = $accumulator + #imm 
-syntax:         add #imm 
-type:           R-type
+16. of0     --  set over flow bit register to zero
+description:    set over flow bit register to zero
+operation:      $16 = 0
+syntax:         of0
+type:           normal-type
+
+
+log: 
+1. addi, shift immediate instructions removed, update code
+2. add neg operation
+3. add of0 operation

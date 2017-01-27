@@ -9,6 +9,7 @@ r11= count
 r12= counter of LOAD_MEM
 r13= counter of FIVE
 r14= memory address
+r15= temporary shift amount
 
         //initialize count and match counter
         takei #0
@@ -43,9 +44,11 @@ LOAD_MEM:
         
         //key = key << 4;
         //key = key >> 4;
+        takei #4
+        put r15             //r15 = shift amount = 4
         take r8             //take key into accumulator, acc = key
-        shl #4              //shift the key to the left by 4 bit
-        shr #4              //shift the key to the right by 4 bit
+        shl r15             //shift the key to the left by 4 bit
+        shr r15             //shift the key to the right by 4 bit
         put r8              //put key back
 
         //set up counter of loop FIVE r13
@@ -59,7 +62,7 @@ FIVE:
 
         take r7     //acc=r7=temp_string
         shl r13     //temp_string << i
-        shr #4      //temp_string >> i
+        shr r13     //temp_string >> i
         put r7      //save temp_string
 
         //acc = 4-i
@@ -79,14 +82,15 @@ FIVE:
         //if(!result) count++
         takei #0
         bne r10, SKIP       //if result == 0
-        take r11
-        addi #1      
-        put r11
+
+        takei #1
+        add r11
+        put r11             //count++
 SKIP:
 
         //r13(i)++, if i<5 loop again
-        take r13
-        addi #1
+        takei #1
+        add r13
         put r13
 
         takei #5
@@ -112,34 +116,34 @@ OUT_FIVE:
         beq r11, QUINTUPLE
 
 SINGLE:
-        take r1
-        addi #1
+        takei #1
+        add r1
         put r1
         jmp BREAK
 DOUBLE:
-        take r2
-        addi #1
+        takei #1
+        add r2
         put r2
         jmp BREAK
 TRIPLE:
-        take r3
-        addi #1
+        takei #1
+        add r3
         put r3
         jmp BREAK
 QUADRUPLE:
-        take r4
-        addi #1
+        takei #1
+        add r4
         put r4
         jmp BREAK
 QUINTUPLE:
-        take r5
-        addi #1
+        takei #1
+        add r5
         put r5
 BREAK:
 
         //r12++, if i<64 loop LOAD_MEM
-        take r12            
-        addi #1
+        takei #1
+        add r12
         put r12
 
         takei #64                   //acc = 64
