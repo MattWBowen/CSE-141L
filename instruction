@@ -1,5 +1,6 @@
-//we have 15 register r0~r14, and by default r0 is the accumulator
+//we have 16 register r0~r15, and by default r0 is the accumulator, and r1 is the branch register
 //General purpose registers are indicated with a dollar sign ($)
+//branch register, r1, holds addresses in memory
 //Immediate is indicated with a pound sign (#)
 
 
@@ -7,7 +8,7 @@ we have two type of instruction: R-type and I-type(special instruction), which i
 we defined this first bit as "type bit"
 
 R-type: when the type bit is 0
-    for the rest 8 bits, 4 bits for op code(15 instructions in R-type), and 4 bits for operand(up to 15 registers)
+    for the rest 8 bits, 4 bits for op code(16 opcodes in R-type), and 4 bits for operand (up to 16 registers in R-type)
 
 I-tpye: when the type bit is 1
     the remaining 8 bit are all used for immediate(up to 255), and the operation is stored the immediate into accumulator
@@ -63,25 +64,31 @@ operation:      $accumulator = $accumulator >> imm
 syntax:         shl imm
 type:           R-type
 
-8. beq      --  branch on equal
-description:    branch to the LABLE if the operand register is equal to accumulator
-operation:      if $accumulator == $reg, move program counter to LABLE
-syntax:         beq $reg, LABLE
+8. b0      --   branch on true
+description:    branch to the branch register = &[LABLE] if the accumulator has a value of 0
+operation:      if $accumulator == 0, move program counter to &[LABLE]
+syntax:         b1 LABLE
 type:           R-type
 
-9. bne     --  branch on not equal
-description:    branch to the LABLE if the operand register is NOT equal to accumulator
-operation:      if $accumulator != $reg, move program counter to LABLE
-syntax:         bne $reg, LABLE
+9. lsn     --   check if acc is less than register
+description:    compare a register with the accumulator and put 1 in accumulator if accumulator is less than register
+operation:      if $accumulator < $reg, $accumulator = 1, else accumulator = 0
+syntax:         lsn $reg
 type:           R-type
 
-10. add
+10. eql
+description:    check if acc is equal to register
+operation:      if $accumulator == $reg, $accumulator = 1, else $accumulator = 0
+syntax:         eql $reg
+type:           R-type
+
+11. add
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + $reg
 syntax:         add $reg
 type:           R-type
 
-11. addi
+12. addi
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + #imm 
 syntax:         add #imm 
