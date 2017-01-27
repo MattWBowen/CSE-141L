@@ -106,7 +106,13 @@ operation:      $accumulator = $accumulator + $reg
 syntax:         add $reg
 type:           R-type
 
-15. addi
+15. sub
+description:    sub the operand register from the accumulator 
+operation:      $accumulator = $accumulator - $reg
+syntax:         sub $reg
+type:           R-type
+
+16. addi
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + #imm 
 syntax:         add #imm 
