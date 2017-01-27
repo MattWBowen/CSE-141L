@@ -74,3 +74,15 @@ description:    branch to the LABLE if the operand register is NOT equal to accu
 operation:      if $accumulator != $reg, move program counter to LABLE
 syntax:         bne $reg, LABLE
 type:           R-type
+
+10. add
+description:    add the operand register to the accumulator 
+operation:      $accumulator = $accumulator + $reg
+syntax:         add $reg
+type:           R-type
+
+11. addi
+description:    add the operand register to the accumulator 
+operation:      $accumulator = $accumulator + #imm 
+syntax:         add #imm 
+type:           R-type

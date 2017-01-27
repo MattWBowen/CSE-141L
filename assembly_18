@@ -80,13 +80,13 @@ FIVE:
         takei #0
         bne r10, SKIP       //if result == 0
         take r11
-        add #1      
+        addi #1      
         put r11
 SKIP:
 
         //r13(i)++, if i<5 loop again
         take r13
-        add #1
+        addi #1
         put r13
 
         takei #5
@@ -113,33 +113,33 @@ OUT_FIVE:
 
 SINGLE:
         take r1
-        add #1
+        addi #1
         put r1
         jmp BREAK
 DOUBLE:
         take r2
-        add #1
+        addi #1
         put r2
         jmp BREAK
 TRIPLE:
         take r3
-        add #1
+        addi #1
         put r3
         jmp BREAK
 QUADRUPLE:
         take r4
-        add #1
+        addi #1
         put r4
         jmp BREAK
 QUINTUPLE:
         take r5
-        add #1
+        addi #1
         put r5
 BREAK:
 
         //r12++, if i<64 loop LOAD_MEM
         take r12            
-        add #1
+        addi #1
         put r12
 
         takei #64                   //acc = 64
