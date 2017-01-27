@@ -93,10 +93,10 @@ S_2:
     eql r9
     b0 S_3
     take r1
-    neg
+    nand r0
     put r1
     take r2
-    neg             //TODO: add negate instruction
+    nand r0
     put r2
     take #-1
     b0 S_4
@@ -119,12 +119,12 @@ S_3:
     eql r10
     b0 S_3
     take r3
-    neg
+    nand r0
     put r3
     take r4
-    neg             //TODO: add negate instruction
+    nand r0
     put r4
-    take #-1
+    takei #-1
     b0 S_6
     takei #0        //b2=0; (r4)
     put r4          //b1=b1+1;
@@ -159,8 +159,10 @@ A2B2:
     
     //mask=1 << i
     takei #1
-    shl r10
-    and r4      //acc = b_bit = b2 & mask
+    shl r10     //acc = mask
+                //acc and b2(r4)
+    nand r4
+    nand r0     //create an and gate: acc = b_bit = b2 & mask
 
     b0 A2B2_S
     take r2
@@ -217,7 +219,9 @@ A1B2:
     //mask=1 << i
     takei #1
     shl r10
-    and r4      //acc = b_bit = b2 & mask
+                //acc and b2(r4)
+    nand r4
+    nand r0     //create an and gate: acc = b_bit = b2 & mask
 
     b0 A1B2_S
     take r1
@@ -299,7 +303,9 @@ A2B1:
     //mask=1 << i
     takei #1
     shl r10
-    and r3      //acc = b_bit = b1 & mask
+                //acc and b1(r3)
+    nand r3
+    nand r0     //create an and gate: acc = b_bit = b1 & mask
 
     b0 A2B1_S
     take r2
@@ -381,7 +387,9 @@ A1B1:
     //mask=1 << i
     takei #1
     shl r10
-    and r3      //acc = b_bit = b1 & mask
+                //acc and b1(r3)
+    nand r3
+    nand r0     //create an and gate: acc = b_bit = b1 & mask
 
     b0 A1B1_S
     take r1
@@ -437,16 +445,16 @@ A1B1_OF_1:
     take r11
     b0 SKIP
     take r5
-    neg
+    nand r0     //nand with acc will create not gate
     put r5      //s1 = ~s1
     take r6
-    neg
+    nand r0
     put r6      
     take r7
-    neg
+    nand r0
     put r7
     take r8
-    neg
+    nand r0
     put r8
 
     of0
