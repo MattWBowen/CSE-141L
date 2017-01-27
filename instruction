@@ -1,11 +1,14 @@
-//we have 16 register r0~r15, and by default r0 is the accumulator, and r1 is the branch register
-//General purpose registers are indicated with a dollar sign ($)
-//branch register, r1, holds addresses in memory
-//Immediate is indicated with a pound sign (#)
+General Specification:
+we have 16 register r0~r15, and by default r0 is the accumulator, and r1 is the branch register
+General purpose registers are indicated with a dollar sign ($)
+branch register, r1, holds addresses in memory
+Immediate is indicated with a pound sign (#)
 
 
-we have two type of instruction: R-type and I-type(special instruction), which is determined by the first bit of 9 bits instruction,
-we defined this first bit as "type bit"
+we have two type of instruction: 
+R-type and I-type(special instruction) 
+which is determined by the most significant bit(MSB) of 9 bits instruction 
+we defined this MSB bit as the"type bit"
 
 Normal-type: when the type bit is 0
     for the rest 8 bits, 4 bits for op code(16 opcodes in R-type), and 4 bits for operand (up to 16 registers in R-type)
@@ -15,30 +18,39 @@ Special-tpye: when the type bit is 1
     thus only one operation exist in I-type, we can treat it as an special instruction
     
 
+Instruction format 
+NOTE: 
+1. for the encode part, 'i' represent immediate type, 'r' represent register type, 'x' represent don't care or undefined
+2. op code are label with x in nomal type: _  x x x x  _ _ _ _
+    
+
 0. takei    --  take immediate  [special I-type instruction]
 description:    an immediate is move(take) into the accumulator register
 operation:      $accumulator = #imm
 syntax:         takei #imm
 type:           special-type
-encode:         1
+encode:         1 iiii iiii
 
 1. take
 description:    the content of the operand register is move(take) into the accumulator register
 operation:      $accumulator = $reg
 syntax:         take $reg
 type:           normal-type
+encode:         0 0000 rrrr
 
 2. put
 description:    the content of the accumulator register is move(put) into the operand register
 operation:      $reg = $accumulator
 syntax:         put $reg
 type:           normal-type
+encode:         0 0001 rrrr
 
 3. load
 description:    a byte is loaded into the accumulator from the address specified by operand register
 operation:      $accumulator = MEM[$reg]
 syntax:         load $reg
 type:           normal-type
+encode:         0 0010 rrrr
 
 4. store 
 description:    the content of accumulator is stored at the addres specified by operand register
@@ -46,76 +58,89 @@ operation:      MEM[$reg] = $accumulator
 syntax:         store $reg
 type:           normal-type
 type:           R-type
+encode:         0 0011 rrrr
 
 5. xor      --  bitwise exclusive or
 description:    exclusive or the operand register with accumulator and store the result into accumulator 
 operation:      $accumulator = $accumulator ^ $reg
 syntax:         xor $reg
 type:           normal-type
+encode:         0 0100 rrrr
 
 6. nand      -- nand gate
 description:    combinantion of and and not operation
 operation:      $accumulator = $accumulator nand $reg
 syntax:         nand $reg
 type:           normal-type
+encode:         0 0101 rrrr
 
 7. shl      --  shift left
 description:    Shifts accumulator left by the amount specified by a register. Zeroes are shifted in.
 operation:      $accumulator = $accumulator << $reg
 syntax:         shl $reg
 type:           normal-type
+encode:         0 0110 rrrr
 
 8. shr      --  shift right 
 description:    Shifts accumulator right by the amount specified by a register. Zeroes are shifted in.
 operation:      $accumulator = $accumulator >> $reg
 syntax:         shl $reg
 type:           normal-type
+encode:         0 0111 rrrr
 
 9. b0      --   branch on true
 description:    branch to the branch register = &[LABLE] if the accumulator has a value of 0
 operation:      if $accumulator == 0, move program counter to &[LABLE]
 syntax:         b1 LABLE
 type:           normal-type
+encode:         0 1000 rrrr
 
 10. lsn     --   check if acc is less than register
 description:    compare a register with the accumulator and put 1 in accumulator if accumulator is less than register
 operation:      if $accumulator < $reg, $accumulator = 1, else accumulator = 0
 syntax:         lsn $reg
 type:           normal-type
+encode:         0 1001 rrrr
 
 11. eql
 description:    check if acc is equal to register
 operation:      if $accumulator == $reg, $accumulator = 1, else $accumulator = 0
 syntax:         eql $reg
 type:           normal-type
+encode:         0 1010 rrrr
 
 12. add
 description:    add the operand register to the accumulator 
 operation:      $accumulator = $accumulator + $reg
 syntax:         add $reg
 type:           normal-type
+encode:         0 1011 rrrr
 
 13. sub
 description:    sub the operand register from the accumulator 
 operation:      $accumulator = $accumulator - $reg
 syntax:         sub $reg
 type:           normal-type
+encode:         0 1100 rrrr
 
 14. of0     --  set over flow bit register to zero
 description:    set over flow bit register to zero
 operation:      $16 = 0
 syntax:         of0
 type:           normal-type
+encode:         0 1101 xxxx
 
-15. 
-description:    
-operation:     
-syntax:       
-type:        
+15. halt
+description:    halt the machine 
+operation:      halt the machine
+syntax:         halt
+type:           normal-type
+encode:         0 1110 xxxx
 
-16. 
-description:    
-operation:     
-syntax:       
-type:        
+16. tba     --  to be defined
+description:    to be defined
+operation:      to be defined     
+syntax:         to be defined
+type:           normal-type 
+encode:         0 1111 xxxx
 
