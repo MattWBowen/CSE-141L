@@ -21,7 +21,8 @@ Binomial1:				//for loop from i=0 to 18 (19 times not 20)
 
 		CheckLSB:		//for loop from byte = 0 to 7 (8bits)
 			takei #1				//mask
-			and $r9					//acc = dist & mask
+			nand $r9				//acc = !(dist & mask)
+            nand $r0                //acc = !(acc & acc) = dist & mask
 			put $r10				//temp r10 = dist & mask
 			takei #1
 			eql $r10				//if acc == temp, acc = 1
