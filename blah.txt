@@ -1,6 +1,10 @@
-takei #128		//acc = 128 mem &
-put $r5			//i = r5 = acc
-takei #129		//acc = 129 mem &
+takei #127		//acc = 127 mem&
+put $r11		//returnReg = 127 mem&
+takei #1
+add $r11		//acc = 128 mem&
+put $r5			//i = r5 = acc = 128 mem&
+takei #2
+add $r11		//acc = 129 mem&
 put $r6			//j = r6 = acc
 takei #0
 put $r2			//r2 = acc = biggestHamDist
@@ -57,7 +61,8 @@ Binomial1:				//for loop from i=0 to 18 (19 times not 20)
 			takei #0
 			eql $r10				//if acc == temp, temp == 0, acc = 1
 			b0 CheckLSB				//byte < 8, acc = 0
-		takei #128
+		takei #1
+		add $r11				//acc = 1+127
 		put $r10				//temp = 128
 		take $r5				//acc = i
 		sub $r10				//acc = i - 128
@@ -66,7 +71,8 @@ Binomial1:				//for loop from i=0 to 18 (19 times not 20)
 		takei #1
 		add $r10				//acc = i-128+j+1
 		put $r6					//j = r6 = acc = i-128+j+1, c code: j=j+i+1
-		takei #129
+		takei #2
+		add $r11				//acc = 2+127
 		put $r10				//temp = 129
 		take $r6				//acc = j
 		sub $r10				//acc = j-129
@@ -97,3 +103,5 @@ Binomial1:				//for loop from i=0 to 18 (19 times not 20)
 	eql $r10					//if acc == temp, temp == 0, !(j<20), acc = 1
 	b0 Binomial1						//branch to Binomial1 if i < 19
 ReturnResult:
+take $r2		//acc = r2 = biggestHamDist
+store $r11		//mem[127] = acc = biggestHamDist
