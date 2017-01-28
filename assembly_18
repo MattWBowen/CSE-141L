@@ -20,7 +20,6 @@ r15= temporary shift amount
         put r4              //
         put r5              //quintuple_match=0
 
-
         //start loading key and string from memory
         takei #9            //take 9 into acc
         put r14             //r14=9
@@ -33,6 +32,7 @@ r15= temporary shift amount
         put r12             //put 0 into r12, r12 is the counter to loop through 64 bytes
 
 LOAD_MEM:
+        takei #0
         put r11             //count=0, reset the count at begin of loop loading string
 
         takei #32           //take address 9 into acc
@@ -81,76 +81,103 @@ FIVE:
 
         //if(!result) count++
         takei #0
-        bne r10, SKIP       //if result == 0
+        eql r10             //if result == 0, count++ acc=1
+        b0 SKIP
 
         takei #1
         add r11
         put r11             //count++
 SKIP:
-
         //r13(i)++, if i<5 loop again
+        takei #5
+        put r15
         takei #1
         add r13
         put r13
+        lsn r15
+        b0 OUT_FIVE
+        takei #0
+        b0 FIVE
 
-        takei #5
-        beq r13, OUT_FIVE
-        jmp FIVE
 OUT_FIVE:
-
         //check count and increment corresponding match
-        take r11
         takei #1
-        beq r11, SINGLE
+        eql r11
+        put r15
+        takei #0
+        eql r15
+        b0 SINGLE
 
         takei #2
-        beq r11, DOUBLE
-        
+        eql r11
+        put r15
+        takei #0
+        eql r15
+        b0 DOUBLE
+
         takei #3
-        beq r11, TRIPLE
+        eql r11
+        put r15
+        takei #0
+        eql r15
+        b0 TRIPLE
 
         takei #4
-        beq r11, QUADRUPLE
+        eql r11
+        put r15
+        takei #0
+        eql r15
+        b0 QUADRUPLE
 
         takei #5
-        beq r11, QUINTUPLE
+        eql r11
+        put r15
+        takei #0
+        eql r15
+        b0 QUINTUPLE
 
 SINGLE:
         takei #1
         add r1
         put r1
-        jmp BREAK
+        takei #0
+        b0 BREAK
 DOUBLE:
         takei #1
         add r2
         put r2
-        jmp BREAK
+        takei #0
+        b0 BREAK
 TRIPLE:
         takei #1
         add r3
         put r3
-        jmp BREAK
+        takei #0
+        b0 BREAK
 QUADRUPLE:
         takei #1
         add r4
         put r4
-        jmp BREAK
+        takei #0
+        b0 BREAK
 QUINTUPLE:
         takei #1
         add r5
         put r5
 BREAK:
-
         //r12++, if i<64 loop LOAD_MEM
+        takei #64                   //acc = 64
+        put r15
         takei #1
         add r12
         put r12
+        lsn r15
+        b0 OUT_LOAD_MEM
 
-        takei #64                   //acc = 64
-        beq r12, OUT_LOAD_MEM       //if i==64
-        jmp LOAD_MEM
+        takei #0
+        b0 LOAD_MEM
+
 OUT_LOAD_MEM:
-
         //store match# into memory
         takei #10
         put r6
@@ -176,7 +203,6 @@ OUT_LOAD_MEM:
         put r6
         take r5
         store r6    //mem[r6] = mem[14] = r5 = quintuple_match
-
 END
 
 
