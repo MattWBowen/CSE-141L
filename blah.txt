@@ -39,7 +39,7 @@ Binomial1:				//for loop from i=0 to 18 (19 times not 20)
 			eql $r2					//if acc == r2, if biggestHamDist == 8, acc = 1
 			b0 NoMatch
 			takei #0
-			b0 END
+			b0 ReturnResult
 			
 			NoMatch:				//here if my if statement checks fail
 			takei #1
@@ -96,4 +96,4 @@ Binomial1:				//for loop from i=0 to 18 (19 times not 20)
 	takei #0
 	eql $r10					//if acc == temp, temp == 0, !(j<20), acc = 1
 	b0 Binomial1						//branch to Binomial1 if i < 19
-END:
+ReturnResult:
