@@ -1,44 +1,60 @@
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    18:04:22 10/27/2011 
-// Design Name: 
-// Module Name:    ALU 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-import definitions::*;
 module ALU(
-  input [ 1:0] OP,
-  input [15:0] INPUTA,
-  input [15:0] INPUTB,
-  output logic [15:0] OUT,
-  output logic ZERO,
-  output wire EQUAL
+  input [ 3:0] OP,
+  input [7:0] Acc_in,
+  input [7:0] Reg_in,
+  input type_bit,
+  output logic [7:0] OUT,
+  //output logic ZERO,
+  //output wire EQUAL
     );
 	 
   assign EQUAL = (INPUTA == INPUTB) ? 1 : 0;
   op_mne op_mnemonic;
 	
-  always_comb begin
+always_comb 
+begin
 	
-	case(OP)
-	  kADD : OUT = INPUTA+INPUTB;
-	  kSUB : OUT = INPUTA-INPUTB;
-	  kAND : OUT = INPUTA&INPUTB;
-	  kXOR : OUT = INPUTA^INPUTB;
-	  default: OUT = 0;
-	endcase
+//if type_bit=0, do normal-type instruction
+if(type_bit==1'b0)
+begin
+    unique case(OP)
+        //take
+        4'b00_00:
+            OUT = Reg_in;
+        //put
+        4'b00_01:
+        //load
+        4'b00_10:
+        //store
+        4'b00_11:
+        //xor
+        4'b01_00:
+        //nand
+        4'b01_01:
+        //shl
+        4'b01_10:
+        //shr
+        4'b01_11:
+        //lookup
+        4'b10_00:
+        //lsn
+        4'b10_01:
+        //eql
+        4'b10_10:
+        //add
+        4'b10_11:
+        //sub
+        4'b11_00:
+        //of0
+        4'b11_01:
+        //halt
+        4'b11_10:
+        //tba
+        4'b11_11:
+        default:
+            OUT = 0;
+    endcase
+end
 	 
 	case(OUT)
 	  16'b0 :   ZERO = 1'b1;
@@ -47,6 +63,6 @@ module ALU(
 	//$display("ALU Out %d \n",OUT);
     op_mnemonic = op_mne'(OP);
 
-  end
+end
 
 endmodule
