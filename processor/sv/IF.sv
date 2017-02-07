@@ -1,36 +1,19 @@
-// Engineer: 
-// 
-// Create Date:    17:44:49 02/16/2012 
-// Design Name: 
-// Module Name:    IF 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
 module IF(
   input Branch,
   input [7:0] Target,
-  input Init,
+  input start,
   input Halt,
   input CLK,
   output logic[7:0] PC
   );
-	 
+
   always @(posedge CLK)
-	if(Init)
+	if(start)
 	  PC <= 0;
 	else if(Halt)
 	  PC <= PC;
 	else if(Branch)
-	  PC <= Target;
+	  PC <= PC + Target;    //relative addressing by offset from assembler
 	else
 	  PC <= PC+1;
 

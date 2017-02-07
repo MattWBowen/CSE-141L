@@ -1,5 +1,4 @@
 //`timescale 1ns / 1ps
-//last modified: zhi 2/7
 
 module InstROM(
     input [7:0] InstAddress,
