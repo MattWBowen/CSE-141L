@@ -1,0 +1,133 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "OUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "OUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "overflow_out",
+					"strict" : false
+				},
+				{
+					"name" : "OP[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OP[0]",
+					"strict" : false
+				},
+				{
+					"name" : "OP[1]",
+					"strict" : false
+				},
+				{
+					"name" : "overflow_in",
+					"strict" : false
+				},
+				{
+					"name" : "OP[2]",
+					"strict" : false
+				},
+				{
+					"name" : "type_bit",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

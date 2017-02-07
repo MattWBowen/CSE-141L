@@ -1,0 +1,133 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Acc_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_index[1]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_index[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_index[3]",
+					"strict" : false
+				},
+				{
+					"name" : "reg_index[2]",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[0]",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "AccWrite",
+					"strict" : false
+				},
+				{
+					"name" : "RegWrite",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[1]",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[2]",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[3]",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[4]",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[5]",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[6]",
+					"strict" : false
+				},
+				{
+					"name" : "writeValue[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

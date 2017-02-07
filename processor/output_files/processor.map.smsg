@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at TopLevel.sv(21): object "halt" differs only in case from object "HALT" in the same scope File: D:/Bash/CSE-141L/processor/sv/TopLevel.sv Line: 21
+Warning (10273): Verilog HDL warning at DataRAM.sv(40): extended using "x" or "z" File: D:/Bash/CSE-141L/processor/sv/DataRAM.sv Line: 40
