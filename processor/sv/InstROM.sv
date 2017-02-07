@@ -1,30 +1,20 @@
 //`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 	Leo Porter
-// 
-// Create Date:    15:50:22 11/02/2007 
-// Design Name: 
-// Module Name:    InstROM 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: This is a basic verilog module to behave as an instruction ROM
-// 				 template.
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
+//last modified: zhi 2/7
+
 module InstROM(
     input [7:0] InstAddress,
-    output logic[9:0] InstOut);
+    output logic[8:0] InstOut);
 	 
- // Instructions have [4bit opcode][3bit rs or rt][3bit rt, immediate, or branch target]
-	 
+    // Instructions have [1bit type bit][4bit op code][4bit register] 
+    // no need for clock since the professor said he will use $readmemb instead of clock read
+
+    
+    logic [8:0] instruction_memory [0:255];     //256 slots of instr mem, can change later
+
+    assign InstOut = instruction_memory[InstAddress];
+
+
+/*
 	 always_comb 
 		case (InstAddress)
 // opcode = 0 lhw, rs = 0, rt = 1
@@ -45,5 +35,6 @@ module InstROM(
 		4 : InstOut = 10'b1111111111;  // halt
 		default : InstOut = 10'b0000000000;
     endcase
+*/
 
 endmodule
