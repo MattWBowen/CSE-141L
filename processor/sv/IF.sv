@@ -7,14 +7,16 @@ module IF(
   output logic[7:0] PC
   );
 
-  always @(posedge CLK)
-	if(start)
-	  PC <= 0;
-	else if(Halt)
-	  PC <= PC;
-	else if(Branch)
-	  PC <= PC + Target;    //relative addressing by offset from assembler
-	else
-	  PC <= PC+1;
+    always_ff@(posedge CLK)
+    begin
+	    if(start)
+	        PC <= 0;              //can change to start_address
+	    else if(Halt)
+	        PC <= PC;
+	    else if(Branch)
+	        PC <= PC + Target;    //relative addressing by offset from assembler
+	    else
+	        PC <= PC+1;
+    end
 
 endmodule
