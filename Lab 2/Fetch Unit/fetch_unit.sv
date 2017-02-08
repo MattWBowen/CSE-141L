@@ -8,7 +8,7 @@ module fetch_unit(
 );
 
     //pc counter between IF module and InstROM
-    wire [7:0] PC;
+    wire [9:0] PC;
 
     //Instruction Fetch module
     IF if_module(
