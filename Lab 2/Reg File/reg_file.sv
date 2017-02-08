@@ -19,11 +19,13 @@ assign Reg_out = registers[reg_index];
 // sequential (clocked) writes
 always_ff@(posedge CLK)
 begin
-    if(AccWrite)
+    //you dont need to set default behavios since this is not output
+    //TODO: relook at this logic if there is bug: case 1 1
+    if(AccWrite==1'b1)
         registers[0] <= writeValue;
     else
     begin
-        if(RegWrite)
+        if(RegWrite==1'b1)
             registers[reg_index] <= writeValue;
     end
 end
