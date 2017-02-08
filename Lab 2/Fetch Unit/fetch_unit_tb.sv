@@ -26,11 +26,16 @@ module fetch_unit_tb;
 	 #100ns;
 // Add stimulus here
 	 start = 1;
-	 #20ns  start   = 0;
+	 #20ns  start  = 0;
 	 #20ns  Target = 5;
 	 #10ns  Branch = 1;
 	 #20ns  Branch = 0;
 	 #30ns  Halt   = 1;
+     #30ns  Halt   = 0;
+            Target = -17;
+     #30ns  Branch = 1;
+     #20ns  Branch = 0;
+	 #20ns  start  = 1;
      #100ns  $stop;
   end
       

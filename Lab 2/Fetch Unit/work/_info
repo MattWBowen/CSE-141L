@@ -34,15 +34,15 @@ Z6 o-work work
 Z7 tCvgOpt 0
 vfetch_unit_tb
 R1
-R2
+!s110 1486570213
 !i10b 1
-!s100 `m4M>]W@zATIKPQD5lV^o2
-IWHIRX=;YPb[7VcHSMECoA3
+!s100 RY@zYPYOXHj[4:hB@ACTS3
+IVM[gdIOgD@WnL;<8lS4460
 R3
 !s105 fetch_unit_tb_sv_unit
 S1
 R0
-w1486546799
+w1486570206
 8D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv
 FD:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv
 L0 1
@@ -50,7 +50,7 @@ R4
 r1
 !s85 0
 31
-R5
+!s108 1486570213.000000
 !s107 D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv|
 !s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv|
 !i113 1
