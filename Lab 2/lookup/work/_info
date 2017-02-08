@@ -7,4 +7,52 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-dD:/Bash/CSE-141L/Lab 2/lookup
+Z0 dD:/Bash/CSE-141L/Lab 2/lookup
+vlookup
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1486588929
+!i10b 1
+!s100 iBQ>5aMmYFme`=A1jaZ6:0
+ID1f9fdI]J6E=79d@bfMMj1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 lookup_sv_unit
+S1
+R0
+w1486588923
+8D:/Bash/CSE-141L/Lab 2/lookup/lookup.sv
+FD:/Bash/CSE-141L/Lab 2/lookup/lookup.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1486588929.000000
+!s107 D:/Bash/CSE-141L/Lab 2/lookup/lookup.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/lookup/lookup.sv|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+vlookup_tb
+R1
+R2
+!i10b 1
+!s100 n5==i][=AjB9AgGS1WkWc3
+I]`>`4zia;73o7i3FbXcA@2
+R3
+!s105 lookup_tb_sv_unit
+S1
+R0
+w1486588757
+8D:/Bash/CSE-141L/Lab 2/lookup/lookup_tb.sv
+FD:/Bash/CSE-141L/Lab 2/lookup/lookup_tb.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Bash/CSE-141L/Lab 2/lookup/lookup_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/lookup/lookup_tb.sv|
+!i113 1
+R6
+R7

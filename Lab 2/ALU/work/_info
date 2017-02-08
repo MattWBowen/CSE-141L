@@ -1,0 +1,60 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Bash/CSE-141L/Lab 2/ALU
+vALU
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1486586431
+!i10b 1
+!s100 X2cAGeKk[]NgRom4CfiIj1
+I@mgMC3P];0n4R0]m`W>f91
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 ALU_sv_unit
+S1
+R0
+w1486579311
+8D:/Bash/CSE-141L/Lab 2/ALU/ALU.sv
+FD:/Bash/CSE-141L/Lab 2/ALU/ALU.sv
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1486586431.000000
+!s107 D:/Bash/CSE-141L/Lab 2/ALU/ALU.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/ALU/ALU.sv|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+n@a@l@u
+vALU_tb
+R1
+!s110 1486587945
+!i10b 1
+!s100 DbFSKG`:TWJcQ?JNUA^9m1
+I=AigSh;fU@=f;gZ`6^h142
+R2
+!s105 ALU_tb_sv_unit
+S1
+R0
+w1486587930
+8D:/Bash/CSE-141L/Lab 2/ALU/ALU_tb.sv
+FD:/Bash/CSE-141L/Lab 2/ALU/ALU_tb.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1486587944.000000
+!s107 D:/Bash/CSE-141L/Lab 2/ALU/ALU_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/ALU/ALU_tb.sv|
+!i113 1
+R4
+R5
+n@a@l@u_tb

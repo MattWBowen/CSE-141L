@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fetch_unit
-Tue Feb 07 14:58:12 2017
+Wed Feb 08 13:11:04 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -43,7 +43,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Feb 07 14:58:12 2017       ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb 08 13:11:04 2017       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; fetch_unit                                  ;
 ; Top-level Entity Name              ; fetch_unit                                  ;
@@ -259,7 +259,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Tue Feb 07 14:57:59 2017
+    Info: Processing started: Wed Feb 08 13:10:51 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fetch_unit -c fetch_unit
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -269,10 +269,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file if.sv
     Info (12023): Found entity 1: IF File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/IF.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file fetch_unit.sv
     Info (12023): Found entity 1: fetch_unit File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv Line: 1
-Critical Warning (10846): Verilog HDL Instantiation warning at fetch_unit.sv(27): instance has no name File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv Line: 27
 Info (12127): Elaborating entity "fetch_unit" for the top level hierarchy
 Info (12128): Elaborating entity "IF" for hierarchy "IF:if_module" File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv Line: 21
-Info (12128): Elaborating entity "InstROM" for hierarchy "InstROM:comb_3" File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv Line: 27
+Info (12128): Elaborating entity "InstROM" for hierarchy "InstROM:iROM" File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv Line: 27
 Warning (10858): Verilog HDL warning at InstROM.sv(10): object instruction_memory used but never assigned File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/InstROM.sv Line: 10
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "instruction[0]" is stuck at GND File: D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv Line: 8
@@ -302,9 +301,9 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
 Info (21057): Implemented 21 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 12 input pins
     Info (21059): Implemented 9 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
-    Info: Peak virtual memory: 622 megabytes
-    Info: Processing ended: Tue Feb 07 14:58:12 2017
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 625 megabytes
+    Info: Processing ended: Wed Feb 08 13:11:04 2017
     Info: Elapsed time: 00:00:13
     Info: Total CPU time (on all processors): 00:00:28
 

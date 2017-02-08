@@ -11,15 +11,15 @@ Target[4] => Target[4].IN1
 Target[5] => Target[5].IN1
 Target[6] => Target[6].IN1
 Target[7] => Target[7].IN1
-instruction[0] << InstROM:comb_3.InstOut
-instruction[1] << InstROM:comb_3.InstOut
-instruction[2] << InstROM:comb_3.InstOut
-instruction[3] << InstROM:comb_3.InstOut
-instruction[4] << InstROM:comb_3.InstOut
-instruction[5] << InstROM:comb_3.InstOut
-instruction[6] << InstROM:comb_3.InstOut
-instruction[7] << InstROM:comb_3.InstOut
-instruction[8] << InstROM:comb_3.InstOut
+instruction[0] <= InstROM:iROM.InstOut
+instruction[1] <= InstROM:iROM.InstOut
+instruction[2] <= InstROM:iROM.InstOut
+instruction[3] <= InstROM:iROM.InstOut
+instruction[4] <= InstROM:iROM.InstOut
+instruction[5] <= InstROM:iROM.InstOut
+instruction[6] <= InstROM:iROM.InstOut
+instruction[7] <= InstROM:iROM.InstOut
+instruction[8] <= InstROM:iROM.InstOut
 
 
 |fetch_unit|IF:if_module
@@ -31,14 +31,18 @@ Branch => PC.OUTPUTSELECT
 Branch => PC.OUTPUTSELECT
 Branch => PC.OUTPUTSELECT
 Branch => PC.OUTPUTSELECT
-Target[0] => Add0.IN8
-Target[1] => Add0.IN7
-Target[2] => Add0.IN6
-Target[3] => Add0.IN5
-Target[4] => Add0.IN4
-Target[5] => Add0.IN3
-Target[6] => Add0.IN2
+Branch => PC.OUTPUTSELECT
+Branch => PC.OUTPUTSELECT
+Target[0] => Add0.IN20
+Target[1] => Add0.IN19
+Target[2] => Add0.IN18
+Target[3] => Add0.IN17
+Target[4] => Add0.IN16
+Target[5] => Add0.IN15
+Target[6] => Add0.IN14
 Target[7] => Add0.IN1
+Target[7] => Add0.IN12
+Target[7] => Add0.IN13
 start => PC.OUTPUTSELECT
 start => PC.OUTPUTSELECT
 start => PC.OUTPUTSELECT
@@ -47,6 +51,10 @@ start => PC.OUTPUTSELECT
 start => PC.OUTPUTSELECT
 start => PC.OUTPUTSELECT
 start => PC.OUTPUTSELECT
+start => PC.OUTPUTSELECT
+start => PC.OUTPUTSELECT
+Halt => PC.OUTPUTSELECT
+Halt => PC.OUTPUTSELECT
 Halt => PC.OUTPUTSELECT
 Halt => PC.OUTPUTSELECT
 Halt => PC.OUTPUTSELECT
@@ -63,6 +71,8 @@ CLK => PC[4]~reg0.CLK
 CLK => PC[5]~reg0.CLK
 CLK => PC[6]~reg0.CLK
 CLK => PC[7]~reg0.CLK
+CLK => PC[8]~reg0.CLK
+CLK => PC[9]~reg0.CLK
 PC[0] <= PC[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 PC[1] <= PC[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 PC[2] <= PC[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -71,9 +81,11 @@ PC[4] <= PC[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 PC[5] <= PC[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 PC[6] <= PC[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 PC[7] <= PC[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC[8] <= PC[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+PC[9] <= PC[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|fetch_unit|InstROM:comb_3
+|fetch_unit|InstROM:iROM
 InstAddress[0] => ~NO_FANOUT~
 InstAddress[1] => ~NO_FANOUT~
 InstAddress[2] => ~NO_FANOUT~
@@ -82,6 +94,8 @@ InstAddress[4] => ~NO_FANOUT~
 InstAddress[5] => ~NO_FANOUT~
 InstAddress[6] => ~NO_FANOUT~
 InstAddress[7] => ~NO_FANOUT~
+InstAddress[8] => ~NO_FANOUT~
+InstAddress[9] => ~NO_FANOUT~
 InstOut[0] <= <GND>
 InstOut[1] <= <GND>
 InstOut[2] <= <GND>

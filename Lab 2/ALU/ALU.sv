@@ -2,7 +2,6 @@ module ALU(
   input [ 3:0] OP,
   input [7:0] Acc_in,
   input [7:0] Reg_in,
-  input type_bit,
   input overflow_in,
   output logic [7:0] OUT,
   output logic overflow_out
@@ -13,13 +12,9 @@ assign sub = Acc_in - Reg_in;
 
 always_comb 
 begin
+    OUT = 8'b0000_0000;
+    overflow_out = overflow_in;
 
-OUT = 8'b0000_0000;
-overflow_out = overflow_in;
-
-//if type_bit=0, do normal-type instruction
-if(type_bit==1'b0)
-begin
     case(OP)
         //take
         4'b00_00:
@@ -38,7 +33,7 @@ begin
             OUT = Acc_in ^ Reg_in;
         //nand
         4'b01_01:
-            OUT = !(Acc_in & Reg_in);
+            OUT = ~(Acc_in & Reg_in);
         //shl
         4'b01_10:
             OUT = Acc_in << Reg_in;
@@ -76,16 +71,9 @@ begin
             overflow_out = 1'b0;
         //halt
         4'b11_10:;
-        //tba
-        4'b11_11:;
-        default:
-		  begin
-            OUT = 8'b0000_0000;
-            overflow_out = overflow_in;
-		  end
+        //tba   4'b11_11
+        default:;
     endcase
-end //end of if
-	 
 end //end of always_comb
 
 endmodule

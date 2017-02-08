@@ -40,67 +40,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "OP[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[7]",
-					"strict" : false
-				},
-				{
-					"name" : "Acc_in[7]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Acc_in[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Acc_in[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Acc_in[4]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Acc_in[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Acc_in[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Acc_in[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Reg_in[0]",
+					"name" : "OP[0]",
 					"strict" : false
 				},
 				{
@@ -108,15 +48,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "OP[0]",
-					"strict" : false
-				},
-				{
-					"name" : "OP[1]",
-					"strict" : false
-				},
-				{
-					"name" : "overflow_in",
+					"name" : "Reg_in[0]",
 					"strict" : false
 				},
 				{
@@ -124,7 +56,71 @@
 					"strict" : false
 				},
 				{
-					"name" : "type_bit",
+					"name" : "OP[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Acc_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Reg_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "OP[3]",
+					"strict" : false
+				},
+				{
+					"name" : "overflow_in",
 					"strict" : false
 				}
 			]

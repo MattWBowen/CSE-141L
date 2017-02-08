@@ -1,6 +1,7 @@
 module lookup (
   input  [3:0]  key,
-  output[7:0] value);
+  output logic [7:0] value);
+//TODO: add logic to value so it can run in simulation?
 //change the value later for program usage
 always_comb
   case(key)
@@ -20,6 +21,6 @@ always_comb
     4'b1101: value = 8'b1111_1111;
     4'b1110: value = 8'b1111_1111;
     4'b1111: value = 8'b1111_1111;
-	 default: value = 8'b0000_0000;
+	default: value = 8'b0000_0000;
   endcase
 endmodule

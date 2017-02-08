@@ -7,13 +7,13 @@ key[2] => Decoder2.IN1
 key[3] => Decoder0.IN0
 key[3] => Decoder1.IN0
 key[3] => Decoder2.IN0
-value[0] << <VCC>
-value[1] << Decoder2.DB_MAX_OUTPUT_PORT_TYPE
-value[2] << Decoder1.DB_MAX_OUTPUT_PORT_TYPE
-value[3] << Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-value[4] << Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-value[5] << Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-value[6] << Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-value[7] << Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+value[0] <= <VCC>
+value[1] <= Decoder2.DB_MAX_OUTPUT_PORT_TYPE
+value[2] <= Decoder1.DB_MAX_OUTPUT_PORT_TYPE
+value[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+value[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+value[5] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+value[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+value[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 
 

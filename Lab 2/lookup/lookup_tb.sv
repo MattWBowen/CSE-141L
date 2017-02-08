@@ -1,6 +1,6 @@
 module lookup_tb;
 
-    wire [3:0] key;
+    bit [3:0] key;
     wire [7:0] value;
     
 	lookup uut (
@@ -33,13 +33,8 @@ module lookup_tb;
         key = 4;    //expect output value = 1111_1111
         #10ns
         key = 15;    //expect output value = 1111_1111
-        #10ns
-		#550ns $stop;
+        #10ns ;
 	end
 
-  always begin
-     #5ns  CLK = 1;
-     #5ns  CLK = 0 ; // Toggle clock every 5 ticks
-  end
 
 endmodule
