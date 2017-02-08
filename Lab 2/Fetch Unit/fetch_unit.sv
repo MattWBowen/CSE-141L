@@ -21,7 +21,7 @@ module fetch_unit(
             );
     
     //Instruction Memory Module
-    InstROM(
+    InstROM iROM(
             .InstAddress(PC),
             .InstOut(instruction)
             );

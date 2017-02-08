@@ -1,0 +1,108 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Bash/CSE-141L/Lab 2/Fetch Unit
+vfetch_unit
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1486546813
+!i10b 1
+!s100 heWXc:LHmTlGecClb4DAb2
+IlfPXak`Q[Lch]Z3HX2le=1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 fetch_unit_sv_unit
+S1
+R0
+w1486545906
+8D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv
+FD:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1486546813.000000
+!s107 D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit.sv|
+!i113 1
+Z6 o-work work
+Z7 tCvgOpt 0
+vfetch_unit_tb
+R1
+R2
+!i10b 1
+!s100 `m4M>]W@zATIKPQD5lV^o2
+IWHIRX=;YPb[7VcHSMECoA3
+R3
+!s105 fetch_unit_tb_sv_unit
+S1
+R0
+w1486546799
+8D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv
+FD:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/Fetch Unit/fetch_unit_tb.sv|
+!i113 1
+R6
+R7
+vIF
+R1
+R2
+!i10b 1
+!s100 18dQD>eEVF5d2f=9zE4i:3
+Id=ROZE8g_KiBzVmgi`@L42
+R3
+!s105 IF_sv_unit
+S1
+R0
+w1486545035
+8D:/Bash/CSE-141L/Lab 2/Fetch Unit/IF.sv
+FD:/Bash/CSE-141L/Lab 2/Fetch Unit/IF.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Bash/CSE-141L/Lab 2/Fetch Unit/IF.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/Fetch Unit/IF.sv|
+!i113 1
+R6
+R7
+n@i@f
+vInstROM
+R1
+R2
+!i10b 1
+!s100 GgVV]:]6ASd5VAFZNonze3
+I1Ub27ID;gbHWzf:gn5dF23
+R3
+!s105 InstROM_sv_unit
+S1
+R0
+w1486537683
+8D:/Bash/CSE-141L/Lab 2/Fetch Unit/InstROM.sv
+FD:/Bash/CSE-141L/Lab 2/Fetch Unit/InstROM.sv
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/Bash/CSE-141L/Lab 2/Fetch Unit/InstROM.sv|
+!s90 -reportprogress|300|-work|work|D:/Bash/CSE-141L/Lab 2/Fetch Unit/InstROM.sv|
+!i113 1
+R6
+R7
+n@inst@r@o@m

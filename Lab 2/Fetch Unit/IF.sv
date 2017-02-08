@@ -10,9 +10,8 @@ module IF(
     logic [9:0] offset;
 
     //sign extend the Target into an 10 bit offset for PC increment
-    assign offset = Target[7:7]? {2{1}, Target } : {2{0}, Target};
-
-
+    assign offset = Target[7:7]?{2'b11,Target}:{2'b00,Target};
+    
     always_ff@(posedge CLK)
     begin
 	    if(start)
@@ -22,7 +21,7 @@ module IF(
 	    else if(Branch)
 	        PC <= PC + offset;    //relative addressing by offset from assembler
 	    else
-	        PC <= PC+8'b00_0000_0001;
+	        PC <= PC+10'b00_0000_0001;
     end
 
 endmodule
