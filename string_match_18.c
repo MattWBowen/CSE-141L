@@ -60,10 +60,14 @@ int main()
     unsigned char count=0;
 
     //initialize key with specified value
-    key = 13;  //0000 1101, ==> want to search "1101", lower half
+    //key = 13;  //0000 1101, ==> want to search "1101", lower half
+    //key = -46;   //11010010  ==> want to search "0010"
+    key = 255;   //1101 1010   ==> want to search "1010"
 
     //set the string you want to search in
-    string = 219;   //1101 1011 => double match when key is 13
+    //string = 219;   //1101 1011 => double match when key is 13
+    //string = 19;     //0001 0010  => double match when key is -46
+    string = 255;       //1010 1010 => triple match when key is -38
 
     printf("string: ");
     printByte(string);
