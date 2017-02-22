@@ -22,9 +22,9 @@ char isOverFlow(unsigned char a, unsigned char b)
 int main(int argc, char *argv[]){
 
     //a1 = 00000011 = 3, a2 = 11111111 = -1; a1a2 = 1023
-    char a1=3, a2=-1;
+    //char a1=3, a2=-1;
     //b1 = 11111111 = -1, b2 = 11111011 = -5; b1b2 = -5
-    char b1=-1, b2=-5;
+    //char b1=-1, b2=-5;
     /*
     char a1=-1, a2=-95;
     char b1=0, b2=103;
@@ -34,6 +34,14 @@ int main(int argc, char *argv[]){
     char a1=-115, a2=23;
     char b1=-1, b2=-27;
     */
+
+    // 489 x -9823 = -4803447
+    // 489 = 0000_0001 1110_1001, a1 = 1 , a2 = -23
+    // -9823 = 1101_1001 1010_0001, b1 =-39, b2 = -95
+    // -4803447 = 1111_1111 1011_0110 1011_0100 1000_1001
+    // s1=-1, s2=-74, s3=-76 , s4=-119
+    char a1 = 1, a2 = -23;
+    char b1 = -39, b2 = -95;
 
     /*TODO: for test only, clean it later
     printf("a1 = %d\n", a1);

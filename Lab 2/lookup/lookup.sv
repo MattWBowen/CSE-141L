@@ -11,16 +11,16 @@ always_comb
     4'b0011: value = 8'b0010_0000;      // table[3] = 32
     4'b0100: value = 8'b0100_0000;      // table[4] = 64
     4'b0101: value = 8'b0000_0101;      // table[5] = 5
-    4'b0110: value = 8'b1111_1111;      // table[6] =
-    4'b0111: value = 8'b1111_1111;      // table[7] =
-    4'b1000: value = 8'b1111_1111;      // table[8] =
+    4'b0110: value = 8'b0111_1111;      // table[6] = 127
+    4'b0111: value = 8'b0001_0100;      // table[7] = 20
+    4'b1000: value = 8'b0000_1000;      // table[8] = 8
     4'b1001: value = 8'b0000_1001;      // table[9] = 9
     4'b1010: value = 8'b1111_1111;      // table[10] =
     4'b1011: value = 8'b1111_1111;      // table[11] =
     4'b1100: value = 8'b1111_1111;      // table[12] =
-    4'b1101: value = 8'b1111_1111;      // table[13] =
+    4'b1101: value = 8'b1111_1111;      // table[13] = 
     4'b1110: value = 8'b1111_1111;      // table[14] =
-    4'b1111: value = 8'b1111_1111;      // table[15] =
+    4'b1111: value = 8'b1111_1111;      // table[15] = -1
 	default: value = 8'b0000_0000;
   endcase
 endmodule
