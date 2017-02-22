@@ -15,11 +15,11 @@ always_comb
     4'b0111: value = 8'b0001_0100;      // table[7] = 20
     4'b1000: value = 8'b0000_1000;      // table[8] = 8
     4'b1001: value = 8'b0000_1001;      // table[9] = 9
-    4'b1010: value = 8'b1111_1111;      // table[10] =
-    4'b1011: value = 8'b1111_1111;      // table[11] =
-    4'b1100: value = 8'b1111_1111;      // table[12] =
-    4'b1101: value = 8'b1111_1111;      // table[13] = 
-    4'b1110: value = 8'b1111_1111;      // table[14] =
+    4'b1010: value = 8'b0000_0110;      // table[10] = 6
+    4'b1011: value = 8'b0000_0111;      // table[11] = 7
+    4'b1100: value = 8'b1111_1111;      // table[12] = -1
+    4'b1101: value = 8'b1111_1111;      // table[13] = -1
+    4'b1110: value = 8'b1111_1111;      // table[14] = -1
     4'b1111: value = 8'b1111_1111;      // table[15] = -1
 	default: value = 8'b0000_0000;
   endcase
