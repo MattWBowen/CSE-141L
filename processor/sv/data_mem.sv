@@ -17,7 +17,7 @@ module data_mem(
         //$display("Memory read M[%d] = %d",DataAddress,DataOut);
     end 
     else 
-      DataOut = 16'bZ;
+      DataOut = 8'bZ;
 
   always_ff @ (posedge CLK)
     if(WriteMem) begin

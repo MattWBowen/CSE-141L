@@ -1,6 +1,6 @@
 
 module Control(
-    input               TypeBit
+    input               TypeBit,
     input        [3:0]  OP,
     output logic        RegWrite,
     output logic        AccWrite,
@@ -10,7 +10,7 @@ module Control(
     output logic        ReadMem,
     output logic        WriteMem,
     output logic        LookUp,
-    output logic        of0
+    output logic        of0,
     output logic        isMem
 
     );
@@ -23,6 +23,8 @@ module Control(
             Branch      = 1;
             ReadMem     = 0;
             WriteMem    = 0;
+            LookUp      = 0;
+            of0         = 0;
             isMem       = 0;
         end
         else begin
