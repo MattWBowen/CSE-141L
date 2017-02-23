@@ -1,7 +1,7 @@
 module reg_file #(parameter W=8, D=4)(
-    input         CLK,
-	              RegWrite,
-                  AccWrite,
+    input           CLK,
+	            RegWrite,
+                    AccWrite,
     input  [ D-1:0] reg_index,
     input  [ W-1:0] writeValue,
 

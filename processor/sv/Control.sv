@@ -1,105 +1,227 @@
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    18:08:46 02/16/2012 
-// Design Name: 
-// Module Name:    Control 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-import definitions::*;
+
 module Control(
-    input        [3:0] OPCODE,
-    output logic [1:0] ALU_OP,
-    output logic [1:0] ALU_SRC_B,
-    output logic       REG_WRITE,
-    output logic       BRANCH,
-    output logic       MEM_WRITE,
-    output logic       MEM_READ,
-    output logic       REG_DST,
-    output logic       MEM_TO_REG,
-	output logic       HALT
+    input               TypeBit
+    input        [3:0]  OP,
+    output logic        RegWrite,
+    output logic        AccWrite,
+    output logic        start,
+    output logic        Halt,
+    output logic        Branch,
+    output logic        ReadMem,
+    output logic        WriteMem,
+    output logic        LookUp,
+    output logic        of0
+    output logic        isMem
+
     );
-	always_comb	begin
-		
-	  case(OPCODE)
-	  	0 :	begin
-			  REG_DST    = 1;
-			  BRANCH     = 0;
-			  ALU_SRC_B  = 2; 	 // 2 is 0 don't care
-			  ALU_OP     = kADD; 
-			  MEM_TO_REG = 0;	 // use mem read
-			  MEM_READ   = 1;
-			  MEM_WRITE  = 0;
-			  REG_WRITE  = 1;
-			  HALT       = 0;
-		 end
-		 1 : begin
-			  REG_DST    = 0;
-			  BRANCH     = 0;
-			  ALU_SRC_B  = 2'b1; // 1 is SE 3 bit immediate
-			  ALU_OP     = kADD; 
-			  MEM_TO_REG = 1;	 // use alu result
-			  MEM_READ   = 0;
-			  MEM_WRITE  = 0;
-			  REG_WRITE  = 1;
-			  HALT = 0;
-		 end
-		 2 : begin
-			  REG_DST    = 1; 	 // don't care
-			  BRANCH     = 0;
-			  ALU_SRC_B  = 2; 	 // 2 is 0, don't care
-			  ALU_OP     = kADD;
-			  MEM_TO_REG = 1;	 // use alu, don't care
-			  MEM_READ   = 0;
-			  MEM_WRITE  = 1;
-			  REG_WRITE  = 0;
-			  HALT       = 0;
-		  end
-		  3 : begin
-			  REG_DST    = 1;    // don't care
-			  BRANCH     = 1;
-			  ALU_SRC_B  = 2; 	 // 2 is zero
-			  ALU_OP     = kSUB; 
-			  MEM_TO_REG = 1;	 // use alu, don't care
-			  MEM_READ   = 0;
-			  MEM_WRITE  = 0;
-			  REG_WRITE  = 0;
-			  HALT       = 0;
-		  end
-		  15: begin
-			  REG_DST    = 0;    // don't care
-			  BRANCH     = 0;
-			  ALU_SRC_B  = 0; 	 // 2 is zero
-			  ALU_OP     = kADD; 
-			  MEM_TO_REG = 1;	 // use alu, don't care
-			  MEM_READ   = 0;
-			  MEM_WRITE  = 0;
-			  REG_WRITE  = 0;
-			  HALT       = 1;
-		  end
-		  default: begin
-		  	  REG_DST    = 0;
-			  BRANCH     = 0;
-			  ALU_SRC_B  = 2'b0; // 
-			  ALU_OP     = kADD; 
-			  MEM_TO_REG = 1;	 // use alu result
-			  MEM_READ   = 0;
-			  MEM_WRITE  = 0;
-			  REG_WRITE  = 1;
-              HALT = 1;
-		  end
-		endcase
-	end
+    always_comb	begin
+        if(TypeBit==1'b1) begin
+            RegWrite    = 0;
+            AccWrite    = 0;
+            start       = 0;
+            Halt        = 0;
+            Branch      = 1;
+            ReadMem     = 0;
+            WriteMem    = 0;
+            isMem       = 0;
+        end
+        else begin
+            case(OP)
+                0 : begin       //take $reg: $accumulator = $reg
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+
+                end
+                1 : begin       //put $reg: $reg = $accumulator
+                    RegWrite    = 1;
+                    AccWrite    = 0;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                2 : begin       //load $reg: $accumulator = MEM[$reg]
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 1;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 1;
+                end
+                3 : begin       //store $reg: MEM[$reg] = $accumulator
+                    RegWrite    = 0;
+                    AccWrite    = 0;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 1;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                4 : begin       //xor $reg: $accumulator = $accumulator ^ $reg
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                5 : begin       //nand $reg: accumulator = $accumulator nand $reg
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                6 : begin       //shl $reg: accumulator = $accumulator << $reg
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end            
+                7 : begin       //shr $reg: $accumulator = $accumulator >> $reg
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                8 : begin       //lookup key: $accumulator = table [key]
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 1;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                9 : begin       //lsn $reg: if $accumulator < $reg, $accumulator = 1, else accumulator = 0
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                10 : begin      //eql $reg: if $accumulator == $reg, $accumulator = 1, else $accumulator = 0
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                11 : begin      //add $reg: $accumulator = $accumulator + $reg
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                12 : begin      //sub $reg: $accumulator = $accumulator - $reg
+                    RegWrite    = 0;
+                    AccWrite    = 1;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                13 : begin      //of0: set overflow bit register to zero 
+                    RegWrite    = 0;
+                    AccWrite    = 0;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 1;
+                    isMem       = 0;
+                end
+                14 : begin      //halt: PC <= PC
+                    RegWrite    = 0;
+                    AccWrite    = 0;
+                    start       = 0;
+                    Halt        = 1;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+                default : begin //tba
+                    RegWrite    = 0;
+                    AccWrite    = 0;
+                    start       = 0;
+                    Halt        = 0;
+                    Branch      = 0;
+                    ReadMem     = 0;
+                    WriteMem    = 0;
+                    LookUp      = 0;
+                    of0         = 0;
+                    isMem       = 0;
+                end
+            endcase
+        end // end else
+    end // end always_comb logic
 
 endmodule

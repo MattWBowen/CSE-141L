@@ -4,7 +4,7 @@ module fetch_unit(
     input Halt,
     input Branch,
     input [7:0] Target,
-	output [8:0] instruction 
+    output [8:0] instruction 
 );
 
     //pc counter between IF module and InstROM

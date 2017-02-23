@@ -21,6 +21,6 @@ always_comb
     4'b1101: value = 8'b1111_1111;      // table[13] = -1
     4'b1110: value = 8'b1111_1111;      // table[14] = -1
     4'b1111: value = 8'b1111_1111;      // table[15] = -1
-	default: value = 8'b0000_0000;
+    default: value = 8'b0000_0000;
   endcase
 endmodule
