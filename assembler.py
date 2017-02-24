@@ -103,7 +103,7 @@ if __name__ == "__main__":
 
             # get label in the current line
             if ':' in line:
-                label = line.split(':', 1)[0]
+                label = line.split(':', 1)[0].strip()
                 instr = line.split(':', 1)[1]
             else:
                 label = ''

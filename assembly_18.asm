@@ -129,7 +129,7 @@ OUT_FIVE:
         add r0              #acc = 2+2 = 4 TODO: acc+acc
         eql r11
         put r15
-        takei #0
+        lookup 0
         eql r15
         b0 QUADRUPLE
 
@@ -227,9 +227,3 @@ OUT_LOAD_MEM:
 
         take r5
         store r9                #mem[r9] = mem[14] = r5 = quintuple_match
-END
-
-
-
-
-

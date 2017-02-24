@@ -52,24 +52,24 @@
     put r10     #sign_b = r10
 
 
-    /* complex condition unrolling
-    if((r9==1 && r10==0) || (r9==0 && r10==1))
-
-    isNeg=0
-    if(r9==1)
-    {
-        if(r10==0)
-            isNeg=1;
-    }
-    if(all==0)
-    {
-        if(r9==0)
-        {
-            if(r10==1)
-                isNeg=1;
-        }
-    }
-    */
+#    complex condition unrolling
+#    if((r9==1 && r10==0) || (r9==0 && r10==1))
+#
+#    isNeg=0
+#    if(r9==1)
+#    {
+#        if(r10==0)
+#            isNeg=1;
+#    }
+#    if(all==0)
+#    {
+#        if(r9==0)
+#        {
+#            if(r10==1)
+#                isNeg=1;
+#        }
+#    }
+#    
 
     lookup 0
     put r11         #initialize: isNeg=0
@@ -98,7 +98,6 @@ S_1:
     lookup 1
     put r11         #isNeg=1
     
-    //-----------------------------------
 S_2:
 
     #do 2's complement on A and B
@@ -519,5 +518,3 @@ SKIP:
     put r1      #r1 = 8
     take r8     #acc = r8 = s4
     store r1    #mem[8] = s4 (r8)
-
-END
