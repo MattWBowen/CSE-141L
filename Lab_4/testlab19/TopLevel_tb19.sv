@@ -91,7 +91,7 @@ initial begin
 // for diagnostics, also display where we found the max.
     	$display("testbench max: ",ham_max,,indi,,indj);
 // DUT's histogram
-        $display("DUT       max: ",ham_max);
+        $display("DUT       max: ",DUT.data_mem1.my_memory[127]);
         $display("cycle count = %d",cycle_ct);
 //        $display("instruction = %d %t",DUT.PC,$time);
   #10ns $stop;			   
