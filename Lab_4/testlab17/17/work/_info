@@ -1,0 +1,246 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Altera/15.0
+vALU
+Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+Z1 !s110 1488928388
+!i10b 1
+!s100 j?dH_ZfJkYM>1ALVU_7?R3
+IQE?@3bJiQ_U_GebU>z6l13
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+!s105 ALU_sv_unit
+S1
+Z3 dC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/17
+Z4 w1488925968
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv
+L0 1
+Z5 OV;L;10.3d;59
+r1
+!s85 0
+31
+!s108 1488928388.959000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv|
+!i113 1
+Z6 o-work work -sv
+n@a@l@u
+vControl
+R0
+Z7 !s110 1488928389
+!i10b 1
+!s100 jbGkIkE4GKhdj`M=ATDd63
+ILP0BS:LeV>IX<6SRSLVIU3
+R2
+!s105 Control_sv_unit
+S1
+R3
+R4
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1488928389.025000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv|
+!i113 1
+R6
+n@control
+vdata_mem
+R0
+R7
+!i10b 1
+!s100 g6Ye:9k<_8=]BDAIQ1=hI1
+Ide7AQek^LGROFh2436>6A3
+R2
+!s105 data_mem_sv_unit
+S1
+R3
+R4
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1488928389.072000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv|
+!i113 1
+R6
+vfetch_unit
+R0
+R7
+!i10b 1
+!s100 heWXc:LHmTlGecClb4DAb2
+I1432GBn6oQ?YGEo:]O4j60
+R2
+!s105 fetch_unit_sv_unit
+S1
+R3
+R4
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1488928389.103000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv|
+!i113 1
+R6
+vIF
+R0
+R7
+!i10b 1
+!s100 0U3YSW^58lm_99RaRA^aU0
+Iao8OL2c]b]42n<[_4X;K80
+R2
+!s105 IF_sv_unit
+S1
+R3
+R4
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1488928389.150000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv|
+!i113 1
+R6
+n@i@f
+vInstROM
+R0
+R7
+!i10b 1
+!s100 MG79lc8Kf41EnH:H_En7>2
+I:;5DE?ejXjKTK^Y>@3YWD0
+R2
+!s105 InstROM_sv_unit
+S1
+R3
+R4
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1488928389.212000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv|
+!i113 1
+R6
+n@inst@r@o@m
+vlookup
+R0
+R7
+!i10b 1
+!s100 zXm^SRPL>5E[SfLHc4g?^2
+I@g00?ggY36;EWd:WV62O]3
+R2
+!s105 lookup_sv_unit
+S1
+R3
+R4
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/lookup.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/lookup.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1488928389.259000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/lookup.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/lookup.sv|
+!i113 1
+R6
+vreg_file
+R0
+R7
+!i10b 1
+!s100 hKkHSfI6CDJS<EGhG4`9_0
+ICa;k6]O7cie9nB>@mceIY3
+R2
+!s105 reg_file_sv_unit
+S1
+R3
+R4
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/reg_file.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/reg_file.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1488928389.306000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/reg_file.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/reg_file.sv|
+!i113 1
+R6
+vTopLevel
+R0
+R1
+!i10b 1
+!s100 33RYSK[1h2SKc1U:N9YLQ1
+I5LP3jXCjVScdUOQZ]OXeF2
+R2
+!s105 TopLevel_sv_unit
+S1
+R3
+w1488927646
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/TopLevel.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/TopLevel.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1488928388.926000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/TopLevel.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/TopLevel.sv|
+!i113 1
+R6
+n@top@level
+vTopLevel_tb17
+R0
+R1
+!i10b 1
+!s100 XAc_iPW7WlOHA2=53z6g<0
+ILg][<Po6`NoO:OBOQ]^F22
+R2
+!s105 TopLevel_tb17_sv_unit
+S1
+R3
+w1488928384
+8C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv
+FC:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv
+L0 15
+R5
+r1
+!s85 0
+31
+!s108 1488928388.880000
+!s107 C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv|
+!i113 1
+R6
+n@top@level_tb17

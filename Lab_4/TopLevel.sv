@@ -56,7 +56,7 @@ module TopLevel(
         
     );
     
-    reg_file rf(
+    reg_file reg_file1(
         .CLK,
         .RegWrite,
         .AccWrite,
@@ -83,7 +83,7 @@ module TopLevel(
         .value(lookup_value)
     );
 
-    data_mem mem(
+    data_mem data_mem(
         .CLK,
         .DataAddress(ALU_out),
         .ReadMem,
