@@ -227,3 +227,4 @@ OUT_LOAD_MEM:
 
         take r5
         store r9                #mem[r9] = mem[14] = r5 = quintuple_match
+        halt

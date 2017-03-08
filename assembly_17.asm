@@ -518,3 +518,4 @@ SKIP:
     put r1      #r1 = 8
     take r8     #acc = r8 = s4
     store r1    #mem[8] = s4 (r8)
+    halt

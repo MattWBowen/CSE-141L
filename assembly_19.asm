@@ -108,3 +108,4 @@ put r4			#r4 = byte = acc = 0
 ReturnResult:
 take r2		#acc = r2 = biggestHamDist
 store r11		#mem[127] = acc = biggestHamDist
+halt
