@@ -22,10 +22,10 @@ module TopLevel_tb19;     // Lab 18
   wire halt;		      // done/finished flag
 
 // Instantiate the Device Under Test (DUT)
-  dummy_dut19 DUT (
+  TopLevel DUT (
 	.start       (start), 
 	.CLK         (CLK)  , 
-	.halt             	  // equiv. to .halt (halt)
+	.Halt        (halt)     	  // equiv. to .halt (halt)
 	);
   logic [3:0] ham, ham_max;
   logic [7:0] mymem[256]; // fake memory in testbench
@@ -49,14 +49,14 @@ initial begin
 // Initialize DUT's data memory
 // edit index limit for size other than 256 elements
   #10ns for(int i=0; i<256; i++) begin
-    DUT.data_mem1.my_memory[i] = 8'h0;	     // clear data_mem
+    DUT.data_mem.my_memory[i] = 8'h0;	     // clear data_mem
     mymem[i] = 8'b0;
   end
 // load 20 random unsigned bytes into data_memory
   for(int j=128; j<148; j++) begin
     jaldo = $random;
     mymem[j] = jaldo;
-    DUT.data_mem1.my_memory[j] = jaldo;  // 
+    DUT.data_mem.my_memory[j] = jaldo;  // 
 	$display("%d  %b",j,jaldo);
 	#10ns;// $displayb(mymem[j]);
   end
@@ -91,7 +91,7 @@ initial begin
 // for diagnostics, also display where we found the max.
     	$display("testbench max: ",ham_max,,indi,,indj);
 // DUT's histogram
-        $display("DUT       max: ",DUT.data_mem1.my_memory[127]);
+        $display("DUT       max: ",DUT.data_mem.my_memory[127]);
         $display("cycle count = %d",cycle_ct);
 //        $display("instruction = %d %t",DUT.PC,$time);
   #10ns $stop;			   

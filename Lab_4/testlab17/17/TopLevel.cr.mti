@@ -1,30 +1,16 @@
-C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module data_mem
-
-Top level modules:
-	data_mem
-
-} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv
+C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/InstROM.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module InstROM
 
 Top level modules:
 	InstROM
 
-} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv
+} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/data_mem.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Control
+-- Compiling module data_mem
 
 Top level modules:
-	Control
-
-} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module fetch_unit
-
-Top level modules:
-	fetch_unit
+	data_mem
 
 } {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/reg_file.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/reg_file.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -33,12 +19,26 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	reg_file
 
-} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv
+} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/fetch_unit.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ALU
+-- Compiling module fetch_unit
 
 Top level modules:
-	ALU
+	fetch_unit
+
+} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/Control.sv
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Control
+
+Top level modules:
+	Control
+
+} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module TopLevel_tb17
+
+Top level modules:
+	TopLevel_tb17
 
 } {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/lookup.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/lookup.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -47,12 +47,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	lookup
 
-} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv
+} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/ALU.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module IF
+-- Compiling module ALU
 
 Top level modules:
-	IF
+	ALU
 
 } {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/TopLevel.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/TopLevel.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -60,5 +60,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	TopLevel
+
+} {} {}} C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv {1 {vlog -work work -sv -stats=none C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/IF.sv
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module IF
+
+Top level modules:
+	IF
 
 } {} {}}

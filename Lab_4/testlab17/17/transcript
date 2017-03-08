@@ -144,3 +144,65 @@ run -all
 # ** Note: $stop    : C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(81)
 #    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
 # Break in Module TopLevel_tb17 at C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv line 81
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+# dut_result = 0000_0000
+# bench_rslt = ffae a36e
+# cycle count =         178
+# ** Note: $stop    : C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(81)
+#    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv line 81
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+#   4629  -16247
+# dut_result = 0000_0000
+# bench_rslt = fb84 6d3d
+# cycle count =         178
+# ** Note: $stop    : C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(84)
+#    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv line 84
+quit -sim
