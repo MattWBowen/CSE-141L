@@ -1,3 +1,4 @@
+# Compile of TopLevel_tb17.sv was successful.
 # Compile of TopLevel.sv was successful.
 # Compile of ALU.sv was successful.
 # Compile of Control.sv was successful.
@@ -7,80 +8,21 @@
 # Compile of InstROM.sv was successful.
 # Compile of lookup.sv was successful.
 # Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
 # Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
 # 10 compiles, 0 failed with no errors.
 vsim -gui work.TopLevel_tb17
 # vsim -gui 
-# Start time: 14:52:10 on Mar 07,2017
-# Loading sv_std.std
-# Loading work.TopLevel_tb17
-# ** Error: (vsim-3033) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(25): Instantiation of 'dummy_dut17' failed. The design unit was not found.
-# 
-#         Region: /TopLevel_tb17
-#         Searched libraries:
-#             C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/17/work
-# Error loading design
-# Compile of TopLevel_tb17.sv was successful.
-# Compile of TopLevel.sv was successful.
-# Compile of ALU.sv was successful.
-# Compile of Control.sv was successful.
-# Compile of data_mem.sv was successful.
-# Compile of fetch_unit.sv was successful.
-# Compile of IF.sv was successful.
-# Compile of InstROM.sv was successful.
-# Compile of lookup.sv was successful.
-# Compile of reg_file.sv was successful.
-# 10 compiles, 0 failed with no errors.
-vsim -gui work.TopLevel_tb17
-# vsim 
-# Start time: 14:59:14 on Mar 07,2017
-# Loading sv_std.std
-# Loading work.TopLevel_tb17
-# Loading work.TopLevel
-# Loading work.fetch_unit
-# Loading work.IF
-# Loading work.InstROM
-# Loading work.Control
-# Loading work.reg_file
-# Loading work.ALU
-# Loading work.lookup
-# Loading work.data_mem
-# ** Warning: (vsim-3008) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(69): [CNNODP] - Component name (PC) is not on a downward path.
-# 
-#         Region: /TopLevel_tb17
-# ** Error: (vsim-3043) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(69): Unresolved reference to 'PC' in DUT.PC.
-# 
-#         Region: /TopLevel_tb17
-# ** Warning: (vsim-3008) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(39): [CNNODP] - Component name (data_mem) is not on a downward path.
-# 
-#         Region: /TopLevel_tb17
-# ** Error: (vsim-3043) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(39): Unresolved reference to 'data_mem' in DUT.data_mem.
-# 
-#         Region: /TopLevel_tb17
-# ** Warning: (vsim-3008) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(54): [CNNODP] - Component name (reg_file1) is not on a downward path.
-# 
-#         Region: /TopLevel_tb17
-# ** Error: (vsim-3043) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(54): Unresolved reference to 'reg_file1' in DUT.reg_file1.
-# 
-#         Region: /TopLevel_tb17
-# ** Error: (vsim-3063) C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(25): Port 'halt' not found in the connected module (3rd connection).
-# 
-#         Region: /TopLevel_tb17/DUT
-# Error loading design
-# Compile of TopLevel_tb17.sv was successful.
-# Compile of TopLevel.sv was successful.
-# Compile of ALU.sv was successful.
-# Compile of Control.sv was successful.
-# Compile of data_mem.sv was successful.
-# Compile of fetch_unit.sv was successful.
-# Compile of IF.sv was successful.
-# Compile of InstROM.sv was successful.
-# Compile of lookup.sv was successful.
-# Compile of reg_file.sv was successful.
-# 10 compiles, 0 failed with no errors.
-vsim -gui work.TopLevel_tb17
-# vsim 
-# Start time: 15:13:17 on Mar 07,2017
+# Start time: 12:55:16 on Mar 08,2017
 # Loading sv_std.std
 # Loading work.TopLevel_tb17
 # Loading work.TopLevel
@@ -102,7 +44,103 @@ sim:/TopLevel_tb17/Prod \
 sim:/TopLevel_tb17/cycle_ct
 run -all
 #   4629  -16247
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
 run -all
-run -continue
-# End time: 15:15:28 on Mar 07,2017, Elapsed time: 0:02:11
-# Errors: 0, Warnings: 0
+#   4629  -16247
+# dut_result = 0000_0000
+# bench_rslt = fb84 6d3d
+# cycle count =         178
+# ** Note: $stop    : C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(71)
+#    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv line 71
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+#   4629  -16247
+# dut_result = 0000_0000
+# bench_rslt = fb84 6d3d
+# cycle count =         178
+# ** Note: $stop    : C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(71)
+#    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv line 71
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+# dut_result = 0000_0000
+# bench_rslt = 0000 0000
+# cycle count =         178
+# ** Note: $stop    : C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(78)
+#    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv line 78
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+# dut_result = 0000_0000
+# bench_rslt = ffae a36e
+# cycle count =         178
+# ** Note: $stop    : C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv(81)
+#    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at C:/Users/zhl108/Desktop/git/CSE-141L/Lab_4/testlab17/TopLevel_tb17.sv line 81
