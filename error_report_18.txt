@@ -1,0 +1,99 @@
+# last instruction is 010000000	//lookup 0
+# last instruction is 000010001	//put r1
+# last instruction is 000010010	//put r2
+# last instruction is 000010011	//put r3
+# last instruction is 000010100	//put r4
+# last instruction is 000010101	//put r5
+# last instruction is 010001001	//lookup 9
+# last instruction is 000011110	//put r14
+# last instruction is 000101110	//load r14
+# last instruction is 000011000	//put r8
+# last instruction is 010000010 //lookup 2
+# last instruction is 010110000	//add r0
+# last instruction is 000011111	//put r15
+# last instruction is 000001000	//take r8
+# last instruction is 001101111 //shl r15
+# last instruction is 001111111	//shr r15
+# last instruction is 000011000	//put r8
+# last instruction is 010000011	//lookup r3
+# last instruction is 000011110 //put r14
+# last instruction is 010000000	//lookup 0
+# last instruction is 000011100	//put r12
+# last instruction is 010000000	//lookup 0
+# last instruction is 000011011	//put r11
+# last instruction is 000101110	//load r14
+
+
+# last instruction is 000010110	//put r6
+# last instruction is 010000000	//lookup 0
+# last instruction is 000011101	//put r13
+# last instruction is 000000110	//take r6
+# last instruction is 001101101	//shl r13
+# last instruction is 001111101	//shr r13
+# last instruction is 000010111	//put r7
+# last instruction is 010000010 //lookup 2
+# last instruction is 010110000	//add r0
+# last instruction is 011001101	//sub r13
+# last instruction is 000010110	//put r6
+# last instruction is 000000111	//take r7
+# last instruction is 001100110	//shl r6
+# last instruction is 000010111 //put r7
+# last instruction is 001001000	//xor r8
+# last instruction is 000011010	//put r10
+# last instruction is 010000000	//lookup 0
+# last instruction is 010101010	//eql r10
+# last instruction is 100000100	//b0 offset=4
+# last instruction is 010000101	//lookup 5
+# last instruction is 000011111	//put r15
+# last instruction is 010000001	//lookup 1
+# last instruction is 010111101	//add r13
+# last instruction is 000011101	//put r13
+# last instruction is 010011111	//lsn r15
+# last instruction is 100000011	//b0 offset=3 error! should not jump to SKIP
+# last instruction is 010000001	//lookup 1
+# last instruction is 010101011	//eql r11
+# last instruction is 000011111
+# last instruction is 010000000
+# last instruction is 010101111
+# last instruction is 100011111
+# last instruction is 010000001
+# last instruction is 010110001
+# last instruction is 000010001
+# last instruction is 010000000
+# last instruction is 100010011
+# last instruction is 010000001
+# last instruction is 010111110
+# last instruction is 000011110
+# last instruction is 010000100
+# last instruction is 000011111
+# last instruction is 010000001
+# last instruction is 010111100
+# last instruction is 000011100
+# last instruction is 010011111
+# last instruction is 100000011
+# last instruction is 010000101
+# last instruction is 010110000
+# last instruction is 000011001
+# last instruction is 000000001
+# last instruction is 000111001
+# last instruction is 010000001
+# last instruction is 010111001
+# last instruction is 000011001
+# last instruction is 000000010
+# last instruction is 000111001
+# last instruction is 010000001
+# last instruction is 010111001
+# last instruction is 000011001
+# last instruction is 000000011
+# last instruction is 000111001
+# last instruction is 010000001
+# last instruction is 010111001
+# last instruction is 000011001
+# last instruction is 000000100
+# last instruction is 000111001
+# last instruction is 010000001
+# last instruction is 010111001
+# last instruction is 000011001
+# last instruction is 000000101
+# last instruction is 000111001
+# last instruction is 011100000
