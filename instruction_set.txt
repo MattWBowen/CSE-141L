@@ -1,0 +1,18 @@
+b0:     1_iiii_iiii 
+
+take:   0_0000_xxxx
+put:    0_0001_xxxx
+load:   0_0010_xxxx
+store:  0_0011_xxxx
+xor:    0_0100_xxxx
+nand:   0_0101_xxxx
+shl:    0_0110_xxxx
+shr:    0_0111_xxxx
+lookup: 0_1000_xxxx
+lsn:    0_1001_xxxx
+eql:    0_1010_xxxx
+add:    0_1011_xxxx
+sub:    0_1100_xxxx
+of0:    0_1101_xxxx
+halt:   0_1110_xxxx
+tba:    0_1111_xxxx
