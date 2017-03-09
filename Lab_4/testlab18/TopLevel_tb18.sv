@@ -34,7 +34,7 @@ module TopLevel_tb18;     // Lab 18
   int cycle_ct;           // clock cycle counter
 initial begin
   start = 1'b1;		      // initialize PC; freeze everything temporarily
-  $readmemb("machine_code_18.txt", core);
+  $readmemb("machine_code_18.txt", DUT.IF.iROM.instruction_memory);
 
 // Initialize DUT's data memory
 // edit index limit for size other than 256 elements
@@ -72,7 +72,7 @@ initial begin
 
 
   #10ns start = 0;
-
+/*
 while(!halt)
 begin
 	#10ns 
@@ -82,6 +82,7 @@ begin
 	end
 		$display("\n");
 end
+*/
 	
 // Wait for done flag, then display results
 

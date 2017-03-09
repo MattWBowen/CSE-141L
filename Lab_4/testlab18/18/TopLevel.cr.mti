@@ -1,9 +1,9 @@
-H:/zhi/CSE-141L/Lab_4/data_mem.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/data_mem.sv
+H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module data_mem
+-- Compiling module TopLevel_tb18
 
 Top level modules:
-	data_mem
+	TopLevel_tb18
 
 } {} {}} H:/zhi/CSE-141L/Lab_4/InstROM.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/InstROM.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -12,19 +12,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	InstROM
 
-} {} {}} H:/zhi/CSE-141L/Lab_4/Control.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/Control.sv
+} {} {}} H:/zhi/CSE-141L/Lab_4/data_mem.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/data_mem.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module Control
+-- Compiling module data_mem
 
 Top level modules:
-	Control
-
-} {} {}} H:/zhi/CSE-141L/Lab_4/fetch_unit.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/fetch_unit.sv
-Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module fetch_unit
-
-Top level modules:
-	fetch_unit
+	data_mem
 
 } {} {}} H:/zhi/CSE-141L/Lab_4/reg_file.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/reg_file.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -33,12 +26,19 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	reg_file
 
-} {} {}} H:/zhi/CSE-141L/Lab_4/ALU.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/ALU.sv
+} {} {}} H:/zhi/CSE-141L/Lab_4/fetch_unit.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/fetch_unit.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module ALU
+-- Compiling module fetch_unit
 
 Top level modules:
-	ALU
+	fetch_unit
+
+} {} {}} H:/zhi/CSE-141L/Lab_4/Control.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/Control.sv
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module Control
+
+Top level modules:
+	Control
 
 } {} {}} H:/zhi/CSE-141L/Lab_4/lookup.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/lookup.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -47,12 +47,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 Top level modules:
 	lookup
 
-} {} {}} H:/zhi/CSE-141L/Lab_4/TopLevel.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/TopLevel.sv
+} {} {}} H:/zhi/CSE-141L/Lab_4/ALU.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/ALU.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
--- Compiling module TopLevel
+-- Compiling module ALU
 
 Top level modules:
-	TopLevel
+	ALU
 
 } {} {}} H:/zhi/CSE-141L/Lab_4/IF.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/IF.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
@@ -60,5 +60,12 @@ Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 
 Top level modules:
 	IF
+
+} {} {}} H:/zhi/CSE-141L/Lab_4/TopLevel.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/TopLevel.sv
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module TopLevel
+
+Top level modules:
+	TopLevel
 
 } {} {}}
