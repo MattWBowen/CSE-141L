@@ -72,7 +72,7 @@ FIVE:
         
         #temp_string = temp_string << (4-i)
         take r7             #acc = temp_string
-        shl r6              #shift right (4-i), acc = temp_string >> (4-i)
+        shr r6              #shift right (4-i), acc = temp_string >> (4-i)
         put r7              #store the result back to temp_string
 
         #result = temp_string ^ key
