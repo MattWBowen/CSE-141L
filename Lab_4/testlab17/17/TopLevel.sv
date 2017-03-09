@@ -34,7 +34,7 @@ module TopLevel(
         .start,
         .CLK,
         .Halt,
-        .Branch,
+        .Branch ((Branch && (Acc_out==8'b0000_0000))),
         .Target(Instruction[7:0]),
         //below is output
         .instruction(Instruction)

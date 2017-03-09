@@ -101,7 +101,7 @@ end
 		    (mymem[l][5:2]==waldo) + 
 		    (mymem[l][4:1]==waldo) + 
 		    (mymem[l][3:0]==waldo)  ;
-//          $display("match ",match);
+          //$display("match ",match);
 		  case(match)
 		    1: match_ct[1]=match_ct[1]+1;
 			2: match_ct[2]=match_ct[2]+1;

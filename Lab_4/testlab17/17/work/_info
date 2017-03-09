@@ -10,7 +10,7 @@ cModel Technology
 dC:/Altera/15.0
 vALU
 Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
-Z1 !s110 1489022808
+Z1 !s110 1489044755
 !i10b 1
 !s100 j?dH_ZfJkYM>1ALVU_7?R3
 Iab1AA1z[ChRfo@SeBU5Vc1
@@ -26,7 +26,7 @@ Z5 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1489022808.482000
+!s108 1489044755.158000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/ALU.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/ALU.sv|
 !i113 1
@@ -50,7 +50,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022808.607000
+!s108 1489044755.330000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/Control.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/Control.sv|
 !i113 1
@@ -74,7 +74,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022808.748000
+!s108 1489044755.486000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/data_mem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/data_mem.sv|
 !i113 1
@@ -97,14 +97,14 @@ R5
 r1
 !s85 0
 31
-!s108 1489022808.904000
+!s108 1489044755.626000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/fetch_unit.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/fetch_unit.sv|
 !i113 1
 R6
 vIF
 R0
-Z7 !s110 1489022809
+R1
 !i10b 1
 !s100 0U3YSW^58lm_99RaRA^aU0
 Iffi?0;Mn_?aUNAb6FCKlA3
@@ -120,7 +120,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022809.028000
+!s108 1489044755.766000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/IF.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/IF.sv|
 !i113 1
@@ -128,7 +128,7 @@ R6
 n@i@f
 vInstROM
 R0
-R7
+R1
 !i10b 1
 !s100 MG79lc8Kf41EnH:H_En7>2
 I=YAVBk6l4zW=e3@>K7TYW2
@@ -144,7 +144,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022809.184000
+!s108 1489044755.907000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/InstROM.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/InstROM.sv|
 !i113 1
@@ -152,7 +152,7 @@ R6
 n@inst@r@o@m
 vlookup
 R0
-R7
+Z7 !s110 1489044756
 !i10b 1
 !s100 zXm^SRPL>5E[SfLHc4g?^2
 IcSML5H4C1`G7D@l=;PPSa0
@@ -168,7 +168,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022809.325000
+!s108 1489044756.063000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/lookup.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/lookup.sv|
 !i113 1
@@ -191,7 +191,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022809.465000
+!s108 1489044756.203000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/reg_file.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/reg_file.sv|
 !i113 1
@@ -200,13 +200,13 @@ vTopLevel
 R0
 R1
 !i10b 1
-!s100 33RYSK[1h2SKc1U:N9YLQ1
-I<=U4OZi_AHRHTT3W@4Nk;3
+!s100 HZ[LoEX]bZPk?HmFmFQ^f2
+IBRE8MiFb:?OQ0k`ZfTN6X1
 R2
 !s105 TopLevel_sv_unit
 S1
 R3
-R4
+w1489044657
 8H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel.sv
 FH:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel.sv
 L0 2
@@ -214,7 +214,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022808.342000
+!s108 1489044754.986000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel.sv|
 !i113 1
@@ -222,15 +222,15 @@ R6
 n@top@level
 vTopLevel_tb17
 R0
-R1
+!s110 1489044754
 !i10b 1
-!s100 RI2RjHT3mnOXf>I^=7Ea03
-I_bQHC6I[6A<gLh>671L9@0
+!s100 n2T0DhUZ<QPMD@[mA94]S3
+I31Z`oBL<DE5Ag5]ImEhj03
 R2
 !s105 TopLevel_tb17_sv_unit
 S1
 R3
-w1489022806
+w1489044739
 8H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv
 FH:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv
 L0 15
@@ -238,7 +238,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489022808.170000
+!s108 1489044754.752000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv|
 !i113 1

@@ -1,4 +1,11 @@
-H:/zhi/CSE-141L/Lab_4/data_mem.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/data_mem.sv
+H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv
+Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+-- Compiling module TopLevel_tb18
+
+Top level modules:
+	TopLevel_tb18
+
+} {} {}} H:/zhi/CSE-141L/Lab_4/data_mem.sv {1 {vlog -work work -sv -stats=none H:/zhi/CSE-141L/Lab_4/data_mem.sv
 Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling module data_mem
 

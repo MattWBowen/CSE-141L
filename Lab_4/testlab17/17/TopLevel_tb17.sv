@@ -39,6 +39,7 @@ initial begin
     DUT.data_mem.my_memory[i] = 8'h0;	     // clear data_mem
   end
 // $random returns a 32-bit integer; we'll take the top half
+
     OpA = ($random)>>16;
 	OpB = ($random)>>16;
 	$display(OpA,,,OpB);
@@ -48,6 +49,14 @@ initial begin
     DUT.data_mem.my_memory[4] = OpB[ 7: 0];
 
 /* TODO: test 0 x op, op x 0 and 1 x op and overflow case */
+/*  OpA = 1234;
+	OpB = -4321;
+	$display(OpA,,,OpB);
+    DUT.data_mem.my_memory[1] = OpA[15: 8];  // MSW of operand A
+    DUT.data_mem.my_memory[2] = OpA[ 7: 0];
+    DUT.data_mem.my_memory[3] = OpB[15: 8];  // MSW of operand B
+    DUT.data_mem.my_memory[4] = OpB[ 7: 0];
+*/
 
 // students may also pre_load desired constants into any 
 //  part of data_mem 

@@ -54,7 +54,7 @@ initial begin
     jaldo = $random;
     mymem[j] = jaldo;
     DUT.data_mem.my_memory[j] = jaldo;  // 
-	#10ns; $displayb("%d: %b",j, mymem[j]);
+	#10ns; $displayb("%d: %b",j, DUT.data_mem.memory[j]);
   end
 
 // students may also pre_load desired constants into any 
@@ -101,7 +101,7 @@ end
 		    (mymem[l][5:2]==waldo) + 
 		    (mymem[l][4:1]==waldo) + 
 		    (mymem[l][3:0]==waldo)  ;
-//          $display("match ",match);
+          //$display("match ",match);
 		  case(match)
 		    1: match_ct[1]=match_ct[1]+1;
 			2: match_ct[2]=match_ct[2]+1;
@@ -113,10 +113,10 @@ end
 // testbench's histogram
     	$display("testbench histogram: ",match_ct[1],,match_ct[2],,match_ct[3],,match_ct[4],,match_ct[5]);
 // DUT's histogram
-        $display("DUT       histogram: ",DUT.data_mem.my_memory[10],
-				 DUT.data_mem.my_memory[11],
-				 DUT.data_mem.my_memory[12],
-				 DUT.data_mem.my_memory[13],
+        $display("DUT       histogram: ",DUT.data_mem.my_memory[10],,
+				 DUT.data_mem.my_memory[11],,
+				 DUT.data_mem.my_memory[12],,
+				 DUT.data_mem.my_memory[13],,
 				 DUT.data_mem.my_memory[14]);
         $display("cycle count = %d",cycle_ct);
 //        $display("instruction = %d %t",DUT.PC,$time);

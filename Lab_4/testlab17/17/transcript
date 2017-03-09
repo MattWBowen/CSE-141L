@@ -1,4 +1,4 @@
-# Compile of TopLevel_tb18.sv was successful.
+# Compile of TopLevel_tb17.sv was successful.
 # Compile of TopLevel.sv was successful.
 # Compile of ALU.sv was successful.
 # Compile of Control.sv was successful.
@@ -9,7 +9,7 @@
 # Compile of lookup.sv was successful.
 # Compile of reg_file.sv was successful.
 # 10 compiles, 0 failed with no errors.
-# Compile of TopLevel_tb18.sv was successful.
+# Compile of TopLevel_tb17.sv was successful.
 # Compile of TopLevel.sv was successful.
 # Compile of ALU.sv was successful.
 # Compile of Control.sv was successful.
@@ -20,34 +20,11 @@
 # Compile of lookup.sv was successful.
 # Compile of reg_file.sv was successful.
 # 10 compiles, 0 failed with no errors.
-# Compile of TopLevel_tb18.sv was successful.
-# Compile of TopLevel.sv was successful.
-# Compile of ALU.sv was successful.
-# Compile of Control.sv was successful.
-# Compile of data_mem.sv was successful.
-# Compile of fetch_unit.sv was successful.
-# Compile of IF.sv was successful.
-# Compile of InstROM.sv was successful.
-# Compile of lookup.sv was successful.
-# Compile of reg_file.sv was successful.
-# 10 compiles, 0 failed with no errors.
-# Load canceled
-# Compile of TopLevel_tb18.sv was successful.
-# Compile of TopLevel.sv was successful.
-# Compile of ALU.sv was successful.
-# Compile of Control.sv was successful.
-# Compile of data_mem.sv was successful.
-# Compile of fetch_unit.sv was successful.
-# Compile of IF.sv was successful.
-# Compile of InstROM.sv was successful.
-# Compile of lookup.sv was successful.
-# Compile of reg_file.sv was successful.
-# 10 compiles, 0 failed with no errors.
-vsim -gui work.TopLevel_tb18
+vsim -gui work.TopLevel_tb17
 # vsim 
-# Start time: 17:41:36 on Mar 08,2017
+# Start time: 23:24:20 on Mar 08,2017
 # Loading sv_std.std
-# Loading work.TopLevel_tb18
+# Loading work.TopLevel_tb17
 # Loading work.TopLevel
 # Loading work.fetch_unit
 # Loading work.IF
@@ -57,25 +34,177 @@ vsim -gui work.TopLevel_tb18
 # Loading work.ALU
 # Loading work.lookup
 # Loading work.data_mem
+restart
 add wave -position insertpoint  \
-sim:/TopLevel_tb18/start \
-sim:/TopLevel_tb18/CLK \
-sim:/TopLevel_tb18/halt \
-sim:/TopLevel_tb18/match_ct \
-sim:/TopLevel_tb18/match \
-sim:/TopLevel_tb18/mymem \
-sim:/TopLevel_tb18/waldo \
-sim:/TopLevel_tb18/jaldo \
-sim:/TopLevel_tb18/cycle_ct
+sim:/TopLevel_tb17/start \
+sim:/TopLevel_tb17/CLK \
+sim:/TopLevel_tb17/halt \
+sim:/TopLevel_tb17/OpA \
+sim:/TopLevel_tb17/OpB \
+sim:/TopLevel_tb17/Prod \
+sim:/TopLevel_tb17/cycle_ct
 run -all
-# our pattern is  0010
-# our pattern in actual mem is  0010
-# testbench histogram:  21   3   0   0   0
-# DUT       histogram:   1   0   0   0   0
-# cycle count =          96
-# ** Note: $stop    : H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv(117)
-#    Time: 1645 ns  Iteration: 0  Instance: /TopLevel_tb18
-# Break in Module TopLevel_tb18 at H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv line 117
-# Closing project H:/zhi/CSE-141L/Lab_4/testlab18/18/TopLevel.mpf
-# reading C:/Altera/15.0/modelsim_ase/win32aloem/../modelsim.ini
-# Loading project TopLevel
+#   4629  -16247
+# dut_result = 047b_92c3
+# bench_rslt = fb84 6d3d
+# cycle count =        1018
+# ** Note: $stop    : H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv(73)
+#    Time: 10215 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv line 73
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+run
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+#   1234   -4321
+# dut_result = 0051_5c92
+# bench_rslt = ffae a36e
+# cycle count =         780
+# ** Note: $stop    : H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv(81)
+#    Time: 7835 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv line 81
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+#   1234   -4321
+# dut_result = 0000_0000
+# bench_rslt = ffae a36e
+# cycle count =         178
+# ** Note: $stop    : H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv(81)
+#    Time: 1815 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv line 81
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+#   1234   -4321
+# dut_result = 0051_5c92
+# bench_rslt = ffae a36e
+# cycle count =         780
+# ** Note: $stop    : H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv(81)
+#    Time: 7835 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv line 81
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+#   1234   -4321
+# dut_result = 0051_5c92
+# bench_rslt = ffae a36e
+# cycle count =         780
+# ** Note: $stop    : H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv(81)
+#    Time: 7835 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv line 81
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+# Compile of TopLevel_tb17.sv was successful.
+# Compile of TopLevel.sv was successful.
+# Compile of ALU.sv was successful.
+# Compile of Control.sv was successful.
+# Compile of data_mem.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of IF.sv was successful.
+# Compile of InstROM.sv was successful.
+# Compile of lookup.sv was successful.
+# Compile of reg_file.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart
+# Loading sv_std.std
+# Loading work.TopLevel_tb17
+# Loading work.TopLevel
+# Loading work.fetch_unit
+# Loading work.IF
+# Loading work.InstROM
+# Loading work.Control
+# Loading work.reg_file
+# Loading work.ALU
+# Loading work.lookup
+# Loading work.data_mem
+run -all
+#   4629  -16247
+# dut_result = 047b_92c3
+# bench_rslt = fb84 6d3d
+# cycle count =        1018
+# ** Note: $stop    : H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv(82)
+#    Time: 10215 ns  Iteration: 0  Instance: /TopLevel_tb17
+# Break in Module TopLevel_tb17 at H:/zhi/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv line 82
