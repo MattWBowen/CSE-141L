@@ -73,7 +73,7 @@ initial begin
 
 
   #10ns start = 0;//$monitor("last instruction is %b", DUT.IF.instruction);
-$monitor("accumulator is %b", DUT.reg_file1.registers[0]);
+  //$monitor("accumulator is %b", DUT.reg_file1.registers[0]);
 
 /*
 while(!halt)
@@ -113,10 +113,10 @@ end
 // testbench's histogram
     	$display("testbench histogram: ",match_ct[1],,match_ct[2],,match_ct[3],,match_ct[4],,match_ct[5]);
 // DUT's histogram
-        $display("DUT       histogram: ",DUT.data_mem.my_memory[10],,
-				 DUT.data_mem.my_memory[11],,
-				 DUT.data_mem.my_memory[12],,
-				 DUT.data_mem.my_memory[13],,
+        $display("DUT       histogram: ",DUT.data_mem.my_memory[10],
+				 DUT.data_mem.my_memory[11],
+				 DUT.data_mem.my_memory[12],
+				 DUT.data_mem.my_memory[13],
 				 DUT.data_mem.my_memory[14]);
         $display("cycle count = %d",cycle_ct);
 //        $display("instruction = %d %t",DUT.PC,$time);

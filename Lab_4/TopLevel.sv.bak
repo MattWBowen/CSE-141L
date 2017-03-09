@@ -56,7 +56,7 @@ module TopLevel(
         
     );
     
-    reg_file rf(
+    reg_file reg_file1(
         .CLK,
         .RegWrite,
         .AccWrite,

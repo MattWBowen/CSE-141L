@@ -72,8 +72,8 @@ initial begin
 // launch program in DUT
 
 
-  #10ns start = 0;$monitor("last instruction is %b", DUT.IF.instruction);
-$monitor("accumulator is %b", DUT.reg_file1.registers[0]);
+  #10ns start = 0;//$monitor("last instruction is %b", DUT.IF.instruction);
+  //$monitor("accumulator is %b", DUT.reg_file1.registers[0]);
 
 /*
 while(!halt)

@@ -7,15 +7,15 @@
 # accumulator is 00000010
 # accumulator is 00100000
 # accumulator is 00000000
-# accumulator is 00100100	
-# accumulator is 00000000	
+# accumulator is 00100100
+# accumulator is 00000000
 # accumulator is 00100100	//  62: take r6, shr and shl 0 does not affect acc, go to 68
 # accumulator is 00000010	//	68: lookup 2
 # accumulator is 00000100	//	69: add r0 => acc = 2+2=4, sub 0, whic remain at 0100, ~74
 # accumulator is 00100100	//	74: take r7 => acc = r7 = 00100100 (tempstring shifted by none)
-# accumulator is 01000000	// 	75: shl r6  => acc = acc(00100100) << r6(4-0=4)
-# accumulator is 01000010
+# accumulator is 00000010	// 75: shlr6=> acc = acc(00100100) << r6(4-0=4) = 0000 0010
 # accumulator is 00000000
+# accumulator is 00000001
 # accumulator is 00000101
 # accumulator is 00000001
 # accumulator is 00000000
@@ -39,6 +39,3 @@
 # accumulator is 00000001
 # accumulator is 00001110
 # accumulator is 00000000
-
-
---- above is acc, below is r6 -----
