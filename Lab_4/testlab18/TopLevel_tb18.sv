@@ -34,6 +34,7 @@ module TopLevel_tb18;     // Lab 18
   int cycle_ct;           // clock cycle counter
 initial begin
   start = 1'b1;		      // initialize PC; freeze everything temporarily
+  $readmemb("machine_code_18.txt", core);
 
 // Initialize DUT's data memory
 // edit index limit for size other than 256 elements
@@ -46,6 +47,7 @@ initial begin
   DUT.data_mem.my_memory[9][3:0] = waldo;
   mymem[9][3:0] = waldo;
   #10ns $display("our pattern is  %b",mymem[9][3:0]);
+	$display("our pattern in actual mem is  %b",DUT.data_mem.my_memory[9][3:0]);
 // load 64 random unsigned bytes into data_memory
   for(int j=32; j<96; j++) begin
     jaldo = $random;
@@ -67,7 +69,20 @@ initial begin
 //   as shown above for my_memory[1:4]
     
 // launch program in DUT
+
+
   #10ns start = 0;
+
+while(!halt)
+begin
+	#10ns 
+	$display("halt: %b", halt);
+	for(int i=0; i<6; i++)begin
+		$display("register[%d] is %b", i, DUT.reg_file1.registers[i]);
+	end
+		$display("\n");
+end
+	
 // Wait for done flag, then display results
 
   #10ns wait (halt);

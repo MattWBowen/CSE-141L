@@ -10,7 +10,7 @@ cModel Technology
 dH:/zhi/CSE-141L/Lab_4/testlab17/17
 vALU
 Z0 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
-Z1 !s110 1489017016
+Z1 !s110 1489021650
 !i10b 1
 !s100 j?dH_ZfJkYM>1ALVU_7?R3
 IGH<^=M;GK`gTg87`AU9mA1
@@ -26,7 +26,7 @@ Z5 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1489017016.128000
+!s108 1489021650.485000
 !s107 H:/zhi/CSE-141L/Lab_4/ALU.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/ALU.sv|
 !i113 1
@@ -50,7 +50,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489017016.299000
+!s108 1489021650.625000
 !s107 H:/zhi/CSE-141L/Lab_4/Control.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/Control.sv|
 !i113 1
@@ -74,14 +74,14 @@ R5
 r1
 !s85 0
 31
-!s108 1489017016.457000
+!s108 1489021650.781000
 !s107 H:/zhi/CSE-141L/Lab_4/data_mem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/data_mem.sv|
 !i113 1
 R6
 vfetch_unit
 R0
-R1
+Z7 !s110 1489021651
 !i10b 1
 !s100 heWXc:LHmTlGecClb4DAb2
 I:Flh6lRBj]Z4IQ49V1c>23
@@ -97,14 +97,14 @@ R5
 r1
 !s85 0
 31
-!s108 1489017016.598000
+!s108 1489021650.921000
 !s107 H:/zhi/CSE-141L/Lab_4/fetch_unit.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/fetch_unit.sv|
 !i113 1
 R6
 vIF
 R0
-R1
+R7
 !i10b 1
 !s100 0U3YSW^58lm_99RaRA^aU0
 I2aG:ZBmFY[_BM[ffjTRJU2
@@ -120,7 +120,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489017016.738000
+!s108 1489021651.093000
 !s107 H:/zhi/CSE-141L/Lab_4/IF.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/IF.sv|
 !i113 1
@@ -128,7 +128,7 @@ R6
 n@i@f
 vInstROM
 R0
-R1
+R7
 !i10b 1
 !s100 MG79lc8Kf41EnH:H_En7>2
 I?fI;mdAkOJm<_4k;IW[XO2
@@ -144,7 +144,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489017016.894000
+!s108 1489021651.218000
 !s107 H:/zhi/CSE-141L/Lab_4/InstROM.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/InstROM.sv|
 !i113 1
@@ -152,7 +152,7 @@ R6
 n@inst@r@o@m
 vlookup
 R0
-Z7 !s110 1489017017
+R7
 !i10b 1
 !s100 zXm^SRPL>5E[SfLHc4g?^2
 IbziHA>C5@0:D_?PW>nEdI2
@@ -168,7 +168,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489017017.034000
+!s108 1489021651.358000
 !s107 H:/zhi/CSE-141L/Lab_4/lookup.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/lookup.sv|
 !i113 1
@@ -191,7 +191,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489017017.190000
+!s108 1489021651.499000
 !s107 H:/zhi/CSE-141L/Lab_4/reg_file.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/reg_file.sv|
 !i113 1
@@ -214,7 +214,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489017015.972000
+!s108 1489021650.313000
 !s107 H:/zhi/CSE-141L/Lab_4/TopLevel.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/TopLevel.sv|
 !i113 1
@@ -222,15 +222,15 @@ R6
 n@top@level
 vTopLevel_tb18
 R0
-!s110 1489017015
+R1
 !i10b 1
-!s100 B@9SfEM?aFZ[G@dU1n3^=0
-IMlz?21[@7CG@R6Ai@BFAA0
+!s100 o52nZ^J]b8P:`3aL@hil]1
+If5;i8F<g5oKjD[18H?>ZA2
 R2
 !s105 TopLevel_tb18_sv_unit
 S1
 R3
-w1489016250
+w1489021574
 8H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv
 FH:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv
 L0 15
@@ -238,7 +238,7 @@ R5
 r1
 !s85 0
 31
-!s108 1489017015.769000
+!s108 1489021650.126000
 !s107 H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|H:/zhi/CSE-141L/Lab_4/testlab18/TopLevel_tb18.sv|
 !i113 1

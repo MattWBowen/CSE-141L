@@ -46,6 +46,7 @@ initial begin
   DUT.data_mem.my_memory[9][3:0] = waldo;
   mymem[9][3:0] = waldo;
   #10ns $display("our pattern is  %b",mymem[9][3:0]);
+	$display("our pattern in actual mem is  %b",DUT.data_mem.my_memory[9][3:0]);
 // load 64 random unsigned bytes into data_memory
   for(int j=32; j<96; j++) begin
     jaldo = $random;
@@ -67,11 +68,24 @@ initial begin
 //   as shown above for my_memory[1:4]
     
 // launch program in DUT
+
+
   #10ns start = 0;
+
+while(!halt)
+begin
+	#10ns 
+	$display("halt: %b", halt);
+	for(int i=0; i<6; i++)begin
+		$display("register[%d] is %b", i, DUT.reg_file1.registers[i]);
+	end
+		$display("\n");
+end
+	
 // Wait for done flag, then display results
- #10ns $display("out of loop");
+
   #10ns wait (halt);
- #10ns $display("out of loop");
+
   #10ns for(int l=32; l<96; l++) begin
 		  match=
 		    (mymem[l][7:4]==waldo) + 
