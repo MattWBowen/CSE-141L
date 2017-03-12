@@ -2,10 +2,18 @@
 module TopLevel(
     input     start,
     input     CLK,
-    output    Halt
+    output    Halt,
+
+    //TODO: below is for debug use, clean afterwards
+    output logic [7:0] registers[2**4],
+    output [8:0] instr
+
     );
 
     wire[8:0] Instruction;  // our 9-bit opcode
+
+    //TODO: debug use
+    assign instr = Instruction;
 
     wire RegWrite;
     wire AccWrite;
@@ -30,6 +38,7 @@ module TopLevel(
     logic       overflow, overflow_n;    //1 bit overflow register
     logic[31:0] cycle_ct;
 
+
     fetch_unit IF(
         .start,
         .CLK,
@@ -53,9 +62,9 @@ module TopLevel(
         .LookUp,
         .of0,
         .isMem
-        
+
     );
-    
+
     reg_file reg_file1(
         .CLK,
         .RegWrite,
@@ -64,7 +73,9 @@ module TopLevel(
         .writeValue((isMem? MemOut: ALU_out)),
         //below is output
         .Acc_out,
-        .Reg_out
+        .Reg_out,
+        //TODO: below is the debug port
+        .reg_debug(registers)
     );
 
     ALU alu(
@@ -102,11 +113,11 @@ module TopLevel(
 
 
     // count number of instructions executed
-    always@(posedge CLK) 
+    always@(posedge CLK)
         if (start == 1)
             cycle_ct <= 0;
         else if(Halt == 0)
             cycle_ct <= cycle_ct+1;
-    
+
 
 endmodule

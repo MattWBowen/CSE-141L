@@ -10,14 +10,14 @@
 # r9 = upper bound 8  /sign_a  /temp
 # r10= loop counter i /sign_b
 # r11= isNeg          /
-# r12= sum_high           
+# r12= sum_high
 # r13= sum_low
 # r14= partial_high
-# r15= partial_low    
+# r15= partial_low
 # *r16 = overlow_bit (1 bit register)
 
     #load operand a1,a2,b1,b2
-    lookup 1    
+    lookup 1
     load r0     #acc = mem[1]
     put r1      #r1=a1
 
@@ -69,7 +69,7 @@
 #                isNeg=1;
 #        }
 #    }
-#    
+#
 
     lookup 0
     put r11         #initialize: isNeg=0
@@ -77,27 +77,26 @@
     lookup 1
     eql r9          #check if r9==1, if yes, acc=1
     b0 S_1
-    
+
     # case: r9==1
     lookup 0
     eql r10
-    b0 S_1
+    b0 S_2          #TODO: change S_1 to S2
     lookup 1        #r9==1 and r10==0
     put r11         #isNeg=1
 
     lookup 0
     b0 S_2          #jump over case r9==0 since it's examined before
 
-S_1:                
+S_1:
     # case: r9==0
     lookup 1
     eql r10         #check if r10==1, if yes, acc=1
-    eql r9
     b0 S_2
     # r9==0 and r10==1
     lookup 1
     put r11         #isNeg=1
-    
+
 S_2:
 
     #do 2's complement on A and B
@@ -134,7 +133,7 @@ S_3:
     #r1=a1, r2=a2, r3=b1, r4=b2
     #check if r10(sign_b)==1, if yes, b1<0
     lookup 1
-    eql r10         
+    eql r10
     b0 S_5          #if acc==0, means b1(r3)>0, no need for 2's compliment
 
     take r3         #b1 = ~b1
@@ -179,7 +178,7 @@ S_5:
 
     put r10         #i=0
 A2B2:
-    
+
     #mask=1 << i
     lookup 1    #acc=0000_0001
     shl r10     #acc = acc << i
@@ -203,7 +202,7 @@ A2B2:
 
     of0         #TODO: new instruction - set overlow_bit to zero
     take r13    #acc = sum_low
-    add r15     
+    add r15
     put r13     #sum_low = sum_low + partial_low
 
     take r12    #acc = sum_high
@@ -240,7 +239,7 @@ A2B2_OUT:
     add r12
     put r7          #s3 += sum_hight
     of0
-    
+
     #a1xb2 (r1xr4)--------------------------------
     #reset partial sum to zero
     lookup 0
@@ -251,7 +250,7 @@ A2B2_OUT:
 
     put r10         #i=0
 A1B2:
-    
+
     #r1 x r4
     #mask=1 << i
     lookup 1
@@ -307,7 +306,7 @@ A1B2_OUT:
     take r7         #s3 = s3 + sum_low
     add r13
     put r7
-    
+
     take r6         #s2 = s2 + sum_hight
     add r12
     put r6
@@ -316,7 +315,7 @@ A1B2_OUT:
     add r5         #s1 = s1 + 0 + of
     put r5
     of0
-    
+
     #a2xb1 (r2xr3)--------------------------------
     #reset partial sum to zero
     lookup 0
@@ -327,7 +326,7 @@ A1B2_OUT:
 
     put r10         #i=0
 A2B1:
-    
+
     #mask=1 << i
     lookup 1
     shl r10
@@ -382,7 +381,7 @@ A2B1_OUT:
     take r7         #s3 = s3 + sum_low
     add r13
     put r7
-    
+
     take r6         #s2 = s2 + sum_hight
     add r12
     put r6
@@ -402,7 +401,7 @@ A2B1_OUT:
 
     put r10         #i=0
 A1B1:
-    
+
     #mask=1 << i
     lookup 1
     shl r10
@@ -465,13 +464,13 @@ A1B1_OUT:
 
     take r11    #acc = isNeg
     b0 SKIP     #if acc(isNeg) == 0, skip 2's complement
-    
+
     take r5
     nand r0     #nand with acc will create not gate
     put r5      #s1 = ~s1
     take r6
     nand r0
-    put r6      
+    put r6
     take r7
     nand r0
     put r7

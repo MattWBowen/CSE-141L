@@ -21,11 +21,21 @@ module TopLevel_tb17;     // Lab 17
 // From DUT Outputs
   wire halt;		      // done/finished flag
 
+  //TODO: below is for debug use only, clean it after debug
+  logic [7:0] registers[2**4];
+  logic [8:0] instr;
+
+
 // Instantiate the Device Under Test (DUT)
   TopLevel DUT (
-	.start       (start), 
-	.CLK         (CLK)  , 
-	.Halt        (halt)     	  // equiv. to .halt (halt)
+	.start       (start),
+	.CLK         (CLK)  ,
+	.Halt        (halt),     	  // equiv. to .halt (halt)
+
+  //TODO: debug use
+  .registers,
+  .instr
+
 	);
   logic signed[15:0] OpA, OpB;
   int Prod;               // 32-bit expected product of OpA*OpB
@@ -39,7 +49,7 @@ initial begin
     DUT.data_mem.my_memory[i] = 8'h0;	     // clear data_mem
   end
 // $random returns a 32-bit integer; we'll take the top half
-
+/*
     OpA = ($random)>>16;
 	OpB = ($random)>>16;
 	$display(OpA,,,OpB);
@@ -47,26 +57,27 @@ initial begin
     DUT.data_mem.my_memory[2] = OpA[ 7: 0];
     DUT.data_mem.my_memory[3] = OpB[15: 8];  // MSW of operand B
     DUT.data_mem.my_memory[4] = OpB[ 7: 0];
+    */
 
 /* TODO: test 0 x op, op x 0 and 1 x op and overflow case */
-/*  OpA = 1234;
-	OpB = -4321;
+  OpA = 2;
+	OpB = 3;
 	$display(OpA,,,OpB);
     DUT.data_mem.my_memory[1] = OpA[15: 8];  // MSW of operand A
     DUT.data_mem.my_memory[2] = OpA[ 7: 0];
     DUT.data_mem.my_memory[3] = OpB[15: 8];  // MSW of operand B
     DUT.data_mem.my_memory[4] = OpB[ 7: 0];
-*/
 
-// students may also pre_load desired constants into any 
-//  part of data_mem 
+
+// students may also pre_load desired constants into any
+//  part of data_mem
 
 // Initialize DUT's register file
   for(int j=0; j<16; j++)
     DUT.reg_file1.registers[j] = 8'b0;    // default -- clear it
 // students may pre-load desired constants into the reg_file
 //   as shown above for my_memory[1:4]
-    
+
 // launch program in DUT
   #10ns start = 0;
 // Wait for done flag, then display results
@@ -79,7 +90,7 @@ initial begin
 		$displayh("bench_rslt = ",Prod[31:16],,Prod[15:0]);
         $display("cycle count = %d",cycle_ct);
         //$display("instruction = %d %t",DUT.PC,$time);
-  #10ns $stop;			   
+  #10ns $stop;
 end
 
 // digital system clock generator
@@ -92,6 +103,5 @@ end
 always @(posedge CLK)
   if(!start && !halt)
     cycle_ct <= cycle_ct + 32'b1;
-      
-endmodule
 
+endmodule
