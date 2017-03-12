@@ -1,30 +1,16 @@
-C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/InstROM.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/InstROM.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module InstROM
-
-Top level modules:
-	InstROM
-
-} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/data_mem.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/data_mem.sv
+C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/data_mem.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/data_mem.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module data_mem
 
 Top level modules:
 	data_mem
 
-} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/reg_file.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/reg_file.sv
+} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/InstROM.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/InstROM.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module reg_file
+-- Compiling module InstROM
 
 Top level modules:
-	reg_file
-
-} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/fetch_unit.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/fetch_unit.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module fetch_unit
-
-Top level modules:
-	fetch_unit
+	InstROM
 
 } {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/Control.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/Control.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -33,12 +19,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Control
 
-} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/lookup.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/lookup.sv
+} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/fetch_unit.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/fetch_unit.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module lookup
+-- Compiling module fetch_unit
 
 Top level modules:
-	lookup
+	fetch_unit
+
+} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/reg_file.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/reg_file.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module reg_file
+
+Top level modules:
+	reg_file
+
+} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/TopLevel_tb18.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/TopLevel_tb18.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module TopLevel_tb18
+
+Top level modules:
+	TopLevel_tb18
 
 } {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/ALU.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/ALU.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -47,12 +47,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	ALU
 
-} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/TopLevel.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/TopLevel.sv
+} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/lookup.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/lookup.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module TopLevel
+-- Compiling module lookup
 
 Top level modules:
-	TopLevel
+	lookup
 
 } {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/IF.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/IF.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -60,5 +60,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	IF
+
+} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/TopLevel.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab18/18/TopLevel.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module TopLevel
+
+Top level modules:
+	TopLevel
 
 } {} {}}
