@@ -30,7 +30,7 @@
         #key = key >> 4;
         lookup 2            #acc = table[2] = 2
         add r0              #acc = acc + acc = 2 + 2 = 4 TODO: both operands = acc might cause problem
-        
+
         put r15             #r15 = shift amount = 4
         take r8             #take key into accumulator, acc = key
         shl r15             #shift the key to the left by 4 bit
@@ -52,14 +52,14 @@ LOAD_MEM:
 
         load r14            #load the byte of memory at address r14 into accumulator, r14 = mem[?]
         put r6              #save the string you are comparing into r6
-        
+
         #set up counter of loop FIVE r13, start key matching
         lookup 0
         put r13     #i = r13 = 0
 
-FIVE:   
+FIVE:
         #temp_string(r7) = string(r6)
-        take r6             #acc = r6 = string
+        load r14            #load the byte of memory at address r14 into accumulator, r14 = mem[?]
         shl r13             #temp_string << i
         shr r13             #temp_string >> i
         put r7              #save temp_string
@@ -69,7 +69,7 @@ FIVE:
         add r0              #acc = 4
         sub r13             #acc = 4-i
         put r6              #r6 = 4-i
-        
+
         #temp_string = temp_string << (4-i)
         take r7             #acc = temp_string
         shr r6              #shift right (4-i), acc = temp_string >> (4-i)
@@ -118,7 +118,7 @@ OUT_FIVE:
         lookup 1
         put r15
         lookup 2
-        add r15             #acc = 1+2 = 3 
+        add r15             #acc = 1+2 = 3
         eql r11             #check if count == 3
         put r15
         lookup 0
@@ -199,7 +199,7 @@ OUT_LOAD_MEM:
 
         take r1                 #acc = count of Single Match
         store r9                #mem[r9] = mem[10] = r1 = single_match
-        
+
         lookup 1
         add r9
         put r9                  #r9++, now r9 = 11
