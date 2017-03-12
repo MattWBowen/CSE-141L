@@ -60,8 +60,8 @@ initial begin
     */
 
 /* TODO: test 0 x op, op x 0 and 1 x op and overflow case */
-  OpA = 2;
-	OpB = 3;
+  OpA = 1234;
+	OpB = -4321;
 	$display(OpA,,,OpB);
     DUT.data_mem.my_memory[1] = OpA[15: 8];  // MSW of operand A
     DUT.data_mem.my_memory[2] = OpA[ 7: 0];

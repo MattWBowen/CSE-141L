@@ -10,7 +10,7 @@ cModel Technology
 dC:/Altera/15.0
 vALU
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1489301846
+Z1 !s110 1489302284
 !i10b 1
 !s100 X2cAGeKk[]NgRom4CfiIj1
 I`B=YiP]:R_:A;RQ>Re03g1
@@ -26,7 +26,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1489301846.000000
+Z6 !s108 1489302284.000000
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/ALU.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/ALU.sv|
 !i113 1
@@ -60,7 +60,7 @@ R8
 n@control
 vdata_mem
 R0
-Z9 !s110 1489301847
+R1
 !i10b 1
 !s100 XN8l_a5E70RD`imMb9S9N0
 IWg1O0MHhh64nIX8d[MmEG0
@@ -84,7 +84,7 @@ R7
 R8
 vfetch_unit
 R0
-R9
+R1
 !i10b 1
 !s100 heWXc:LHmTlGecClb4DAb2
 I<DbPC8]hE>`;iU`fihPlC2
@@ -100,7 +100,7 @@ R5
 r1
 !s85 0
 31
-Z10 !s108 1489301847.000000
+R6
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/fetch_unit.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/fetch_unit.sv|
 !i113 1
@@ -108,7 +108,7 @@ R7
 R8
 vIF
 R0
-R9
+R1
 !i10b 1
 !s100 18dQD>eEVF5d2f=9zE4i:3
 IVh1j3B_7?4OG;=In=gN6f3
@@ -124,7 +124,7 @@ R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/IF.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/IF.sv|
 !i113 1
@@ -133,7 +133,7 @@ R8
 n@i@f
 vInstROM
 R0
-R9
+R1
 !i10b 1
 !s100 MG79lc8Kf41EnH:H_En7>2
 IXJETZ7iQf7j`a^NESia<^3
@@ -149,7 +149,7 @@ R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/InstROM.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/InstROM.sv|
 !i113 1
@@ -158,7 +158,7 @@ R8
 n@inst@r@o@m
 vlookup
 R0
-R9
+R1
 !i10b 1
 !s100 zXm^SRPL>5E[SfLHc4g?^2
 IiTP1>6WW`lo^>ZSOm77V^0
@@ -174,7 +174,7 @@ R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/lookup.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/lookup.sv|
 !i113 1
@@ -182,7 +182,7 @@ R7
 R8
 vreg_file
 R0
-R9
+R1
 !i10b 1
 !s100 JfIUn`E2Sl]EQ6J>fEbYb2
 I[igDZ:>R5O08z1^ih;86b0
@@ -198,7 +198,7 @@ R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/reg_file.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/reg_file.sv|
 !i113 1
@@ -206,7 +206,7 @@ R7
 R8
 vTopLevel
 R0
-R9
+R1
 !i10b 1
 !s100 Q9NRcZUfJ3I1]UD=nDQ8`3
 IQW0;G@>f1VW7aP8ZUJNn20
@@ -222,7 +222,7 @@ R5
 r1
 !s85 0
 31
-R10
+R6
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/TopLevel.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/TopLevel.sv|
 !i113 1
@@ -231,15 +231,15 @@ R8
 n@top@level
 vTopLevel_tb17
 R0
-R1
+!s110 1489302283
 !i10b 1
-!s100 U@_05?[O0U:8PXeHGdn7m3
-I[lNJ`oAcSklk8K:OV<8cW0
+!s100 GP`g8h^fSnm2OH3di67m;2
+I`dI0kH3f3lO8U0lPN2?^P1
 R2
 !s105 TopLevel_tb17_sv_unit
 S1
 R3
-w1489297450
+w1489302276
 8C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv
 FC:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv
 L0 15
@@ -247,7 +247,7 @@ R5
 r1
 !s85 0
 31
-R6
+!s108 1489302283.000000
 !s107 C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab17/17/TopLevel_tb17.sv|
 !i113 1
