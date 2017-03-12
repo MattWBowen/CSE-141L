@@ -77,8 +77,19 @@ initial begin
 //    DUT.reg_file1.registers[j] = 8'b0;    // default -- clear it
 // students may pre-load desired constants into the reg_file
 //   as shown above for my_memory[1:4]
-  DUT.data_mem1.my_memory[140] = 8'b1111_1101;
-  mymem[140] = 8'b1111_1101;
+
+  //DUT.data_mem1.my_memory[140] = 8'b1111_1101;
+  //DUT.data_mem1.my_memory[135] = 8'b1111_1101;
+  //mymem[140] = 8'b1111_1101;
+
+
+/*
+  for(int j=130; j<148; j++) begin
+    DUT.data_mem1.my_memory[j] = 8'b0000_0000;
+	  //$display("%d  %b",j,DUT.data_mem1.my_memory[j]);
+	#10ns;// $displayb(mymem[j]);
+  end
+
   /*
   for(int j=128; j<148; j++) begin
 	$display("%d  %b",j, DUT.data_mem1.my_memory[j]);

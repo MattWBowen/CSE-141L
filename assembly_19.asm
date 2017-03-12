@@ -1,111 +1,123 @@
-lookup 6		#acc = 127 mem&. TODO: change syntax of key
-put r11		#returnReg = 127 mem&
-lookup 1
-add r11		#acc = 128 mem&
-put r5		#i = r5 = acc = 128 mem&
-lookup 2
-add r11		#acc = 129 mem&
-put r6			#j = r6 = acc
-lookup 0
-put r2			#r2 = acc = biggestHamDist
-put r4			#r4 = byte = acc = 0
+#r2 = biggestHamDist
+#r3 = currHamDist
+#r4 = byte	//counter of byte loop
+#r5 = i		//the counter from 128-147
+#r6 = j		//the counter of inner loop
+#r7 = num[i]
+#r8 = num[j]
+#r9 = dist
+#
+#r11 = 127 	//address to write result
+#r12 = mask
+#r13 = temp
+#r14 = buffer to put 1
+#r15 = 147 = upper bound of loop
 
-                                #for loop from i=0 to 18 (19 times not 20)
-	Binomial:		#for loop from j=i+1 to 19
-		load r5		#acc = mem[i]
-		put r7			#r7 = acc = mem[i]
-		load r6		#acc = mem[j]
-		put r8			#r8 = acc = mem[j]
-		take r7		#acc = mem[i]
-		xor r8			#acc = mem[i] ^ mem[j]
-		put r9			#dist = acc = mem[i] ^ mem[j]
-		lookup 0
-		put r3			#currHamDist = acc = 0
+  lookup 6	#acc = 127 mem&. TODO: change syntax of key
+  put r11		#returnReg = 127 mem&
+  lookup 1
+  put r12   #r12 = mask = 1
+  add r11		#acc = 128 mem&
+  put r5		#set up loop counter for Binomial, i=128
 
-		CheckLSB:		#for loop from byte = 0 to 7 (8bits)
-			lookup 1		#mask.
-			nand r9		#acc = !(dist & mask)
-            		nand r0                #acc = !(acc & acc) = dist & mask
-			put r10		#temp r10 = dist & mask
-			lookup 1
-			eql r10		#if acc == temp, acc = 1
-			b0 NoMatch		#branch if acc == 0, acc != temp
-			lookup 1
-			add r3			#acc = r3 + 1 = currHamDist + 1
-			put r3			#currHamDist++
-			take r2		#acc = r2 = biggestHamDist
-			lsn r3			#if acc=r2 < r3, if biggestHamDist < currHamDist, acc = 1
-			b0 NoMatch		#branch if !(biggestHamDist < currHamDist)
-			take r3		#acc = r3 = currHamDist
-			put r2			#r2 = acc = r3, biggestHamDist = currHamDist
-			lookup 8
-			eql r2			#if acc == r2, if biggestHamDist == 8, acc = 1
-			b0 NoMatch
-			lookup 0
-			b0 ReturnResult
-			
-			NoMatch:		#here if my if statement checks fail
-			lookup 1
-			put r10		#temp = r10 = 1
-			take r9		#acc = r9 = dist
-			shr r10		#acc = r9 >> 1 = dist >> 1
-			lookup 1
-			add r4			#acc = byte+1
-			put r4			#r4 = byte = acc = byte+1, byte++
-			lookup 8
-			put r10		#temp = 8
-			take r4		#acc = r4 = byte
-			lsn r10		#if acc < 8, acc = 1
-			put r10		#temp = acc
-			lookup 0
-			eql r10		#if acc == temp, temp == 0, acc = 1
-			b0 CheckLSB		#byte < 8, acc = 0
-		lookup 1
-		add r11		#acc = 1+127
-		put r10		#temp = 128
-		take r5		#acc = i
-		sub r10		#acc = i - 128
-		add r6			#acc = i - 128 + j
-		put r10		#temp = i - 128 + j
-		lookup 1
-		add r10		#acc = i-128+j+1
-		put r6			#j = r6 = acc = i-128+j+1, c code: j=j+i+1
-		lookup 2
-		add r11		#acc = 2+127
-		put r10		#temp = 129
-		take r6		#acc = j
-		sub r10		#acc = j-129
-		put r10		#temp = j-129
-		lookup 7      		#acc = 20
-		put r7			#temp2 = 20
-		take r10		#acc = temp = j-129
-		lsn r7			#if acc < temp2=20, acc = 1
-		put r10		#temp = acc
-		lookup 0
-		eql r10		#if acc == temp, temp == 0, !(j<20), acc = 1
-		b0 Binomial		#(j < 20)
-	
-	lookup 1
-	add r5			#acc = i + 1
-	put r5			#i++
-	lookup 1
-    	add r11        	#acc = 1 + 127 = 128
-	put r10		#temp = 128
-	take r5		#acc = i
-	sub r10		#acc = i - temp = i - 128
-	put r10
-	lookup 1
-	put r7			#temp2 = 1
-    	lookup 7		#acc =20
-    	sub r7         	#acc = 19
-    	put r7         	#temp2 = 19
-	take r10		#acc= temp = i-128
-	lsn r7			#if acc < 19, acc = 1
-	put r10		#temp = acc
-	lookup 0
-	eql r10		#if acc == temp, temp == 0, !(j<20), acc = 1
-	b0 Binomial		#branch to Binomial1 if i < 19
-ReturnResult:
-take r2		#acc = r2 = biggestHamDist
-store r11		#mem[127] = acc = biggestHamDist
-halt
+  lookup 0
+  put r2			#r2 = acc = biggestHamDist
+
+  #set up upper bound of loop
+  lookup 6    #acc=127
+  put r14     #r14=127
+  lookup 7    #acc=20
+  add r14     #acc=127+20=147
+  put r15     #r15=147
+
+I_LOOP:		#for loop from j=i+1 to 19
+	load r5		#acc = mem[i]
+	put r7		#r7 = acc = mem[i]
+
+  lookup 1
+  add r5    #j=i+1, set up for j loop
+  put r6
+
+J_LOOP:
+  lookup 0
+  put r3    #currHamDist=0, reset
+
+  load r6   #acc = mem[j] = num[j]
+  put  r8   #r8 = num[j]
+
+  xor r7    #num[i] ^ num[j]
+  put r9    #store dist
+
+  lookup 0
+  put r4    #set up counter for byte loop
+
+BYTE:
+  take r12  #mask
+  nand r9   #mask nand dist
+  nand r0   #acc = dist & mask
+  put r13   #r13 = temp = dist & mask
+
+  lookup 1
+  eql r13   #if(temp==1)? yes acc=1: no acc=0
+  b0 IF_END
+
+  lookup 1
+  add r3    #currHamDist++
+  put r3
+
+  take r2
+  lsn r3    #if(biggestHamDist < currHamDist)? yes acc=1: no acc=0
+  b0 IF_END
+
+  take r3
+  put r2    #biggestHamDist = currHamDist
+
+  lookup 8
+  eql r2    #if(biggestHamDist==8)? yes acc=1: no acc=0
+  b0 IF_END
+
+  lookup 0
+  b0 OUT_I
+
+IF_END:
+  lookup 1
+  put r14
+  take r9
+  shr r14
+  put r9    #dist = dist >> 1
+
+  #BYTE counter increment
+  lookup 8
+  put r14   #r14=8
+  lookup 1
+  add r4
+  put r4    #byte++
+  lsn r14   #if(byte<8)? yes acc=1 : no acc=0
+  b0 OUT_BYTE
+  lookup 0
+  b0 BYTE
+
+OUT_BYTE:
+
+  #J_LOOP counter increment
+  lookup 1
+  add r6      #acc=j++
+  put r6
+  eql r15     #if(j==147)? yes acc=1 : no acc=0
+  b0 J_LOOP
+
+  #out of J_LOOP
+  #I_LOOP counter increment
+  lookup 1
+  add r5
+  put r5    #r5 = i++
+  lsn r15   #if(i<147)? yes acc=1 : no acc=0
+  b0 OUT_I
+
+  lookup 0
+  b0 I_LOOP
+
+OUT_I:
+  take r2   #acc=biggestHamDist
+  store r11 #mem[127]=biggestHamDist
+  halt

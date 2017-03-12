@@ -5,13 +5,15 @@
 int main(){
     //array of 20 items
     char nums[20];
-    
+    //char nums[20] = {36,129,9,99,13,141,101,18,1,13,118,61,237,140,249,198,197,170,229,119};
+    //printf("%u\n", (unsigned char)nums[12] );
+
     //this is the number we will save in location 127
     int biggestHamDist = 0;
-    
+
     //this is a counter for ham dist btwn every 2 elements
     int currHamDist = 0;
-    
+
     //will use this mask later - i put it here so we
     //don't create a new one every time we for loop
     char mask = 1;
@@ -21,6 +23,7 @@ int main(){
         nums[lazy] = (char)lazy;
         //printf("nums[%d]: %d\n", lazy, nums[lazy]);
     }
+
 
     //loop through only 19 of 20 elements
     //why? because the 20th element is checked against all
@@ -34,7 +37,7 @@ int main(){
             //the hamming distance needs to be incrimented
             char dist = nums[i] ^ nums[j];
             //printf("dist is: %d\n", dist);
-            
+
             //we loop through the byte to check each bit
             for (int byte = 0; byte < 8; ++byte){
                 //this will either be 0000 0000 (false),
