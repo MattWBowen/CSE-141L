@@ -22,39 +22,66 @@ module TopLevel_tb17;     // Lab 17
   wire halt;		      // done/finished flag
 
 // Instantiate the Device Under Test (DUT)
-  dummy_dut17 DUT (
-	.start       (start), 
-	.CLK         (CLK)  , 
-	.halt             	  // equiv. to .halt (halt)
+  TopLevel DUT (
+	.start       (start),
+	.CLK         (CLK)  ,
+	.Halt        (halt)     	  // equiv. to .halt (halt)
 	);
   logic signed[15:0] OpA, OpB;
   int Prod;               // 32-bit expected product of OpA*OpB
   int cycle_ct;           // clock cycle counter
 initial begin
   start = 1'b1;		      // initialize PC; freeze everything temporarily
+  $readmemb("machine_code_17.txt", DUT.IF.iROM.instruction_memory);
 
 // Initialize DUT's data memory
 // edit index limit for size other than 256 elements
   #10ns for(int i=0; i<256; i++) begin
     DUT.data_mem1.my_memory[i] = 8'h0;	     // clear data_mem
   end
+
+// // case 1: 1234x-4321
+//   OpA = 1234;
+// 	OpB = -4321;
+//
+// //case 2: 1x0
+//   OpA = 1;
+// 	OpB = 0;
+//
+// //case 3: 0x1
+//   OpA = 0;
+// 	OpB = 1;
+//
+// //case 4:-1x1
+//   OpA = -1;
+// 	OpB = 1;
+//
+// //case 5: 453975x384756
+//   OpA = 453975;
+// 	OpB = 384756;
+//
+// //case 6: -343802x-999
+//   OpA = -343802;
+// 	OpB = -999;
+
+
 // $random returns a 32-bit integer; we'll take the top half
-    OpA = ($random)>>16;
+  OpA = ($random)>>16;
 	OpB = ($random)>>16;
 	$display(OpA,,,OpB);
     DUT.data_mem1.my_memory[1] = OpA[15: 8];  // MSW of operand A
     DUT.data_mem1.my_memory[2] = OpA[ 7: 0];
     DUT.data_mem1.my_memory[3] = OpB[15: 8];  // MSW of operand B
     DUT.data_mem1.my_memory[4] = OpB[ 7: 0];
-// students may also pre_load desired constants into any 
-//  part of data_mem 
+// students may also pre_load desired constants into any
+//  part of data_mem
 
 // Initialize DUT's register file
   for(int j=0; j<16; j++)
     DUT.reg_file1.registers[j] = 8'b0;    // default -- clear it
 // students may pre-load desired constants into the reg_file
 //   as shown above for my_memory[1:4]
-    
+
 // launch program in DUT
   #10ns start = 0;
 // Wait for done flag, then display results
@@ -66,8 +93,8 @@ initial begin
 		Prod = OpA * OpB;        // expected result
 		$displayh("bench_rslt = ",Prod[31:16],,Prod[15:0]);
         $display("cycle count = %d",cycle_ct);
-        $display("instruction = %d %t",DUT.PC,$time);
-  #10ns $stop;			   
+        //$display("instruction = %d %t",DUT.PC,$time);
+  #10ns $stop;
 end
 
 // digital system clock generator
@@ -80,6 +107,5 @@ end
 always @(posedge CLK)
   if(!start && !halt)
     cycle_ct <= cycle_ct + 32'b1;
-      
-endmodule
 
+endmodule

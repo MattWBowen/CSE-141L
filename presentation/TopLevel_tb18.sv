@@ -22,10 +22,10 @@ module TopLevel_tb18;     // Lab 18
   wire halt;		      // done/finished flag
 
 // Instantiate the Device Under Test (DUT)
-  dummy_dut18 DUT (
-	.start       (start), 
-	.CLK         (CLK)  , 
-	.halt             	  // equiv. to .halt (halt)
+  TopLevel DUT (
+	.start       (start),
+	.CLK         (CLK)  ,
+	.Halt        (halt)     	  // equiv. to .halt (halt)
 	);
   logic [7:0] match_ct[6], match;
   logic [7:0] mymem[256]; // fake memory in testbench
@@ -34,6 +34,7 @@ module TopLevel_tb18;     // Lab 18
   int cycle_ct;           // clock cycle counter
 initial begin
   start = 1'b1;		      // initialize PC; freeze everything temporarily
+  $readmemb("machine_code_18.txt", DUT.IF.iROM.instruction_memory);
 
 // Initialize DUT's data memory
 // edit index limit for size other than 256 elements
@@ -50,11 +51,11 @@ initial begin
   for(int j=32; j<96; j++) begin
     jaldo = $random;
     mymem[j] = jaldo;
-    DUT.data_mem1.my_memory[j] = jaldo;  // 
+    DUT.data_mem1.my_memory[j] = jaldo;  //
 	#10ns;// $displayb(mymem[j]);
   end
-// students may also pre_load desired constants into any 
-//  part of data_mem 
+// students may also pre_load desired constants into any
+//  part of data_mem
 // initialize match counter/historgrammer
   for(int k=1; k<6; k++)
     match_ct[k] = 8'b0;
@@ -63,17 +64,27 @@ initial begin
 //    DUT.reg_file1.registers[j] = 8'b0;    // default -- clear it
 // students may pre-load desired constants into the reg_file
 //   as shown above for my_memory[1:4]
-    
+
+//case 1: first entry in data_mem is 0010 0100, which is a double match
+//if we change it to 0000 0000, there will be one decrement on double match
+//thus result should be 21 2 0 0 0
+    // DUT.data_mem1.my_memory[32] = 0;
+
+//case 2: first entry in data_mem is 0010 0100, which is a double match
+//if we change it to 0000 1000, there will be one decrement on double match
+//and one single match increment, thus result should be 22 2 0 0 0
+    // DUT.data_mem1.my_memory[32] = 8'b0000_1000;
+
 // launch program in DUT
   #10ns start = 0;
 // Wait for done flag, then display results
   #10ns wait (halt);
   #10ns for(int l=32; l<96; l++) begin
 		  match=
-		    (mymem[l][7:4]==waldo) + 
-		    (mymem[l][6:3]==waldo) + 
-		    (mymem[l][5:2]==waldo) + 
-		    (mymem[l][4:1]==waldo) + 
+		    (mymem[l][7:4]==waldo) +
+		    (mymem[l][6:3]==waldo) +
+		    (mymem[l][5:2]==waldo) +
+		    (mymem[l][4:1]==waldo) +
 		    (mymem[l][3:0]==waldo)  ;
 //          $display("match ",match);
 		  case(match)
@@ -82,7 +93,7 @@ initial begin
 			3: match_ct[3]=match_ct[3]+1;
 			4: match_ct[4]=match_ct[4]+1;
 			5: match_ct[5]=match_ct[5]+1;
-		  endcase	 
+		  endcase
 		end
 // testbench's histogram
     	$display("testbench histogram: ",match_ct[1],,match_ct[2],,match_ct[3],,match_ct[4],,match_ct[5]);
@@ -94,7 +105,7 @@ initial begin
 				 DUT.data_mem1.my_memory[14]);
         $display("cycle count = %d",cycle_ct);
 //        $display("instruction = %d %t",DUT.PC,$time);
-  #10ns $stop;			   
+  #10ns $stop;
 end
 
 // digital system clock generator
@@ -107,6 +118,5 @@ end
 always @(posedge CLK)
   if(!start && !halt)
     cycle_ct <= cycle_ct + 32'b1;
-      
-endmodule
 
+endmodule

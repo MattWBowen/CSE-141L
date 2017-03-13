@@ -8,3 +8,299 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/zhish/Desktop/Bash/CSE-141L/Lab_4/testlab19/19
+vALU
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1489374857
+!i10b 1
+!s100 X2cAGeKk[]NgRom4CfiIj1
+Ib:<34DQzdFB5WeD>HVfP;1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 ALU_sv_unit
+S1
+Z3 dC:/Users/zhish/Desktop/Bash/CSE-141L/presentation
+Z4 w1489224579
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/ALU.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/ALU.sv
+L0 1
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1489374857.000000
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/ALU.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/ALU.sv|
+!i113 1
+Z7 o-work work -sv
+Z8 tCvgOpt 0
+n@a@l@u
+vControl
+R0
+R1
+!i10b 1
+!s100 aELJg?inM^@1>;8SIHM902
+IlD98n[RLoJhdQikQWfDP72
+R2
+!s105 Control_sv_unit
+S1
+R3
+R4
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/Control.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/Control.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/Control.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/Control.sv|
+!i113 1
+R7
+R8
+n@control
+vdata_mem
+R0
+R1
+!i10b 1
+!s100 XN8l_a5E70RD`imMb9S9N0
+IQ2YBEEo_oRZIE6DiC7BdX0
+R2
+!s105 data_mem_sv_unit
+S1
+R3
+R4
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/data_mem.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/data_mem.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/data_mem.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/data_mem.sv|
+!i113 1
+R7
+R8
+vfetch_unit
+R0
+Z9 !s110 1489374858
+!i10b 1
+!s100 heWXc:LHmTlGecClb4DAb2
+IMQo^KbT4DXfNH6_fL>GQ:1
+R2
+!s105 fetch_unit_sv_unit
+S1
+R3
+R4
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/fetch_unit.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/fetch_unit.sv
+L0 1
+R5
+r1
+!s85 0
+31
+Z10 !s108 1489374858.000000
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/fetch_unit.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/fetch_unit.sv|
+!i113 1
+R7
+R8
+vIF
+R0
+R9
+!i10b 1
+!s100 18dQD>eEVF5d2f=9zE4i:3
+IUKoMS=CM]AR=N`MZRLLDX3
+R2
+!s105 IF_sv_unit
+S1
+R3
+R4
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/IF.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/IF.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/IF.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/IF.sv|
+!i113 1
+R7
+R8
+n@i@f
+vInstROM
+R0
+R9
+!i10b 1
+!s100 MG79lc8Kf41EnH:H_En7>2
+Ihl4Dc?z;_bBA:SbMB8aVX2
+R2
+!s105 InstROM_sv_unit
+S1
+R3
+R4
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/InstROM.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/InstROM.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/InstROM.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/InstROM.sv|
+!i113 1
+R7
+R8
+n@inst@r@o@m
+vlookup
+R0
+R9
+!i10b 1
+!s100 zXm^SRPL>5E[SfLHc4g?^2
+ImX_PcBSg6g>J318NE75`h2
+R2
+!s105 lookup_sv_unit
+S1
+R3
+R4
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/lookup.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/lookup.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/lookup.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/lookup.sv|
+!i113 1
+R7
+R8
+vreg_file
+R0
+R9
+!i10b 1
+!s100 Rn@;5ooG:GoU3;X2IYj0c3
+I>RzPMez2VCA_nEib_SM5d1
+R2
+!s105 reg_file_sv_unit
+S1
+R3
+R4
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/reg_file.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/reg_file.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/reg_file.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/reg_file.sv|
+!i113 1
+R7
+R8
+vTopLevel
+R0
+R9
+!i10b 1
+!s100 YlJ3ESezf;>;=::TO0HS[3
+I=7WhEiZ4If3R8h??zkh3l2
+R2
+!s105 TopLevel_sv_unit
+S1
+R3
+w1489371733
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel.sv
+L0 2
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel.sv|
+!i113 1
+R7
+R8
+n@top@level
+vTopLevel_tb17
+R0
+R9
+!i10b 1
+!s100 `X2O=OXM8U9@]GEc0AIC<3
+I6dfMW]bbMRU9I<RPY8=^13
+R2
+!s105 TopLevel_tb17_sv_unit
+S1
+R3
+w1489372721
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb17.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb17.sv
+Z11 L0 15
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb17.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb17.sv|
+!i113 1
+R7
+R8
+n@top@level_tb17
+vTopLevel_tb18
+R0
+R9
+!i10b 1
+!s100 j4D:]ml^TK<D?NF>TMCL52
+I>PG0eF3DaU2=`_N_>f3f:0
+R2
+!s105 TopLevel_tb18_sv_unit
+S1
+R3
+w1489373322
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb18.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb18.sv
+R11
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb18.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb18.sv|
+!i113 1
+R7
+R8
+n@top@level_tb18
+vTopLevel_tb19
+R0
+R1
+!i10b 1
+!s100 ;_BE_]iXUMLPG6Yj7A6L90
+I`aHd?NEA6M2W?V^Y]RMH12
+R2
+!s105 TopLevel_tb19_sv_unit
+S1
+R3
+w1489374851
+8C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb19.sv
+FC:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb19.sv
+R11
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb19.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb19.sv|
+!i113 1
+R7
+R8
+n@top@level_tb19

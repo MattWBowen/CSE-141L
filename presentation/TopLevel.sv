@@ -40,7 +40,7 @@ module TopLevel(
         .instruction(Instruction)
     );
 
-	
+
     Control ctrl(
         .TypeBit(Instruction[8:8]),
         .OP(Instruction[7:4]),
@@ -54,9 +54,9 @@ module TopLevel(
         .LookUp,
         .of0,
         .isMem
-        
+
     );
-    
+
     reg_file reg_file1(
         .CLK,
         .RegWrite,
@@ -84,7 +84,7 @@ module TopLevel(
         .value(lookup_value)
     );
 
-    data_mem data_mem(
+    data_mem data_mem1(
         .CLK,
         .DataAddress(ALU_out),
         .ReadMem,
@@ -103,11 +103,11 @@ module TopLevel(
 
 
     // count number of instructions executed
-    always@(posedge CLK) 
+    always@(posedge CLK)
         if (start == 1)
             cycle_ct <= 0;
         else if(Halt == 0)
             cycle_ct <= cycle_ct+1;
-    
+
 
 endmodule

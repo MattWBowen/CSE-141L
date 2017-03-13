@@ -70,6 +70,11 @@ initial begin
 	  $display("%d  %b",j,jaldo);
 	#10ns;// $displayb(mymem[j]);
   end
+
+  // for(int j=130; j<148; j++) begin
+  //   DUT.data_mem1.my_memory[j] = 0;  //
+	// #10ns;// $displayb(mymem[j]);
+  // end
 // students may also pre_load desired constants into any
 //  part of data_mem
 // Initialize DUT's register file
