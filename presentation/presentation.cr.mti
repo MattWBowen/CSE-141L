@@ -68,13 +68,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Control
 
-} {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb19.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/TopLevel_tb19.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module TopLevel_tb19
-
-Top level modules:
-	TopLevel_tb19
-
 } {} {}} C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/lookup.sv {1 {vlog -work work -sv -stats=none C:/Users/zhish/Desktop/Bash/CSE-141L/presentation/lookup.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module lookup

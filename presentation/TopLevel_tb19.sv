@@ -55,12 +55,24 @@ initial begin
   end
 // load 20 random unsigned bytes into data_memory
   for(int j=128; j<148; j++) begin
-    jaldo = $random;
+    jaldo = $random>>3;
     mymem[j] = jaldo;
     DUT.data_mem1.my_memory[j] = jaldo;  //
 	$display("%d  %b",j,jaldo);
 	#10ns;// $displayb(mymem[j]);
   end
+
+  // for(int j=128; j<148; j++) begin
+  //   jaldo = 8'b1111_1111;
+  //   mymem[j] = jaldo;
+  //   DUT.data_mem1.my_memory[j] = jaldo;  //
+	// $display("%d  %b",j,jaldo);
+	// #10ns;// $displayb(mymem[j]);
+  // end
+  //   mymem[147] = 8'b0100_0100;
+  //   DUT.data_mem1.my_memory[147] = 8'b0100_0100;  //
+
+
 // students may also pre_load desired constants into any
 //  part of data_mem
 // Initialize DUT's register file

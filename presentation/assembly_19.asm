@@ -6,7 +6,7 @@
 #r7 = num[i]
 #r8 = num[j]
 #r9 = dist
-#
+#r10 = 148
 #r11 = 127 	//address to write result
 #r12 = mask
 #r13 = temp
@@ -29,6 +29,9 @@
   lookup 7    #acc=20
   add r14     #acc=127+20=147
   put r15     #r15=147
+  lookup 1
+  add r15
+  put r10     #r10=148
 
 I_LOOP:		#for loop from j=i+1 to 19
 	load r5		#acc = mem[i]
@@ -103,7 +106,7 @@ OUT_BYTE:
   lookup 1
   add r6      #acc=j++
   put r6
-  eql r15     #if(j==147)? yes acc=1 : no acc=0
+  eql r10     #if(j==148)? yes acc=1 : no acc=0
   b0 J_LOOP
 
   #out of J_LOOP
