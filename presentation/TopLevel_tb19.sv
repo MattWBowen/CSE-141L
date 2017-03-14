@@ -55,7 +55,7 @@ initial begin
   end
 // load 20 random unsigned bytes into data_memory
   for(int j=128; j<148; j++) begin
-    jaldo = $random>>3;
+    jaldo = $random;
     mymem[j] = jaldo;
     DUT.data_mem1.my_memory[j] = jaldo;  //
 	$display("%d  %b",j,jaldo);
